@@ -1,0 +1,2288 @@
+ndo:
+  fabric_connectivity:
+    bgp:
+      ref: fc_bgp
+      required: false
+      title: Bgp
+      type: object
+  fc_bgp:
+    graceful_restart:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Graceful Restart
+      type: select-bool
+    hold_interval:
+      maximum: 3600
+      minimum: 0
+      required: false
+      title: Hold Interval
+      type: int
+    keepalive_interval:
+      maximum: 3600
+      minimum: 0
+      required: false
+      title: Keepalive Interval
+      type: int
+    max_as:
+      maximum: 2000
+      minimum: 0
+      required: false
+      title: Max As
+      type: int
+    peering_type:
+      enum:
+      - full-mesh
+      - route-reflector
+      required: false
+      title: Peering Type
+      type: select
+    stale_interval:
+      maximum: 3600
+      minimum: 1
+      required: false
+      title: Stale Interval
+      type: int
+    ttl:
+      maximum: 255
+      minimum: 1
+      required: false
+      title: Ttl
+      type: int
+  name: Ndo
+  ndo:
+    fabric_connectivity:
+      ref: fabric_connectivity
+      required: false
+      title: Fabric Connectivity
+      type: object
+    policies:
+      ref: policies
+      required: false
+      title: Policies
+      type: object
+    remote_locations:
+      ref: remote_locations
+      required: false
+      title: Remote Locations
+      type: list
+    schemas:
+      ref: schemas
+      required: false
+      title: Schemas
+      type: list
+    sites:
+      ref: sites
+      required: false
+      title: Sites
+      type: list
+    system_config:
+      ref: system_config
+      required: false
+      title: System Config
+      type: object
+    tenants:
+      ref: tenants
+      required: false
+      title: Tenants
+      type: list
+    version:
+      required: false
+      title: Version
+      type: string
+  policies:
+    dhcp_options:
+      ref: policies_dhcp_options
+      required: false
+      title: Dhcp Options
+      type: list
+    dhcp_relays:
+      ref: policies_dhcp_relays
+      required: false
+      title: Dhcp Relays
+      type: list
+  policies_dhcp_options:
+    description:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Description
+      type: string
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    options:
+      ref: policies_dhcp_options_options
+      required: false
+      title: Options
+      type: list
+    tenant:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Tenant
+      type: string
+  policies_dhcp_options_options:
+    data:
+      required: true
+      title: Data
+      type: string
+    id:
+      minimum: 1
+      required: true
+      title: Id
+      type: int
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+  policies_dhcp_relays:
+    description:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Description
+      type: string
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    providers:
+      ref: policies_dhcp_relays_providers
+      required: false
+      title: Providers
+      type: list
+    tenant:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Tenant
+      type: string
+  policies_dhcp_relays_providers:
+    application_profile:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Application Profile
+      type: string
+    endpoint_group:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Endpoint Group
+      type: string
+    external_endpoint_group:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: External Endpoint Group
+      type: string
+    ip:
+      required: true
+      title: Ip
+      type: ip
+    schema:
+      required: true
+      title: Schema
+      type: string
+    template:
+      required: true
+      title: Template
+      type: string
+    tenant:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Tenant
+      type: string
+  remote_locations:
+    authentication:
+      enum:
+      - password
+      - sshKey
+      required: false
+      title: Authentication
+      type: select
+    description:
+      required: false
+      title: Description
+      type: string
+    hostname_ip:
+      required: true
+      title: Hostname Ip
+      type: string
+    name:
+      required: true
+      title: Name
+      type: string
+    path:
+      required: false
+      title: Path
+      type: string
+    port:
+      maximum: 65535
+      minimum: 0
+      required: false
+      title: Port
+      type: int
+    protocol:
+      enum:
+      - scp
+      - sftp
+      required: false
+      title: Protocol
+      type: select
+    username:
+      required: false
+      title: Username
+      type: string
+  sc_banner:
+    alias:
+      required: false
+      title: Alias
+      type: string
+    message:
+      required: false
+      title: Message
+      type: string
+    state:
+      enum:
+      - active
+      - inactive
+      required: false
+      title: State
+      type: select
+    type:
+      enum:
+      - informational
+      - warning
+      - critical
+      required: false
+      title: Type
+      type: select
+  sites:
+    bgp:
+      ref: sites_bgp
+      required: false
+      title: Bgp
+      type: object
+    id:
+      minimum: 1
+      required: false
+      title: Id
+      type: int
+    location:
+      ref: sites_location
+      required: false
+      title: Location
+      type: object
+    multicast_tep:
+      required: false
+      title: Multicast Tep
+      type: ip
+    multisite:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Multisite
+      type: select-bool
+    name:
+      required: true
+      title: Name
+      type: string
+    ospf:
+      ref: sites_ospf
+      required: false
+      title: Ospf
+      type: object
+    ospf_policies:
+      ref: sites_ospf_policies
+      required: false
+      title: Ospf Policies
+      type: list
+    pods:
+      ref: sites_pods
+      required: false
+      title: Pods
+      type: list
+    routed_domain:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Routed Domain
+      type: string
+    username:
+      required: false
+      title: Username
+      type: string
+  sites_bgp:
+    as:
+      maximum: 4294967295
+      minimum: 1
+      required: false
+      title: As
+      type: int
+  sites_location:
+    lat:
+      required: true
+      title: Lat
+      type: string
+    long:
+      required: true
+      title: Long
+      type: string
+  sites_ospf:
+    area_id:
+      oneOf:
+      - maximum: 4294967295
+        minimum: 0
+        type: int
+      - enum:
+        - backbone
+        - ip
+        type: enum
+      required: false
+      title: Area Id
+      type: oneOf
+    area_type:
+      enum:
+      - regular
+      - stub
+      - nssa
+      required: false
+      title: Area Type
+      type: select
+  sites_ospf_policies:
+    advertise_subnet:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Advertise Subnet
+      type: select-bool
+    bfd:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Bfd
+      type: select-bool
+    dead_interval:
+      maximum: 65535
+      minimum: 1
+      required: false
+      title: Dead Interval
+      type: int
+    hello_interval:
+      maximum: 65535
+      minimum: 1
+      required: false
+      title: Hello Interval
+      type: int
+    interface_cost:
+      maximum: 65535
+      minimum: 0
+      required: false
+      title: Interface Cost
+      type: int
+    mtu_ignore:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Mtu Ignore
+      type: select-bool
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    network_type:
+      enum:
+      - point-to-point
+      - broadcast
+      required: false
+      title: Network Type
+      type: select
+    passive_interface:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Passive Interface
+      type: select-bool
+    priority:
+      maximum: 255
+      minimum: 0
+      required: false
+      title: Priority
+      type: int
+    retransmit_delay:
+      maximum: 450
+      minimum: 1
+      required: false
+      title: Retransmit Delay
+      type: int
+    retransmit_interval:
+      maximum: 65535
+      minimum: 1
+      required: false
+      title: Retransmit Interval
+      type: int
+  sites_pods:
+    id:
+      maximum: 255
+      minimum: 1
+      required: true
+      title: Id
+      type: int
+    spines:
+      ref: sites_pods_spines
+      required: false
+      title: Spines
+      type: list
+    unicast_tep:
+      required: false
+      title: Unicast Tep
+      type: ip
+  sites_pods_spines:
+    bgp_peering:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Bgp Peering
+      type: select-bool
+    bgp_route_reflector:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Bgp Route Reflector
+      type: select-bool
+    control_plane_tep:
+      required: false
+      title: Control Plane Tep
+      type: ip
+    id:
+      maximum: 4000
+      minimum: 1
+      required: true
+      title: Id
+      type: int
+    interfaces:
+      ref: sites_pods_spines_interfaces
+      required: false
+      title: Interfaces
+      type: list
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+  sites_pods_spines_interfaces:
+    ip:
+      required: true
+      title: Ip
+      type: ip
+    module:
+      maximum: 9
+      minimum: 1
+      required: false
+      title: Module
+      type: int
+    mtu:
+      oneOf:
+      - maximum: 9216
+        minimum: 576
+        type: int
+      - enum:
+        - inherit
+        type: enum
+      required: false
+      title: Mtu
+      type: oneOf
+    ospf:
+      ref: sites_pods_spines_interfaces_ospf
+      required: false
+      title: Ospf
+      type: object
+    port:
+      maximum: 127
+      minimum: 1
+      required: true
+      title: Port
+      type: int
+  sites_pods_spines_interfaces_ospf:
+    authentication_key_id:
+      maximum: 255
+      minimum: 1
+      required: false
+      title: Authentication Key Id
+      type: int
+    authentication_type:
+      enum:
+      - none
+      - simple
+      - md5
+      required: false
+      title: Authentication Type
+      type: select
+    policy:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Policy
+      type: string
+  system_config:
+    banner:
+      ref: sc_banner
+      required: false
+      title: Banner
+      type: object
+  tenants:
+    description:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Description
+      type: string
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    orchestrator_only:
+      required: false
+      title: Orchestrator Only
+      type: bool
+    sites:
+      ref: tenants_sites
+      required: false
+      title: Sites
+      type: list
+    users:
+      ref: tenants_users
+      required: false
+      title: Users
+      type: list
+  tenants_sites:
+    azure_shared_tenant:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Azure Shared Tenant
+      type: string
+    azure_subscription_id:
+      required: false
+      title: Azure Subscription Id
+      type: string
+    name:
+      required: true
+      title: Name
+      type: string
+  tenants_users:
+    domain:
+      required: false
+      title: Domain
+      type: string
+    name:
+      required: true
+      title: Name
+      type: string
+schemas:
+  name: Schemas
+  schemas:
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    templates:
+      ref: schemas_templates
+      required: false
+      title: Templates
+      type: list
+  schemas_templates:
+    application_profiles:
+      ref: t_application_profiles
+      required: false
+      title: Application Profiles
+      type: list
+    bridge_domains:
+      ref: t_bridge_domains
+      required: false
+      title: Bridge Domains
+      type: list
+    contracts:
+      ref: t_contracts
+      required: false
+      title: Contracts
+      type: list
+    deploy_order:
+      maximum: 3
+      minimum: 1
+      required: false
+      title: Deploy Order
+      type: int
+    description:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Description
+      type: string
+    external_endpoint_groups:
+      ref: t_external_endpoint_groups
+      required: false
+      title: External Endpoint Groups
+      type: list
+    filters:
+      ref: t_filters
+      required: false
+      title: Filters
+      type: list
+    l3outs:
+      ref: t_l3outs
+      required: false
+      title: L3Outs
+      type: list
+    name:
+      required: true
+      title: Name
+      type: string
+    service_graphs:
+      ref: t_service_graphs
+      required: false
+      title: Service Graphs
+      type: list
+    tenant:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Tenant
+      type: string
+    type:
+      enum:
+      - multi_site
+      - autonomous
+      required: false
+      title: Type
+      type: select
+    vrfs:
+      ref: t_vrfs
+      required: false
+      title: Vrfs
+      type: list
+  t_ap_endpoint_groups:
+    bridge_domain:
+      ref: t_ap_epg_bridge_domain
+      required: false
+      title: Bridge Domain
+      type: object
+    contracts:
+      ref: t_ap_epg_contracts
+      required: false
+      title: Contracts
+      type: object
+    description:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Description
+      type: string
+    intra_epg_isolation:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Intra Epg Isolation
+      type: select-bool
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    preferred_group:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Preferred Group
+      type: select-bool
+    proxy_arp:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Proxy Arp
+      type: select-bool
+    sites:
+      ref: t_ap_epg_sites
+      required: false
+      title: Sites
+      type: list
+    subnets:
+      ref: t_ap_epg_subnets
+      required: false
+      title: Subnets
+      type: list
+    useg:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Useg
+      type: select-bool
+    vrf:
+      ref: t_ap_epg_vrf
+      required: false
+      title: Vrf
+      type: object
+  t_ap_epg_bridge_domain:
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    schema:
+      required: false
+      title: Schema
+      type: string
+    template:
+      required: false
+      title: Template
+      type: string
+  t_ap_epg_contracts:
+    consumers:
+      ref: t_ap_epg_contracts_consumers
+      required: false
+      title: Consumers
+      type: list
+    providers:
+      ref: t_ap_epg_contracts_providers
+      required: false
+      title: Providers
+      type: list
+  t_ap_epg_contracts_consumers:
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    schema:
+      required: false
+      title: Schema
+      type: string
+    template:
+      required: false
+      title: Template
+      type: string
+  t_ap_epg_contracts_providers:
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    schema:
+      required: false
+      title: Schema
+      type: string
+    template:
+      required: false
+      title: Template
+      type: string
+  t_ap_epg_sites:
+    name:
+      required: true
+      title: Name
+      type: string
+    physical_domains:
+      ref: t_ap_epg_sites_physical_domains
+      required: false
+      title: Physical Domains
+      type: list
+    selectors:
+      ref: t_ap_epg_sites_selectors
+      required: false
+      title: Selectors
+      type: list
+    static_leafs:
+      ref: t_ap_epg_sites_static_leafs
+      required: false
+      title: Static Leafs
+      type: list
+    static_ports:
+      ref: t_ap_epg_sites_static_ports
+      required: false
+      title: Static Ports
+      type: list
+    subnets:
+      ref: t_ap_epg_sites_subnets
+      required: false
+      title: Subnets
+      type: list
+    vmware_vmm_domains:
+      ref: t_ap_epg_sites_vmware_vmm_domains
+      required: false
+      title: Vmware Vmm Domains
+      type: list
+  t_ap_epg_sites_physical_domains:
+    deployment_immediacy:
+      enum:
+      - immediate
+      - lazy
+      required: false
+      title: Deployment Immediacy
+      type: select
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    resolution_immediacy:
+      enum:
+      - immediate
+      - lazy
+      - pre-provision
+      required: false
+      title: Resolution Immediacy
+      type: select
+  t_ap_epg_sites_selectors:
+    expressions:
+      ref: t_ap_epg_sites_selectors_expressions
+      required: false
+      title: Expressions
+      type: list
+    name:
+      required: true
+      title: Name
+      type: string
+  t_ap_epg_sites_selectors_expressions:
+    key:
+      enum:
+      - ipAddress
+      required: true
+      title: Key
+      type: select
+    operator:
+      enum:
+      - equals
+      required: true
+      title: Operator
+      type: select
+    value:
+      required: true
+      title: Value
+      type: string
+  t_ap_epg_sites_static_leafs:
+    node:
+      maximum: 4000
+      minimum: 1
+      required: true
+      title: Node
+      type: int
+    pod:
+      maximum: 255
+      minimum: 1
+      required: false
+      title: Pod
+      type: int
+    vlan:
+      maximum: 4096
+      minimum: 1
+      required: true
+      title: Vlan
+      type: int
+  t_ap_epg_sites_static_ports:
+    channel:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Channel
+      type: string
+    deployment_immediacy:
+      enum:
+      - immediate
+      - lazy
+      required: false
+      title: Deployment Immediacy
+      type: select
+    fex:
+      maximum: 199
+      minimum: 101
+      required: false
+      title: Fex
+      type: int
+    mode:
+      enum:
+      - regular
+      - native
+      - untagged
+      required: false
+      title: Mode
+      type: select
+    module:
+      maximum: 9
+      minimum: 1
+      required: false
+      title: Module
+      type: int
+    node:
+      maximum: 4000
+      minimum: 1
+      required: false
+      title: Node
+      type: int
+    node_1:
+      maximum: 4000
+      minimum: 1
+      required: false
+      title: Node 1
+      type: int
+    node_2:
+      maximum: 4000
+      minimum: 1
+      required: false
+      title: Node 2
+      type: int
+    pod:
+      maximum: 255
+      minimum: 1
+      required: false
+      title: Pod
+      type: int
+    port:
+      maximum: 127
+      minimum: 1
+      required: false
+      title: Port
+      type: int
+    sub_port:
+      maximum: 16
+      minimum: 1
+      required: false
+      title: Sub Port
+      type: int
+    type:
+      enum:
+      - port
+      - vpc
+      - pc
+      required: false
+      title: Type
+      type: select
+    useg_vlan:
+      maximum: 4096
+      minimum: 1
+      required: false
+      title: Useg Vlan
+      type: int
+    vlan:
+      maximum: 4096
+      minimum: 1
+      required: true
+      title: Vlan
+      type: int
+  t_ap_epg_sites_subnets:
+    description:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Description
+      type: string
+    ip:
+      required: true
+      title: Ip
+      type: ip
+    no_default_gateway:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: No Default Gateway
+      type: select-bool
+    primary:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Primary
+      type: select-bool
+    scope:
+      enum:
+      - private
+      - public
+      required: false
+      title: Scope
+      type: select
+    shared:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Shared
+      type: select-bool
+  t_ap_epg_sites_vmware_vmm_domains:
+    deployment_immediacy:
+      enum:
+      - immediate
+      - lazy
+      required: false
+      title: Deployment Immediacy
+      type: select
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    resolution_immediacy:
+      enum:
+      - immediate
+      - lazy
+      - pre-provision
+      required: false
+      title: Resolution Immediacy
+      type: select
+    u_segmentation:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: U Segmentation
+      type: select-bool
+    useg_vlan:
+      maximum: 4096
+      minimum: 1
+      required: false
+      title: Useg Vlan
+      type: int
+    vlan:
+      maximum: 4096
+      minimum: 1
+      required: false
+      title: Vlan
+      type: int
+    vlan_mode:
+      enum:
+      - static
+      - dynamic
+      required: false
+      title: Vlan Mode
+      type: select
+  t_ap_epg_subnets:
+    ip:
+      required: true
+      title: Ip
+      type: ip
+    no_default_gateway:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: No Default Gateway
+      type: select-bool
+    primary:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Primary
+      type: select-bool
+    scope:
+      enum:
+      - private
+      - public
+      required: false
+      title: Scope
+      type: select
+    shared:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Shared
+      type: select-bool
+  t_ap_epg_vrf:
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    schema:
+      required: false
+      title: Schema
+      type: string
+    template:
+      required: false
+      title: Template
+      type: string
+  t_application_profiles:
+    endpoint_groups:
+      ref: t_ap_endpoint_groups
+      required: false
+      title: Endpoint Groups
+      type: list
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+  t_bd_dhcp_policies:
+    dhcp_option_policy:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Dhcp Option Policy
+      type: string
+    dhcp_relay_policy:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Dhcp Relay Policy
+      type: string
+  t_bd_sites:
+    advertise_host_routes:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Advertise Host Routes
+      type: select-bool
+    l3outs:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: L3Outs
+      type: list-string
+    mac:
+      pattern: ^([0-9A-Fa-f]{2}:){5}([0-9A-Fa-f]{2})$
+      required: false
+      title: Mac
+      type: mac
+    name:
+      required: true
+      title: Name
+      type: string
+    subnets:
+      ref: t_bd_subnets
+      required: false
+      title: Subnets
+      type: list
+  t_bd_subnets:
+    ip:
+      required: true
+      title: Ip
+      type: ip
+    no_default_gateway:
+      required: false
+      title: No Default Gateway
+      type: bool
+    primary:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Primary
+      type: select-bool
+    querier:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Querier
+      type: select-bool
+    scope:
+      enum:
+      - private
+      - public
+      required: false
+      title: Scope
+      type: select
+    shared:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Shared
+      type: select-bool
+  t_bd_vrf:
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    schema:
+      required: false
+      title: Schema
+      type: string
+    template:
+      required: false
+      title: Template
+      type: string
+  t_bridge_domains:
+    arp_flooding:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Arp Flooding
+      type: select-bool
+    description:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Description
+      type: string
+    dhcp_option_policy:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Dhcp Option Policy
+      type: string
+    dhcp_policies:
+      ref: t_bd_dhcp_policies
+      required: false
+      title: Dhcp Policies
+      type: list
+    dhcp_relay_policy:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Dhcp Relay Policy
+      type: string
+    intersite_bum_traffic:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Intersite Bum Traffic
+      type: select-bool
+    l2_stretch:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: L2 Stretch
+      type: select-bool
+    l2_unknown_unicast:
+      enum:
+      - proxy
+      - flood
+      required: false
+      title: L2 Unknown Unicast
+      type: select
+    l3_multicast:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: L3 Multicast
+      type: select-bool
+    multi_destination_flooding:
+      enum:
+      - bd-flood
+      - encap-flood
+      - drop
+      required: false
+      title: Multi Destination Flooding
+      type: select
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    optimize_wan_bandwidth:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Optimize Wan Bandwidth
+      type: select-bool
+    sites:
+      ref: t_bd_sites
+      required: false
+      title: Sites
+      type: list
+    subnets:
+      ref: t_bd_subnets
+      required: false
+      title: Subnets
+      type: list
+    unicast_routing:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Unicast Routing
+      type: select-bool
+    unknown_ipv4_multicast:
+      enum:
+      - flood
+      - opt-flood
+      required: false
+      title: Unknown Ipv4 Multicast
+      type: select
+    unknown_ipv6_multicast:
+      enum:
+      - flood
+      - opt-flood
+      required: false
+      title: Unknown Ipv6 Multicast
+      type: select
+    virtual_mac:
+      pattern: ^([0-9A-Fa-f]{2}:){5}([0-9A-Fa-f]{2})$
+      required: false
+      title: Virtual Mac
+      type: mac
+    vrf:
+      ref: t_bd_vrf
+      required: true
+      title: Vrf
+      type: object
+  t_contracts:
+    consumer_to_provider_filters:
+      ref: t_contracts_filters
+      required: false
+      title: Consumer To Provider Filters
+      type: list
+    filters:
+      ref: t_contracts_filters
+      required: false
+      title: Filters
+      type: list
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    provider_to_consumer_filters:
+      ref: t_contracts_filters
+      required: false
+      title: Provider To Consumer Filters
+      type: list
+    scope:
+      enum:
+      - application-profile
+      - tenant
+      - context
+      - global
+      required: false
+      title: Scope
+      type: select
+    service_graph:
+      ref: t_contracts_service_graph
+      required: false
+      title: Service Graph
+      type: object
+    type:
+      enum:
+      - bothWay
+      - oneWay
+      required: false
+      title: Type
+      type: select
+  t_contracts_filters:
+    log:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Log
+      type: select-bool
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    schema:
+      required: false
+      title: Schema
+      type: string
+    template:
+      required: false
+      title: Template
+      type: string
+  t_contracts_service_graph:
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    nodes:
+      ref: t_contracts_service_graph_nodes
+      required: true
+      title: Nodes
+      type: list
+    schema:
+      required: false
+      title: Schema
+      type: string
+    template:
+      required: false
+      title: Template
+      type: string
+  t_contracts_service_graph_nodes:
+    consumer:
+      ref: t_contracts_service_graph_nodes_con
+      required: true
+      title: Consumer
+      type: object
+    index:
+      maximum: 3
+      minimum: 1
+      required: false
+      title: Index
+      type: int
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    provider:
+      ref: t_contracts_service_graph_nodes_prov
+      required: true
+      title: Provider
+      type: object
+  t_contracts_service_graph_nodes_con:
+    bridge_domain:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Bridge Domain
+      type: string
+    schema:
+      required: false
+      title: Schema
+      type: string
+    sites:
+      ref: t_contracts_service_graph_nodes_con_sites
+      required: true
+      title: Sites
+      type: list
+    template:
+      required: false
+      title: Template
+      type: string
+  t_contracts_service_graph_nodes_con_sites:
+    device:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Device
+      type: string
+    logical_interface:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Logical Interface
+      type: string
+    name:
+      required: true
+      title: Name
+      type: string
+    redirect_policy:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Redirect Policy
+      type: string
+    tenant:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Tenant
+      type: string
+  t_contracts_service_graph_nodes_prov:
+    bridge_domain:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Bridge Domain
+      type: string
+    schema:
+      required: false
+      title: Schema
+      type: string
+    sites:
+      ref: t_contracts_service_graph_nodes_prov_sites
+      required: true
+      title: Sites
+      type: list
+    template:
+      required: false
+      title: Template
+      type: string
+  t_contracts_service_graph_nodes_prov_sites:
+    device:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Device
+      type: string
+    logical_interface:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Logical Interface
+      type: string
+    name:
+      required: true
+      title: Name
+      type: string
+    redirect_policy:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Redirect Policy
+      type: string
+    tenant:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Tenant
+      type: string
+  t_eepg_ap:
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    schema:
+      required: false
+      title: Schema
+      type: string
+    template:
+      required: false
+      title: Template
+      type: string
+  t_eepg_contracts:
+    consumers:
+      ref: t_eepg_contracts_consumers
+      required: false
+      title: Consumers
+      type: list
+    providers:
+      ref: t_eepg_contracts_providers
+      required: false
+      title: Providers
+      type: list
+  t_eepg_contracts_consumers:
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    schema:
+      required: false
+      title: Schema
+      type: string
+    template:
+      required: false
+      title: Template
+      type: string
+  t_eepg_contracts_providers:
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    schema:
+      required: false
+      title: Schema
+      type: string
+    template:
+      required: false
+      title: Template
+      type: string
+  t_eepg_l3out:
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    schema:
+      required: false
+      title: Schema
+      type: string
+    template:
+      required: false
+      title: Template
+      type: string
+  t_eepg_selectors:
+    name:
+      required: true
+      title: Name
+      type: string
+  t_eepg_sites:
+    l3out:
+      ref: t_eepg_sites_l3out
+      required: false
+      title: L3Out
+      type: object
+    name:
+      required: true
+      title: Name
+      type: string
+    route_reachability:
+      enum:
+      - internet
+      - site-ext
+      required: false
+      title: Route Reachability
+      type: select
+    selectors:
+      ref: t_eepg_sites_selectors
+      required: false
+      title: Selectors
+      type: list
+    tenant:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Tenant
+      type: string
+  t_eepg_sites_l3out:
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    schema:
+      required: false
+      title: Schema
+      type: string
+    template:
+      required: false
+      title: Template
+      type: string
+    tenant:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Tenant
+      type: string
+  t_eepg_sites_selectors:
+    name:
+      required: true
+      title: Name
+      type: string
+  t_eepg_subnet:
+    aggregate_export:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Aggregate Export
+      type: select-bool
+    aggregate_import:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Aggregate Import
+      type: select-bool
+    aggregate_shared:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Aggregate Shared
+      type: select-bool
+    export_route_control:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Export Route Control
+      type: select-bool
+    import_route_control:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Import Route Control
+      type: select-bool
+    import_security:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Import Security
+      type: select-bool
+    prefix:
+      required: true
+      title: Prefix
+      type: ip
+    shared_route_control:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Shared Route Control
+      type: select-bool
+    shared_security:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Shared Security
+      type: select-bool
+  t_eepg_vrf:
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    schema:
+      required: false
+      title: Schema
+      type: string
+    template:
+      required: false
+      title: Template
+      type: string
+  t_external_endpoint_groups:
+    application_profile:
+      ref: t_eepg_ap
+      required: false
+      title: Application Profile
+      type: object
+    contracts:
+      ref: t_eepg_contracts
+      required: false
+      title: Contracts
+      type: object
+    l3out:
+      ref: t_eepg_l3out
+      required: false
+      title: L3Out
+      type: object
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    preferred_group:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Preferred Group
+      type: select-bool
+    selectors:
+      ref: t_eepg_selectors
+      required: false
+      title: Selectors
+      type: list
+    sites:
+      ref: t_eepg_sites
+      required: false
+      title: Sites
+      type: list
+    subnets:
+      ref: t_eepg_subnet
+      required: false
+      title: Subnets
+      type: list
+    type:
+      enum:
+      - on-premise
+      - cloud
+      required: false
+      title: Type
+      type: select
+    vrf:
+      ref: t_eepg_vrf
+      required: true
+      title: Vrf
+      type: object
+  t_filters:
+    entries:
+      ref: t_filters_entries
+      required: false
+      title: Entries
+      type: list
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+  t_filters_entries:
+    description:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Description
+      type: string
+    destination_from_port:
+      oneOf:
+      - maximum: 65535
+        minimum: 0
+        type: int
+      - enum:
+        - unspecified
+        - ftpData
+        - smtp
+        - dns
+        - http
+        - pop3
+        - https
+        - rtsp
+        - ssh
+        type: enum
+      required: false
+      title: Destination From Port
+      type: oneOf
+    destination_to_port:
+      oneOf:
+      - maximum: 65535
+        minimum: 0
+        type: int
+      - enum:
+        - unspecified
+        - ftpData
+        - smtp
+        - dns
+        - http
+        - pop3
+        - https
+        - rtsp
+        - ssh
+        type: enum
+      required: false
+      title: Destination To Port
+      type: oneOf
+    ethertype:
+      enum:
+      - unspecified
+      - ipv4
+      - trill
+      - arp
+      - ipv6
+      - mpls_ucast
+      - mac_security
+      - fcoe
+      - ip
+      required: false
+      title: Ethertype
+      type: select
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    protocol:
+      oneOf:
+      - maximum: 255
+        minimum: 0
+        type: int
+      - enum:
+        - unspecified
+        - icmp
+        - igmp
+        - tcp
+        - egp
+        - igp
+        - udp
+        - icmpv6
+        - eigrp
+        - ospfigp
+        - pim
+        - l2tp
+        type: enum
+      required: false
+      title: Protocol
+      type: oneOf
+    source_from_port:
+      oneOf:
+      - maximum: 65535
+        minimum: 0
+        type: int
+      - enum:
+        - unspecified
+        - ftpData
+        - smtp
+        - dns
+        - http
+        - pop3
+        - https
+        - rtsp
+        - ssh
+        type: enum
+      required: false
+      title: Source From Port
+      type: oneOf
+    source_to_port:
+      oneOf:
+      - maximum: 65535
+        minimum: 0
+        type: int
+      - enum:
+        - unspecified
+        - ftpData
+        - smtp
+        - dns
+        - http
+        - pop3
+        - https
+        - rtsp
+        - ssh
+        type: enum
+      required: false
+      title: Source To Port
+      type: oneOf
+    stateful:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Stateful
+      type: select-bool
+  t_l3outs:
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    vrf:
+      ref: t_l3outs_vrf
+      required: true
+      title: Vrf
+      type: object
+  t_l3outs_vrf:
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    schema:
+      required: false
+      title: Schema
+      type: string
+    template:
+      required: false
+      title: Template
+      type: string
+  t_service_graphs:
+    description:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Description
+      type: string
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    nodes:
+      ref: t_service_graphs_nodes
+      required: true
+      title: Nodes
+      type: list
+  t_service_graphs_nodes:
+    index:
+      maximum: 3
+      minimum: 1
+      required: false
+      title: Index
+      type: int
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    sites:
+      ref: t_service_graphs_nodes_sites
+      required: true
+      title: Sites
+      type: list
+    type:
+      enum:
+      - firewall
+      - load-balancer
+      - other
+      required: false
+      title: Type
+      type: select
+  t_service_graphs_nodes_sites:
+    device:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Device
+      type: string
+    name:
+      required: true
+      title: Name
+      type: string
+    tenant:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Tenant
+      type: string
+  t_vrf_sites:
+    name:
+      required: true
+      title: Name
+      type: string
+    regions:
+      ref: t_vrf_sites_regions
+      required: false
+      title: Regions
+      type: list
+  t_vrf_sites_regions:
+    cidrs:
+      ref: t_vrf_sites_regions_cidrs
+      required: false
+      title: Cidrs
+      type: list
+    hub_network:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Hub Network
+      type: select-bool
+    hub_network_name:
+      required: false
+      title: Hub Network Name
+      type: string
+    hub_network_tenant:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: false
+      title: Hub Network Tenant
+      type: string
+    name:
+      required: true
+      title: Name
+      type: string
+    vpn_gateway:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Vpn Gateway
+      type: select-bool
+  t_vrf_sites_regions_cidrs:
+    ip:
+      required: true
+      title: Ip
+      type: ip
+    subnets:
+      ref: t_vrf_sites_regions_cidrs_subnets
+      required: false
+      title: Subnets
+      type: list
+  t_vrf_sites_regions_cidrs_subnets:
+    ip:
+      required: true
+      title: Ip
+      type: ip
+    name:
+      required: false
+      title: Name
+      type: string
+    zone:
+      required: false
+      title: Zone
+      type: string
+  t_vrfs:
+    contracts:
+      ref: t_vrfs_contracts
+      required: false
+      title: Contracts
+      type: object
+    data_plane_learning:
+      required: false
+      title: Data Plane Learning
+      type: bool
+    l3_multicast:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: L3 Multicast
+      type: select-bool
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    preferred_group:
+      required: false
+      title: Preferred Group
+      type: bool
+    sites:
+      ref: t_vrf_sites
+      required: false
+      title: Sites
+      type: list
+    vzany:
+      enum:
+      - enabled
+      - disabled
+      required: false
+      title: Vzany
+      type: select-bool
+  t_vrfs_contracts:
+    consumers:
+      ref: t_vrfs_contracts_consumers
+      required: false
+      title: Consumers
+      type: list
+    providers:
+      ref: t_vrfs_contracts_providers
+      required: false
+      title: Providers
+      type: list
+  t_vrfs_contracts_consumers:
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    schema:
+      required: false
+      title: Schema
+      type: string
+    template:
+      required: false
+      title: Template
+      type: string
+  t_vrfs_contracts_providers:
+    name:
+      maxLength: 64
+      minLength: 1
+      pattern: ^[a-zA-Z0-9_.:-]+$
+      required: true
+      title: Name
+      type: string
+    schema:
+      required: false
+      title: Schema
+      type: string
+    template:
+      required: false
+      title: Template
+      type: string

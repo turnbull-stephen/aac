@@ -1,0 +1,11 @@
+.full-height-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.full-height-content {
+  flex: 1;
+  min-height: 50;
+  overflow: auto;
+}

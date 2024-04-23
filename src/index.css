@@ -1,0 +1,208 @@
+.accordion-collapse {
+  transition: height 0.35s ease;
+}
+
+.accordion-collapse {
+  will-change: transform, opacity;
+}
+
+.accordion-collapse.collapsing {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.10s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.pre-tag {
+  height: 520px; /* Set to desired max height */
+  overflow: auto; /* Add scrollbars when content overflows */
+  background-color: lightgray; /* Color of the preview background */
+  border-color: gray;
+  border-width: 1px;
+  border-style: solid;
+  padding-left: 3px;
+}
+
+.pre-errors {
+  height: 200px; /* Set to desired max height */
+  overflow: auto; /* Add scrollbars when content overflows */
+  background-color: rgb(31, 30, 30); /* Color of the preview background */
+  border-color: gray;
+  border-width: 1px;
+  border-style: solid;
+  padding-left: 3px;
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-field {
+  padding-right: 30px; /* leaves space for the clear button */
+}
+
+.clear-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: none;
+}
+
+.input-container:hover .clear-button {
+  display: block;
+}
+
+.no-data {
+  padding-top: 50px;
+  color: gray;
+  font-style: italic;
+}
+
+.pseudo-button {
+  padding-right: 1.5rem;
+  cursor: pointer;
+}
+
+.select-label {
+  color: gray;
+  font-size: small;
+}
+
+.form-labels {
+  font-size: medium;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.errors {
+  color: red;
+  font-size: small;
+  margin-bottom: 0;
+}
+
+.form-label {
+  position: relative;
+}
+
+.required {
+  position: absolute;
+  color: red;
+  font-size: normal;
+  top: 0;
+  right: 8;
+}
+
+.title {
+  font-weight: 600;
+  color: black
+}
+
+.small-font {
+  font-size: 0.8rem;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background-color: gray;
+  color: white;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 15px;
+  margin-right: 20px;
+  margin-top: -6px;
+}
+
+.strike-through {text-decoration: line-through;}
+
+.dropdown-container {
+  position: relative; /* Ensure position isn't static for zIndex to take effect */
+  z-index: 1; /* Base zIndex level */
+}
+
+.dropdown-container:focus-within {
+  z-index: 1000; /* Increase zIndex when any child element has focus */
+}
+
+/* Custom styles for non-active tabs */
+.nav-tabs .nav-link {
+  background-color: #f8f9fa; /* A lighter background for non-active tabs */
+  border-color: lightgray !important; /* Secondary color border for non-active tabs */
+}
+
+/* Custom styles for the active tab to make it stand out */
+.nav-tabs .nav-link.active {
+  font-weight: normal; /* Make the text bolder */
+  background-color: #fff; /* A different background color, e.g., white */
+  border-color: #007bff !important; /* Primary color border for the active tab */
+  border-bottom-color: transparent !important; /* Make it look like the tab is connected to the content */
+  box-shadow: 0 -2px 5px rgba(0, 123, 255, 0.3); /* Optional: Add a subtle shadow effect */
+}
+
+/* You may want to adjust the border-radius if you're going for a "raised" tab effect */
+.nav-tabs .nav-link {
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+/* Custom hover styles for tabs */
+.nav-tabs .nav-link:hover {
+  background-color: #e9ecef; /* Lighter background color on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect for a "lifted" look */
+  cursor: pointer; /* Change cursor to a pointer to indicate interactivity */
+}
+
+/* Keep the active tab styles consistent even on hover */
+.nav-tabs .nav-link.active:hover {
+  background-color: #fff; /* Same background color as active state */
+  box-shadow: 0 -2px 5px rgba(0, 123, 255, 0.3); /* Keep the active shadow style */
+}
+
+.add-button-group {
+  position: relative;
+  display: inline-block;
+}
+
+.brand-left-aligned {
+  align-self: flex-start; /* Aligns to the left of the flex container */
+}
+
+/*.accordion:hover .circle {
+  background-color: #0d6efd;
+}
+*/
+/*
+.circle::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  width: 35px;
+  height: 35px;
+  border: 2px dashed #0275d8;
+  border-radius: 50%;
+  z-index: -1;
+}
+*/

@@ -1,0 +1,273 @@
+{
+  "node_policies": {
+    "name": "Node Policies",
+    "node_policies": {
+      "inb_endpoint_group": {
+        "type": "string",
+        "title": "Inb Endpoint Group",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "oob_endpoint_group": {
+        "type": "string",
+        "title": "Oob Endpoint Group",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "update_groups": {
+        "type": "list",
+        "title": "Update Groups",
+        "ref": "np_update_group",
+        "required": false
+      },
+      "vpc_groups": {
+        "type": "object",
+        "title": "Vpc Groups",
+        "ref": "np_vpc_group",
+        "required": false
+      },
+      "nodes": {
+        "type": "list",
+        "title": "Nodes",
+        "ref": "np_node",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "np_expected_state",
+        "required": false
+      }
+    },
+    "np_expected_state": {
+      "nodes_status": {
+        "type": "select",
+        "title": "Nodes Status",
+        "enum": [
+          "active",
+          "inactive",
+          "disabled",
+          "unknown",
+          "undiscovered"
+        ],
+        "required": false
+      }
+    },
+    "np_update_group": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "scheduler": {
+        "type": "string",
+        "title": "Scheduler",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      }
+    },
+    "np_vpc_group": {
+      "mode": {
+        "type": "select",
+        "title": "Mode",
+        "enum": [
+          "explicit",
+          "consecutive",
+          "reciprocal"
+        ],
+        "required": false
+      },
+      "groups": {
+        "type": "list",
+        "title": "Groups",
+        "ref": "np_vpc_group_group",
+        "required": false
+      }
+    },
+    "np_vpc_group_group": {
+      "id": {
+        "type": "int",
+        "title": "Id",
+        "minimum": 1,
+        "maximum": 1000,
+        "required": true
+      },
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "switch_1": {
+        "type": "int",
+        "title": "Switch 1",
+        "minimum": 1,
+        "maximum": 16000,
+        "required": true
+      },
+      "switch_2": {
+        "type": "int",
+        "title": "Switch 2",
+        "minimum": 1,
+        "maximum": 16000,
+        "required": true
+      },
+      "policy": {
+        "type": "string",
+        "title": "Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      }
+    },
+    "np_node": {
+      "id": {
+        "type": "int",
+        "title": "Id",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": true
+      },
+      "pod": {
+        "type": "int",
+        "title": "Pod",
+        "minimum": 0,
+        "maximum": 255,
+        "required": false
+      },
+      "role": {
+        "type": "select",
+        "title": "Role",
+        "enum": [
+          "leaf",
+          "spine"
+        ],
+        "required": true
+      },
+      "type": {
+        "type": "select",
+        "title": "Type",
+        "enum": [
+          "tier-2-leaf",
+          "remote-leaf-wan",
+          "virtual"
+        ],
+        "required": false
+      },
+      "serial_number": {
+        "type": "string",
+        "title": "Serial Number",
+        "minLength": 1,
+        "maxLength": 16,
+        "pattern": "^[a-zA-Z0-9_.:-]{1,16}$",
+        "required": false
+      },
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "oob_address": {
+        "type": "ip",
+        "title": "Oob Address",
+        "required": false
+      },
+      "oob_gateway": {
+        "type": "ip",
+        "title": "Oob Gateway",
+        "required": false
+      },
+      "oob_v6_address": {
+        "type": "ip",
+        "title": "Oob V6 Address",
+        "required": false
+      },
+      "oob_v6_gateway": {
+        "type": "ip",
+        "title": "Oob V6 Gateway",
+        "required": false
+      },
+      "inb_address": {
+        "type": "ip",
+        "title": "Inb Address",
+        "required": false
+      },
+      "inb_gateway": {
+        "type": "ip",
+        "title": "Inb Gateway",
+        "required": false
+      },
+      "inb_v6_address": {
+        "type": "ip",
+        "title": "Inb V6 Address",
+        "required": false
+      },
+      "inb_v6_gateway": {
+        "type": "ip",
+        "title": "Inb V6 Gateway",
+        "required": false
+      },
+      "update_group": {
+        "type": "string",
+        "title": "Update Group",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "fabric_policy_group": {
+        "type": "string",
+        "title": "Fabric Policy Group",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "access_policy_group": {
+        "type": "string",
+        "title": "Access Policy Group",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "remote_pool_id": {
+        "type": "int",
+        "title": "Remote Pool Id",
+        "minimum": 1,
+        "maximum": 255,
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "np_node_expected_state",
+        "required": false
+      }
+    },
+    "np_node_expected_state": {
+      "psu_count": {
+        "type": "int",
+        "title": "Psu Count",
+        "minimum": 1,
+        "maximum": 10,
+        "required": false
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+apic:
+  access_policies:
+    mcp:
+      key: '123'
+    physical_domains:
+      - name: test
+        vlan_pool: test
+        security_domains:
+          - test

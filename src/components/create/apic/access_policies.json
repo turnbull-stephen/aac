@@ -1,0 +1,3374 @@
+{
+  "access_policies": {
+    "name": "Access Policies",
+    "access_policies": {
+      "leaf_switch_profile_name": {
+        "type": "string",
+        "title": "Leaf Switch Profile Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "required": false
+      },
+      "leaf_switch_selector_name": {
+        "type": "string",
+        "title": "Leaf Switch Selector Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "required": false
+      },
+      "leaf_interface_profile_name": {
+        "type": "string",
+        "title": "Leaf Interface Profile Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "required": false
+      },
+      "leaf_interface_selector_name": {
+        "type": "string",
+        "title": "Leaf Interface Selector Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "required": false
+      },
+      "leaf_interface_selector_sub_port_name": {
+        "type": "string",
+        "title": "Leaf Interface Selector Sub Port Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "required": false
+      },
+      "fex_profile_name": {
+        "type": "string",
+        "title": "Fex Profile Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "required": false
+      },
+      "fex_interface_selector_name": {
+        "type": "string",
+        "title": "Fex Interface Selector Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "required": false
+      },
+      "spine_switch_profile_name": {
+        "type": "string",
+        "title": "Spine Switch Profile Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "required": false
+      },
+      "spine_switch_selector_name": {
+        "type": "string",
+        "title": "Spine Switch Selector Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "required": false
+      },
+      "spine_interface_profile_name": {
+        "type": "string",
+        "title": "Spine Interface Profile Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "required": false
+      },
+      "spine_interface_selector_name": {
+        "type": "string",
+        "title": "Spine Interface Selector Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "required": false
+      },
+      "vpc_group_name": {
+        "type": "string",
+        "title": "Vpc Group Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "required": false
+      },
+      "infra_vlan": {
+        "type": "int",
+        "title": "Infra Vlan",
+        "minimum": 1,
+        "maximum": 4096,
+        "required": false
+      },
+      "vlan_pools": {
+        "type": "list",
+        "title": "Vlan Pools",
+        "ref": "ap_vlan_pool",
+        "required": false
+      },
+      "physical_domains": {
+        "type": "list",
+        "title": "Physical Domains",
+        "ref": "ap_physical_domain",
+        "required": false
+      },
+      "routed_domains": {
+        "type": "list",
+        "title": "Routed Domains",
+        "ref": "ap_routed_domain",
+        "required": false
+      },
+      "aaeps": {
+        "type": "list",
+        "title": "Aaeps",
+        "ref": "ap_aaep",
+        "required": false
+      },
+      "switch_policies": {
+        "type": "object",
+        "title": "Switch Policies",
+        "ref": "ap_switch_policies",
+        "required": false
+      },
+      "spine_switch_policy_groups": {
+        "type": "list",
+        "title": "Spine Switch Policy Groups",
+        "ref": "ap_spine_switch_policy_groups",
+        "required": false
+      },
+      "leaf_switch_policy_groups": {
+        "type": "list",
+        "title": "Leaf Switch Policy Groups",
+        "ref": "ap_leaf_switch_policy_groups",
+        "required": false
+      },
+      "leaf_switch_profiles": {
+        "type": "list",
+        "title": "Leaf Switch Profiles",
+        "ref": "ap_leaf_switch_profiles",
+        "required": false
+      },
+      "spine_switch_profiles": {
+        "type": "list",
+        "title": "Spine Switch Profiles",
+        "ref": "ap_spine_switch_profiles",
+        "required": false
+      },
+      "interface_policies": {
+        "type": "object",
+        "title": "Interface Policies",
+        "ref": "ap_interface_policies",
+        "required": false
+      },
+      "leaf_interface_policy_groups": {
+        "type": "list",
+        "title": "Leaf Interface Policy Groups",
+        "ref": "ap_leaf_interface_policy_group",
+        "required": false
+      },
+      "spine_interface_policy_groups": {
+        "type": "list",
+        "title": "Spine Interface Policy Groups",
+        "ref": "ap_spine_interface_policy_group",
+        "required": false
+      },
+      "leaf_interface_profiles": {
+        "type": "list",
+        "title": "Leaf Interface Profiles",
+        "ref": "ap_leaf_interface_profiles",
+        "required": false
+      },
+      "fex_interface_profiles": {
+        "type": "list",
+        "title": "Fex Interface Profiles",
+        "ref": "ap_fex_interface_profiles",
+        "required": false
+      },
+      "spine_interface_profiles": {
+        "type": "list",
+        "title": "Spine Interface Profiles",
+        "ref": "ap_spine_interface_profiles",
+        "required": false
+      },
+      "mcp": {
+        "type": "object",
+        "title": "Mcp",
+        "ref": "ap_mcp",
+        "required": false
+      },
+      "qos": {
+        "type": "object",
+        "title": "Qos",
+        "ref": "ap_qos",
+        "required": false
+      },
+      "span": {
+        "type": "object",
+        "title": "Span",
+        "ref": "ap_span",
+        "required": false
+      },
+      "vspan": {
+        "type": "object",
+        "title": "Vspan",
+        "ref": "ap_vspan",
+        "required": false
+      }
+    },
+    "ap_vlan_pool": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "allocation": {
+        "type": "select",
+        "title": "Allocation",
+        "enum": [
+          "static",
+          "dynamic"
+        ],
+        "required": false
+      },
+      "ranges": {
+        "type": "list",
+        "title": "Ranges",
+        "ref": "ap_vlan_pool_range",
+        "required": false
+      }
+    },
+    "ap_vlan_pool_range": {
+      "from": {
+        "type": "int",
+        "title": "From",
+        "minimum": 1,
+        "maximum": 4096,
+        "required": true
+      },
+      "to": {
+        "type": "int",
+        "title": "To",
+        "minimum": 1,
+        "maximum": 4096,
+        "required": false
+      },
+      "allocation": {
+        "type": "select",
+        "title": "Allocation",
+        "enum": [
+          "inherit",
+          "static",
+          "dynamic"
+        ],
+        "required": false
+      },
+      "role": {
+        "type": "select",
+        "title": "Role",
+        "enum": [
+          "external",
+          "internal"
+        ],
+        "required": false
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      }
+    },
+    "ap_physical_domain": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "vlan_pool": {
+        "type": "string",
+        "title": "Vlan Pool",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "ap_physical_domain_expected_state",
+        "required": false
+      },
+      "security_domains": {
+        "type": "list-string",
+        "title": "Security Domains",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      }
+    },
+    "ap_physical_domain_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "ap_routed_domain": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "vlan_pool": {
+        "type": "string",
+        "title": "Vlan Pool",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "ap_routed_domain_expected_state",
+        "required": false
+      },
+      "security_domains": {
+        "type": "list-string",
+        "title": "Security Domains",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      }
+    },
+    "ap_routed_domain_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "ap_aaep": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "infra_vlan": {
+        "type": "select-bool",
+        "title": "Infra Vlan",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "physical_domains": {
+        "type": "list-string",
+        "title": "Physical Domains",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "routed_domains": {
+        "type": "list-string",
+        "title": "Routed Domains",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "vmware_vmm_domains": {
+        "type": "list-string",
+        "title": "Vmware Vmm Domains",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "endpoint_groups": {
+        "type": "list",
+        "title": "Endpoint Groups",
+        "ref": "ap_aaep_endpoint_groups",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "ap_aaep_expected_state",
+        "required": false
+      }
+    },
+    "ap_aaep_endpoint_groups": {
+      "tenant": {
+        "type": "string",
+        "title": "Tenant",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "application_profile": {
+        "type": "string",
+        "title": "Application Profile",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "endpoint_group": {
+        "type": "string",
+        "title": "Endpoint Group",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "vlan": {
+        "type": "int",
+        "title": "Vlan",
+        "minimum": 1,
+        "maximum": 4096,
+        "required": false
+      },
+      "primary_vlan": {
+        "type": "int",
+        "title": "Primary Vlan",
+        "minimum": 1,
+        "maximum": 4096,
+        "required": false
+      },
+      "secondary_vlan": {
+        "type": "int",
+        "title": "Secondary Vlan",
+        "minimum": 1,
+        "maximum": 4096,
+        "required": false
+      },
+      "mode": {
+        "type": "select",
+        "title": "Mode",
+        "enum": [
+          "regular",
+          "native",
+          "untagged"
+        ],
+        "required": false
+      },
+      "deployment_immediacy": {
+        "type": "select",
+        "title": "Deployment Immediacy",
+        "enum": [
+          "immediate",
+          "lazy"
+        ],
+        "required": false
+      }
+    },
+    "ap_aaep_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "ap_mcp": {
+      "action": {
+        "type": "select-bool",
+        "title": "Action",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "admin_state": {
+        "type": "select-bool",
+        "title": "Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "frequency_sec": {
+        "type": "int",
+        "title": "Frequency Sec",
+        "minimum": 0,
+        "maximum": 300,
+        "required": false
+      },
+      "frequency_msec": {
+        "type": "int",
+        "title": "Frequency Msec",
+        "minimum": 0,
+        "maximum": 999,
+        "required": false
+      },
+      "initial_delay": {
+        "type": "int",
+        "title": "Initial Delay",
+        "minimum": 1,
+        "maximum": 1800,
+        "required": false
+      },
+      "loop_detection": {
+        "type": "int",
+        "title": "Loop Detection",
+        "minimum": 1,
+        "maximum": 255,
+        "required": false
+      },
+      "per_vlan": {
+        "type": "select-bool",
+        "title": "Per Vlan",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "key": {
+        "type": "string",
+        "title": "Key",
+        "required": true
+      }
+    },
+    "ap_qos": {
+      "preserve_cos": {
+        "type": "select-bool",
+        "title": "Preserve Cos",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "qos_classes": {
+        "type": "list",
+        "title": "Qos Classes",
+        "ref": "ap_qos_class",
+        "required": false
+      }
+    },
+    "ap_qos_class": {
+      "level": {
+        "type": "int",
+        "title": "Level",
+        "minimum": 1,
+        "maximum": 6,
+        "required": true
+      },
+      "admin_state": {
+        "type": "select-bool",
+        "title": "Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "mtu": {
+        "type": "int",
+        "title": "Mtu",
+        "minimum": 1,
+        "maximum": 9216,
+        "required": false
+      },
+      "scheduling": {
+        "type": "select",
+        "title": "Scheduling",
+        "enum": [
+          "wrr",
+          "strict-priority"
+        ],
+        "required": false
+      },
+      "bandwidth_percent": {
+        "type": "int",
+        "title": "Bandwidth Percent",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "congestion_algorithm": {
+        "type": "select",
+        "title": "Congestion Algorithm",
+        "enum": [
+          "tail-drop",
+          "wred"
+        ],
+        "required": false
+      },
+      "minimum_buffer": {
+        "type": "int",
+        "title": "Minimum Buffer",
+        "minimum": 0,
+        "maximum": 3,
+        "required": false
+      },
+      "pfc_state": {
+        "type": "select-bool",
+        "title": "Pfc State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "no_drop_cos": {
+        "type": "select",
+        "title": "No Drop Cos",
+        "enum": [
+          "unspecified",
+          "cos0",
+          "cos1",
+          "cos2",
+          "cos3",
+          "cos4",
+          "cos5",
+          "cos6",
+          "cos7"
+        ],
+        "required": false
+      },
+      "pfc_scope": {
+        "type": "select",
+        "title": "Pfc Scope",
+        "enum": [
+          "tor",
+          "fabric"
+        ],
+        "required": false
+      },
+      "ecn": {
+        "type": "select-bool",
+        "title": "Ecn",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "forward_non_ecn": {
+        "type": "select-bool",
+        "title": "Forward Non Ecn",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "wred_max_threshold": {
+        "type": "int",
+        "title": "Wred Max Threshold",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "wred_min_threshold": {
+        "type": "int",
+        "title": "Wred Min Threshold",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "wred_probability": {
+        "type": "int",
+        "title": "Wred Probability",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "weight": {
+        "type": "int",
+        "title": "Weight",
+        "minimum": 0,
+        "maximum": 7,
+        "required": false
+      }
+    },
+    "ap_span": {
+      "destination_groups": {
+        "type": "list",
+        "title": "Destination Groups",
+        "ref": "ap_span_destination_groups",
+        "required": false
+      },
+      "source_groups": {
+        "type": "list",
+        "title": "Source Groups",
+        "ref": "ap_span_source_groups",
+        "required": false
+      },
+      "filter_groups": {
+        "type": "list",
+        "title": "Filter Groups",
+        "ref": "ap_span_filter_groups",
+        "required": false
+      }
+    },
+    "ap_span_destination_groups": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "node_id": {
+        "type": "int",
+        "title": "Node Id",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": false
+      },
+      "pod_id": {
+        "type": "int",
+        "title": "Pod Id",
+        "minimum": 1,
+        "maximum": 255,
+        "required": false
+      },
+      "sub_port": {
+        "type": "int",
+        "title": "Sub Port",
+        "minimum": 1,
+        "maximum": 16,
+        "required": false
+      },
+      "module": {
+        "type": "int",
+        "title": "Module",
+        "minimum": 1,
+        "maximum": 9,
+        "required": false
+      },
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 1,
+        "maximum": 127,
+        "required": false
+      },
+      "channel": {
+        "type": "string",
+        "title": "Channel",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "ip": {
+        "type": "ip",
+        "title": "Ip",
+        "required": false
+      },
+      "source_prefix": {
+        "type": "string",
+        "title": "Source Prefix",
+        "required": false
+      },
+      "flow_id": {
+        "type": "int",
+        "title": "Flow Id",
+        "minimum": 1,
+        "maximum": 1023,
+        "required": false
+      },
+      "mtu": {
+        "type": "int",
+        "title": "Mtu",
+        "minimum": 64,
+        "maximum": 9216,
+        "required": false
+      },
+      "ttl": {
+        "type": "int",
+        "title": "Ttl",
+        "minimum": 1,
+        "maximum": 255,
+        "required": false
+      },
+      "version": {
+        "type": "select",
+        "title": "Version",
+        "enum": [
+          "1",
+          "2"
+        ],
+        "required": false
+      },
+      "enforce_version": {
+        "type": "select-bool",
+        "title": "Enforce Version",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "tenant": {
+        "type": "string",
+        "title": "Tenant",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "application_profile": {
+        "type": "string",
+        "title": "Application Profile",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "endpoint_group": {
+        "type": "string",
+        "title": "Endpoint Group",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "ap_span_destination_groups_expected_state",
+        "required": false
+      }
+    },
+    "ap_span_destination_groups_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "ap_span_source_groups": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "admin_state": {
+        "type": "select-bool",
+        "title": "Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "sources": {
+        "type": "list",
+        "title": "Sources",
+        "ref": "ap_span_source_groups_sources",
+        "required": false
+      },
+      "destination": {
+        "type": "object",
+        "title": "Destination",
+        "ref": "ap_span_source_groups_destination",
+        "required": true
+      },
+      "filter_group": {
+        "type": "string",
+        "title": "Filter Group",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "ap_span_source_groups_expected_state",
+        "required": false
+      }
+    },
+    "ap_span_source_groups_destination": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      }
+    },
+    "ap_span_source_groups_sources": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "direction": {
+        "type": "select",
+        "title": "Direction",
+        "enum": [
+          "in",
+          "out",
+          "both"
+        ],
+        "required": false
+      },
+      "span_drop": {
+        "type": "select-bool",
+        "title": "Span Drop",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "tenant": {
+        "type": "string",
+        "title": "Tenant",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "application_profile": {
+        "type": "string",
+        "title": "Application Profile",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "endpoint_group": {
+        "type": "string",
+        "title": "Endpoint Group",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "l3out": {
+        "type": "string",
+        "title": "L3Out",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "vlan": {
+        "type": "int",
+        "title": "Vlan",
+        "minimum": 1,
+        "maximum": 4096,
+        "required": false
+      },
+      "access_paths": {
+        "type": "list",
+        "title": "Access Paths",
+        "ref": "ap_span_source_groups_sources_access_paths",
+        "required": false
+      }
+    },
+    "ap_span_source_groups_sources_access_paths": {
+      "node_id": {
+        "type": "int",
+        "title": "Node Id",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": false
+      },
+      "node2_id": {
+        "type": "int",
+        "title": "Node2 Id",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": false
+      },
+      "pod_id": {
+        "type": "int",
+        "title": "Pod Id",
+        "minimum": 1,
+        "maximum": 255,
+        "required": false
+      },
+      "module": {
+        "type": "int",
+        "title": "Module",
+        "minimum": 1,
+        "maximum": 9,
+        "required": false
+      },
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 1,
+        "maximum": 127,
+        "required": false
+      },
+      "fex_id": {
+        "type": "int",
+        "title": "Fex Id",
+        "minimum": 101,
+        "maximum": 199,
+        "required": false
+      },
+      "sub_port": {
+        "type": "int",
+        "title": "Sub Port",
+        "minimum": 1,
+        "maximum": 16,
+        "required": false
+      },
+      "channel": {
+        "type": "string",
+        "title": "Channel",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "type": {
+        "type": "select",
+        "title": "Type",
+        "enum": [
+          "access",
+          "vpc",
+          "pc"
+        ],
+        "required": false
+      }
+    },
+    "ap_span_source_groups_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "ap_span_filter_groups": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "entries": {
+        "type": "list",
+        "title": "Entries",
+        "ref": "ap_span_filter_groups_entries",
+        "required": false
+      }
+    },
+    "ap_span_filter_groups_entries": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "source_ip": {
+        "type": "ip",
+        "title": "Source Ip",
+        "required": true
+      },
+      "destination_ip": {
+        "type": "ip",
+        "title": "Destination Ip",
+        "required": true
+      },
+      "source_from_port": {
+        "type": "oneOf",
+        "title": "Source From Port",
+        "oneOf": [
+          {
+            "type": "int",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          {
+            "type": "enum",
+            "enum": [
+              "unspecified",
+              "ftpData",
+              "smtp",
+              "dns",
+              "http",
+              "pop3",
+              "https",
+              "rtsp",
+              "ssh"
+            ]
+          }
+        ],
+        "required": false
+      },
+      "source_to_port": {
+        "type": "oneOf",
+        "title": "Source To Port",
+        "oneOf": [
+          {
+            "type": "int",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          {
+            "type": "enum",
+            "enum": [
+              "unspecified",
+              "ftpData",
+              "smtp",
+              "dns",
+              "http",
+              "pop3",
+              "https",
+              "rtsp",
+              "ssh"
+            ]
+          }
+        ],
+        "required": false
+      },
+      "destination_from_port": {
+        "type": "oneOf",
+        "title": "Destination From Port",
+        "oneOf": [
+          {
+            "type": "int",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          {
+            "type": "enum",
+            "enum": [
+              "unspecified",
+              "ftpData",
+              "smtp",
+              "dns",
+              "http",
+              "pop3",
+              "https",
+              "rtsp",
+              "ssh"
+            ]
+          }
+        ],
+        "required": false
+      },
+      "destination_to_port": {
+        "type": "oneOf",
+        "title": "Destination To Port",
+        "oneOf": [
+          {
+            "type": "int",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          {
+            "type": "enum",
+            "enum": [
+              "unspecified",
+              "ftpData",
+              "smtp",
+              "dns",
+              "http",
+              "pop3",
+              "https",
+              "rtsp",
+              "ssh"
+            ]
+          }
+        ],
+        "required": false
+      },
+      "ip_protocol": {
+        "type": "oneOf",
+        "title": "Ip Protocol",
+        "oneOf": [
+          {
+            "type": "int",
+            "minimum": 0,
+            "maximum": 255
+          },
+          {
+            "type": "enum",
+            "enum": [
+              "unspecified",
+              "icmp",
+              "igmp",
+              "tcp",
+              "egp",
+              "igp",
+              "udp",
+              "icmpv6",
+              "eigrp",
+              "ospfigp",
+              "pim",
+              "l2tp"
+            ]
+          }
+        ],
+        "required": false
+      }
+    },
+    "ap_vspan": {
+      "sessions": {
+        "type": "list",
+        "title": "Sessions",
+        "ref": "ap_vspan_sessions",
+        "required": false
+      },
+      "destination_groups": {
+        "type": "list",
+        "title": "Destination Groups",
+        "ref": "ap_vspan_destination_groups",
+        "required": false
+      }
+    },
+    "ap_vspan_sessions": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "admin_state": {
+        "type": "select-bool",
+        "title": "Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "sources": {
+        "type": "list",
+        "title": "Sources",
+        "ref": "ap_vspan_sessions_sources",
+        "required": false
+      },
+      "destination": {
+        "type": "object",
+        "title": "Destination",
+        "ref": "ap_vspan_sessions_destination",
+        "required": true
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "ap_vspan_sessions_expected_state",
+        "required": false
+      }
+    },
+    "ap_vspan_sessions_sources": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "direction": {
+        "type": "select",
+        "title": "Direction",
+        "enum": [
+          "in",
+          "out"
+        ],
+        "required": true
+      },
+      "access_paths": {
+        "type": "list",
+        "title": "Access Paths",
+        "ref": "ap_vspan_sessions_sources_access_paths",
+        "required": false
+      },
+      "tenant": {
+        "type": "string",
+        "title": "Tenant",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "application_profile": {
+        "type": "string",
+        "title": "Application Profile",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "endpoint_group": {
+        "type": "string",
+        "title": "Endpoint Group",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "endpoint": {
+        "type": "string",
+        "title": "Endpoint",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      }
+    },
+    "ap_vspan_sessions_sources_access_paths": {
+      "node_id": {
+        "type": "int",
+        "title": "Node Id",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": false
+      },
+      "node2_id": {
+        "type": "int",
+        "title": "Node2 Id",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": false
+      },
+      "pod_id": {
+        "type": "int",
+        "title": "Pod Id",
+        "minimum": 1,
+        "maximum": 255,
+        "required": false
+      },
+      "module": {
+        "type": "int",
+        "title": "Module",
+        "minimum": 1,
+        "maximum": 9,
+        "required": false
+      },
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 1,
+        "maximum": 127,
+        "required": false
+      },
+      "channel": {
+        "type": "string",
+        "title": "Channel",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "type": {
+        "type": "select",
+        "title": "Type",
+        "enum": [
+          "access",
+          "vpc",
+          "pc"
+        ],
+        "required": false
+      }
+    },
+    "ap_vspan_sessions_destination": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      }
+    },
+    "ap_vspan_sessions_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "ap_vspan_destination_groups": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "destinations": {
+        "type": "list",
+        "title": "Destinations",
+        "ref": "ap_vspan_destination_groups_destinations",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "ap_vspan_destination_groups_expected_state",
+        "required": false
+      }
+    },
+    "ap_vspan_destination_groups_destinations": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "tenant": {
+        "type": "string",
+        "title": "Tenant",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "application_profile": {
+        "type": "string",
+        "title": "Application Profile",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "endpoint_group": {
+        "type": "string",
+        "title": "Endpoint Group",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "endpoint": {
+        "type": "string",
+        "title": "Endpoint",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "ip": {
+        "type": "ip",
+        "title": "Ip",
+        "required": false
+      },
+      "flow_id": {
+        "type": "int",
+        "title": "Flow Id",
+        "minimum": 1,
+        "maximum": 1023,
+        "required": false
+      },
+      "mtu": {
+        "type": "int",
+        "title": "Mtu",
+        "minimum": 64,
+        "maximum": 9216,
+        "required": false
+      },
+      "ttl": {
+        "type": "int",
+        "title": "Ttl",
+        "minimum": 1,
+        "maximum": 255,
+        "required": false
+      }
+    },
+    "ap_vspan_destination_groups_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "ap_leaf_interface_profiles": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "selectors": {
+        "type": "list",
+        "title": "Selectors",
+        "ref": "ap_leaf_interface_profiles_selectors",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "ap_leaf_interface_profiles_expected_state",
+        "required": false
+      }
+    },
+    "ap_leaf_interface_profiles_selectors": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.,:-]{1,64}$",
+        "required": true
+      },
+      "fex_id": {
+        "type": "int",
+        "title": "Fex Id",
+        "minimum": 101,
+        "maximum": 199,
+        "required": false
+      },
+      "fex_profile": {
+        "type": "string",
+        "title": "Fex Profile",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "policy_group": {
+        "type": "string",
+        "title": "Policy Group",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "port_blocks": {
+        "type": "list",
+        "title": "Port Blocks",
+        "ref": "ap_leaf_interface_profiles_selectors_port_blocks",
+        "required": false
+      },
+      "sub_port_blocks": {
+        "type": "list",
+        "title": "Sub Port Blocks",
+        "ref": "ap_leaf_interface_profiles_selectors_sub_port_blocks",
+        "required": false
+      }
+    },
+    "ap_leaf_interface_profiles_selectors_port_blocks": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "from_module": {
+        "type": "int",
+        "title": "From Module",
+        "minimum": 1,
+        "maximum": 9,
+        "required": false
+      },
+      "from_port": {
+        "type": "int",
+        "title": "From Port",
+        "minimum": 1,
+        "maximum": 127,
+        "required": true
+      },
+      "to_module": {
+        "type": "int",
+        "title": "To Module",
+        "minimum": 1,
+        "maximum": 9,
+        "required": false
+      },
+      "to_port": {
+        "type": "int",
+        "title": "To Port",
+        "minimum": 1,
+        "maximum": 127,
+        "required": false
+      }
+    },
+    "ap_leaf_interface_profiles_selectors_sub_port_blocks": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "from_module": {
+        "type": "int",
+        "title": "From Module",
+        "minimum": 1,
+        "maximum": 9,
+        "required": false
+      },
+      "from_port": {
+        "type": "int",
+        "title": "From Port",
+        "minimum": 1,
+        "maximum": 127,
+        "required": true
+      },
+      "to_module": {
+        "type": "int",
+        "title": "To Module",
+        "minimum": 1,
+        "maximum": 9,
+        "required": false
+      },
+      "to_port": {
+        "type": "int",
+        "title": "To Port",
+        "minimum": 1,
+        "maximum": 127,
+        "required": false
+      },
+      "from_sub_port": {
+        "type": "int",
+        "title": "From Sub Port",
+        "minimum": 1,
+        "maximum": 16,
+        "required": true
+      },
+      "to_sub_port": {
+        "type": "int",
+        "title": "To Sub Port",
+        "minimum": 1,
+        "maximum": 16,
+        "required": false
+      }
+    },
+    "ap_leaf_interface_profiles_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "ap_fex_interface_profiles": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "selectors": {
+        "type": "list",
+        "title": "Selectors",
+        "ref": "ap_fex_interface_profiles_selectors",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "ap_fex_interface_profiles_expected_state",
+        "required": false
+      }
+    },
+    "ap_fex_interface_profiles_selectors": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "fex_id": {
+        "type": "int",
+        "title": "Fex Id",
+        "minimum": 101,
+        "maximum": 199,
+        "required": false
+      },
+      "fex_profile": {
+        "type": "string",
+        "title": "Fex Profile",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "policy_group": {
+        "type": "string",
+        "title": "Policy Group",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "port_blocks": {
+        "type": "list",
+        "title": "Port Blocks",
+        "ref": "ap_fex_interface_profiles_selectors_port_blocks",
+        "required": false
+      }
+    },
+    "ap_fex_interface_profiles_selectors_port_blocks": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "from_module": {
+        "type": "int",
+        "title": "From Module",
+        "minimum": 1,
+        "maximum": 9,
+        "required": false
+      },
+      "from_port": {
+        "type": "int",
+        "title": "From Port",
+        "minimum": 1,
+        "maximum": 127,
+        "required": true
+      },
+      "to_module": {
+        "type": "int",
+        "title": "To Module",
+        "minimum": 1,
+        "maximum": 9,
+        "required": false
+      },
+      "to_port": {
+        "type": "int",
+        "title": "To Port",
+        "minimum": 1,
+        "maximum": 127,
+        "required": false
+      }
+    },
+    "ap_fex_interface_profiles_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "ap_spine_interface_profiles": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "selectors": {
+        "type": "list",
+        "title": "Selectors",
+        "ref": "ap_spine_interface_profiles_selectors",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "ap_spine_interface_profiles_expected_state",
+        "required": false
+      }
+    },
+    "ap_spine_interface_profiles_selectors": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "fex_id": {
+        "type": "int",
+        "title": "Fex Id",
+        "minimum": 101,
+        "maximum": 199,
+        "required": false
+      },
+      "fex_profile": {
+        "type": "string",
+        "title": "Fex Profile",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "policy_group": {
+        "type": "string",
+        "title": "Policy Group",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "port_blocks": {
+        "type": "list",
+        "title": "Port Blocks",
+        "ref": "ap_spine_interface_profiles_selectors_port_blocks",
+        "required": false
+      }
+    },
+    "ap_spine_interface_profiles_selectors_port_blocks": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "from_module": {
+        "type": "int",
+        "title": "From Module",
+        "minimum": 1,
+        "maximum": 9,
+        "required": false
+      },
+      "from_port": {
+        "type": "int",
+        "title": "From Port",
+        "minimum": 1,
+        "maximum": 127,
+        "required": true
+      },
+      "to_module": {
+        "type": "int",
+        "title": "To Module",
+        "minimum": 1,
+        "maximum": 9,
+        "required": false
+      },
+      "to_port": {
+        "type": "int",
+        "title": "To Port",
+        "minimum": 1,
+        "maximum": 127,
+        "required": false
+      }
+    },
+    "ap_spine_interface_profiles_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "ap_interface_policies": {
+      "cdp_policies": {
+        "type": "list",
+        "title": "Cdp Policies",
+        "ref": "ap_cdp_policy",
+        "required": false
+      },
+      "lldp_policies": {
+        "type": "list",
+        "title": "Lldp Policies",
+        "ref": "ap_lldp_policy",
+        "required": false
+      },
+      "link_level_policies": {
+        "type": "list",
+        "title": "Link Level Policies",
+        "ref": "ap_link_level_policy",
+        "required": false
+      },
+      "port_channel_policies": {
+        "type": "list",
+        "title": "Port Channel Policies",
+        "ref": "ap_port_channel_policy",
+        "required": false
+      },
+      "port_channel_member_policies": {
+        "type": "list",
+        "title": "Port Channel Member Policies",
+        "ref": "ap_port_channel_member_policy",
+        "required": false
+      },
+      "spanning_tree_policies": {
+        "type": "list",
+        "title": "Spanning Tree Policies",
+        "ref": "ap_spanning_tree_policy",
+        "required": false
+      },
+      "mcp_policies": {
+        "type": "list",
+        "title": "Mcp Policies",
+        "ref": "ap_mcp_policy",
+        "required": false
+      },
+      "l2_policies": {
+        "type": "list",
+        "title": "L2 Policies",
+        "ref": "ap_l2_policy",
+        "required": false
+      },
+      "storm_control_policies": {
+        "type": "list",
+        "title": "Storm Control Policies",
+        "ref": "ap_storm_control_policy",
+        "required": false
+      }
+    },
+    "ap_cdp_policy": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "admin_state": {
+        "type": "select-bool",
+        "title": "Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": true
+      }
+    },
+    "ap_lldp_policy": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "admin_rx_state": {
+        "type": "select-bool",
+        "title": "Admin Rx State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": true
+      },
+      "admin_tx_state": {
+        "type": "select-bool",
+        "title": "Admin Tx State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": true
+      }
+    },
+    "ap_link_level_policy": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "speed": {
+        "type": "select",
+        "title": "Speed",
+        "enum": [
+          "auto",
+          "100M",
+          "1G",
+          "10G",
+          "25G",
+          "40G",
+          "100G",
+          "400G",
+          "inherit"
+        ],
+        "required": false
+      },
+      "auto": {
+        "type": "select-bool",
+        "title": "Auto",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "fec_mode": {
+        "type": "select",
+        "title": "Fec Mode",
+        "enum": [
+          "inherit",
+          "cl91-rs-fec",
+          "cl74-fc-fec",
+          "ieee-rs-fec",
+          "cons16-rs-fec",
+          "disable-fec"
+        ],
+        "required": false
+      },
+      "physical_media_type": {
+        "type": "select",
+        "title": "Physical Media Type",
+        "enum": [
+          "auto",
+          "sfp-10g-tx"
+        ],
+        "required": false
+      }
+    },
+    "ap_port_channel_policy": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "mode": {
+        "type": "select",
+        "title": "Mode",
+        "enum": [
+          "off",
+          "active",
+          "passive",
+          "mac-pin"
+        ],
+        "required": true
+      },
+      "min_links": {
+        "type": "int",
+        "title": "Min Links",
+        "minimum": 1,
+        "maximum": 16,
+        "required": false
+      },
+      "max_links": {
+        "type": "int",
+        "title": "Max Links",
+        "minimum": 1,
+        "maximum": 16,
+        "required": false
+      },
+      "suspend_individual": {
+        "type": "select-bool",
+        "title": "Suspend Individual",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "graceful_convergence": {
+        "type": "select-bool",
+        "title": "Graceful Convergence",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "fast_select_standby": {
+        "type": "select-bool",
+        "title": "Fast Select Standby",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "load_defer": {
+        "type": "select-bool",
+        "title": "Load Defer",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "symmetric_hash": {
+        "type": "select-bool",
+        "title": "Symmetric Hash",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "hash_key": {
+        "type": "select",
+        "title": "Hash Key",
+        "enum": [
+          "src-ip",
+          "dst-ip",
+          "l4-src-port",
+          "l4-dst-port"
+        ],
+        "required": false
+      }
+    },
+    "ap_port_channel_member_policy": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "rate": {
+        "type": "select",
+        "title": "Rate",
+        "enum": [
+          "fast",
+          "normal"
+        ],
+        "required": false
+      },
+      "priority": {
+        "type": "int",
+        "title": "Priority",
+        "minimum": 1,
+        "maximum": 65535,
+        "required": false
+      }
+    },
+    "ap_spanning_tree_policy": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "bpdu_filter": {
+        "type": "select-bool",
+        "title": "Bpdu Filter",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "bpdu_guard": {
+        "type": "select-bool",
+        "title": "Bpdu Guard",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      }
+    },
+    "ap_mcp_policy": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "admin_state": {
+        "type": "select-bool",
+        "title": "Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": true
+      }
+    },
+    "ap_l2_policy": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "vlan_scope": {
+        "type": "select",
+        "title": "Vlan Scope",
+        "enum": [
+          "portlocal",
+          "global"
+        ],
+        "required": false
+      },
+      "qinq": {
+        "type": "select",
+        "title": "Qinq",
+        "enum": [
+          "disabled",
+          "edgePort",
+          "corePort",
+          "doubleQtagPort"
+        ],
+        "required": false
+      },
+      "reflective_relay": {
+        "type": "bool",
+        "title": "Reflective Relay",
+        "required": false
+      }
+    },
+    "ap_storm_control_policy": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "alias": {
+        "type": "string",
+        "title": "Alias",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "broadcast_burst_pps": {
+        "type": "oneOf",
+        "title": "Broadcast Burst Pps",
+        "oneOf": [
+          {
+            "type": "int",
+            "minimum": 1,
+            "maximum": 4882812
+          },
+          {
+            "type": "enum",
+            "enum": [
+              "unspecified"
+            ]
+          }
+        ],
+        "required": false
+      },
+      "broadcast_pps": {
+        "type": "oneOf",
+        "title": "Broadcast Pps",
+        "oneOf": [
+          {
+            "type": "int",
+            "minimum": 1,
+            "maximum": 4882812
+          },
+          {
+            "type": "enum",
+            "enum": [
+              "unspecified"
+            ]
+          }
+        ],
+        "required": false
+      },
+      "multicast_burst_pps": {
+        "type": "oneOf",
+        "title": "Multicast Burst Pps",
+        "oneOf": [
+          {
+            "type": "int",
+            "minimum": 1,
+            "maximum": 4882812
+          },
+          {
+            "type": "enum",
+            "enum": [
+              "unspecified"
+            ]
+          }
+        ],
+        "required": false
+      },
+      "multicast_pps": {
+        "type": "oneOf",
+        "title": "Multicast Pps",
+        "oneOf": [
+          {
+            "type": "int",
+            "minimum": 1,
+            "maximum": 4882812
+          },
+          {
+            "type": "enum",
+            "enum": [
+              "unspecified"
+            ]
+          }
+        ],
+        "required": false
+      },
+      "unknown_unicast_burst_pps": {
+        "type": "oneOf",
+        "title": "Unknown Unicast Burst Pps",
+        "oneOf": [
+          {
+            "type": "int",
+            "minimum": 1,
+            "maximum": 4882812
+          },
+          {
+            "type": "enum",
+            "enum": [
+              "unspecified"
+            ]
+          }
+        ],
+        "required": false
+      },
+      "unknown_unicast_pps": {
+        "type": "oneOf",
+        "title": "Unknown Unicast Pps",
+        "oneOf": [
+          {
+            "type": "int",
+            "minimum": 1,
+            "maximum": 4882812
+          },
+          {
+            "type": "enum",
+            "enum": [
+              "unspecified"
+            ]
+          }
+        ],
+        "required": false
+      },
+      "action": {
+        "type": "select",
+        "title": "Action",
+        "enum": [
+          "drop",
+          "shutdown"
+        ],
+        "required": false
+      }
+    },
+    "ap_leaf_interface_policy_group": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "type": {
+        "type": "select",
+        "title": "Type",
+        "enum": [
+          "access",
+          "vpc",
+          "pc"
+        ],
+        "required": true
+      },
+      "map": {
+        "type": "select",
+        "title": "Map",
+        "enum": [
+          "none",
+          "10g-4x",
+          "25g-4x",
+          "100g-2x",
+          "50g-8",
+          "100g-4x"
+        ],
+        "required": false
+      },
+      "link_level_policy": {
+        "type": "string",
+        "title": "Link Level Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "cdp_policy": {
+        "type": "string",
+        "title": "Cdp Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "lldp_policy": {
+        "type": "string",
+        "title": "Lldp Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "spanning_tree_policy": {
+        "type": "string",
+        "title": "Spanning Tree Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "mcp_policy": {
+        "type": "string",
+        "title": "Mcp Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "l2_policy": {
+        "type": "string",
+        "title": "L2 Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "port_channel_policy": {
+        "type": "string",
+        "title": "Port Channel Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "port_channel_member_policy": {
+        "type": "string",
+        "title": "Port Channel Member Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "storm_control_policy": {
+        "type": "string",
+        "title": "Storm Control Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "aaep": {
+        "type": "string",
+        "title": "Aaep",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      }
+    },
+    "ap_spine_interface_policy_group": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "link_level_policy": {
+        "type": "string",
+        "title": "Link Level Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "cdp_policy": {
+        "type": "string",
+        "title": "Cdp Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "aaep": {
+        "type": "string",
+        "title": "Aaep",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      }
+    },
+    "ap_switch_policies": {
+      "mst_policies": {
+        "type": "list",
+        "title": "Mst Policies",
+        "ref": "ap_mst_policy",
+        "required": false
+      },
+      "vpc_policies": {
+        "type": "list",
+        "title": "Vpc Policies",
+        "ref": "ap_vpc_policy",
+        "required": false
+      },
+      "forwarding_scale_policies": {
+        "type": "list",
+        "title": "Forwarding Scale Policies",
+        "ref": "ap_forwarding_scale_policy",
+        "required": false
+      }
+    },
+    "ap_mst_policy": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "region": {
+        "type": "string",
+        "title": "Region",
+        "minLength": 0,
+        "maxLength": 32,
+        "required": true
+      },
+      "revision": {
+        "type": "int",
+        "title": "Revision",
+        "minimum": 0,
+        "maximum": 65535,
+        "required": true
+      },
+      "instances": {
+        "type": "list",
+        "title": "Instances",
+        "ref": "ap_mst_policy_instance",
+        "required": false
+      }
+    },
+    "ap_mst_policy_instance": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "id": {
+        "type": "int",
+        "title": "Id",
+        "minimum": 1,
+        "maximum": 4096,
+        "required": true
+      },
+      "vlan_ranges": {
+        "type": "list",
+        "title": "Vlan Ranges",
+        "ref": "ap_mst_policy_instance_vlan_range",
+        "required": false
+      }
+    },
+    "ap_mst_policy_instance_vlan_range": {
+      "from": {
+        "type": "int",
+        "title": "From",
+        "minimum": 1,
+        "maximum": 4096,
+        "required": true
+      },
+      "to": {
+        "type": "int",
+        "title": "To",
+        "minimum": 1,
+        "maximum": 4096,
+        "required": false
+      }
+    },
+    "ap_vpc_policy": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "peer_dead_interval": {
+        "type": "int",
+        "title": "Peer Dead Interval",
+        "minimum": 5,
+        "maximum": 600,
+        "required": false
+      }
+    },
+    "ap_forwarding_scale_policy": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "profile": {
+        "type": "select",
+        "title": "Profile",
+        "enum": [
+          "dual-stack",
+          "ipv4",
+          "high-dual-stack",
+          "high-lpm"
+        ],
+        "required": false
+      }
+    },
+    "ap_leaf_switch_profiles": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "selectors": {
+        "type": "list",
+        "title": "Selectors",
+        "ref": "ap_leaf_switch_profiles_selectors",
+        "required": false
+      },
+      "interface_profiles": {
+        "type": "list-string",
+        "title": "Interface Profiles",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "ap_leaf_switch_profiles_expected_state",
+        "required": false
+      }
+    },
+    "ap_leaf_switch_profiles_selectors": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "policy": {
+        "type": "string",
+        "title": "Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "node_blocks": {
+        "type": "list",
+        "title": "Node Blocks",
+        "ref": "ap_leaf_switch_profiles_selectors_node_blocks",
+        "required": false
+      }
+    },
+    "ap_leaf_switch_profiles_selectors_node_blocks": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "from": {
+        "type": "int",
+        "title": "From",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": true
+      },
+      "to": {
+        "type": "int",
+        "title": "To",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": false
+      }
+    },
+    "ap_leaf_switch_profiles_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "ap_spine_switch_profiles": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "selectors": {
+        "type": "list",
+        "title": "Selectors",
+        "ref": "ap_spine_switch_profiles_selectors",
+        "required": false
+      },
+      "interface_profiles": {
+        "type": "list-string",
+        "title": "Interface Profiles",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "ap_spine_switch_profiles_expected_state",
+        "required": false
+      }
+    },
+    "ap_spine_switch_profiles_selectors": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "policy": {
+        "type": "string",
+        "title": "Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "node_blocks": {
+        "type": "list",
+        "title": "Node Blocks",
+        "ref": "ap_spine_switch_profiles_selectors_node_blocks",
+        "required": false
+      }
+    },
+    "ap_spine_switch_profiles_selectors_node_blocks": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "from": {
+        "type": "int",
+        "title": "From",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": true
+      },
+      "to": {
+        "type": "int",
+        "title": "To",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": false
+      }
+    },
+    "ap_spine_switch_profiles_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "ap_spine_switch_policy_groups": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "lldp_policy": {
+        "type": "string",
+        "title": "Lldp Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "coop_spine_policy": {
+        "type": "string",
+        "title": "Coop Spine Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "bfd_ipv4_policy": {
+        "type": "string",
+        "title": "Bfd Ipv4 Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "bfd_ipv6_policy": {
+        "type": "string",
+        "title": "Bfd Ipv6 Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "cdp_policy": {
+        "type": "string",
+        "title": "Cdp Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      }
+    },
+    "ap_leaf_switch_policy_groups": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "forwarding_scale_policy": {
+        "type": "string",
+        "title": "Forwarding Scale Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "bfd_ipv4_policy": {
+        "type": "string",
+        "title": "Bfd Ipv4 Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "bfd_ipv6_policy": {
+        "type": "string",
+        "title": "Bfd Ipv6 Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "equipment_flash_config_policy": {
+        "type": "string",
+        "title": "Equipment Flash Config Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "fibre_channel_node_policy": {
+        "type": "string",
+        "title": "Fibre Channel Node Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "fibre_channel_san_policy": {
+        "type": "string",
+        "title": "Fibre Channel San Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "8021x_node_authentication_policy": {
+        "type": "string",
+        "title": "8021X Node Authentication Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "coop_leaf_policy": {
+        "type": "string",
+        "title": "Coop Leaf Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "cdp_policy": {
+        "type": "string",
+        "title": "Cdp Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "lldp_policy": {
+        "type": "string",
+        "title": "Lldp Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "monitoring_policy": {
+        "type": "string",
+        "title": "Monitoring Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "netflow_node_policy": {
+        "type": "string",
+        "title": "Netflow Node Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "poe_node_policy": {
+        "type": "string",
+        "title": "Poe Node Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "fast_link_failover_policy": {
+        "type": "string",
+        "title": "Fast Link Failover Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      }
+    }
+  }
+}

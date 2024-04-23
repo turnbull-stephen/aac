@@ -1,0 +1,118 @@
+{
+  "pod_policies": {
+    "name": "Pod Policies",
+    "pod_policies": {
+      "pods": {
+        "type": "list",
+        "title": "Pods",
+        "ref": "pp_pod",
+        "required": false
+      }
+    },
+    "pp_pod": {
+      "id": {
+        "type": "int",
+        "title": "Id",
+        "minimum": 1,
+        "maximum": 255,
+        "required": true
+      },
+      "tep_pool": {
+        "type": "ip",
+        "title": "Tep Pool",
+        "required": false
+      },
+      "data_plane_tep": {
+        "type": "ip",
+        "title": "Data Plane Tep",
+        "required": false
+      },
+      "unicast_tep": {
+        "type": "ip",
+        "title": "Unicast Tep",
+        "required": false
+      },
+      "policy": {
+        "type": "string",
+        "title": "Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "external_tep_pools": {
+        "type": "list",
+        "title": "External Tep Pools",
+        "ref": "pp_pod_external_tep_pools",
+        "required": false
+      },
+      "remote_pools": {
+        "type": "list",
+        "title": "Remote Pools",
+        "ref": "pp_pod_remote_pools",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "pp_pod_expected_state",
+        "required": false
+      }
+    },
+    "pp_pod_external_tep_pools": {
+      "prefix": {
+        "type": "ip",
+        "title": "Prefix",
+        "required": true
+      },
+      "reserved_address_count": {
+        "type": "int",
+        "title": "Reserved Address Count",
+        "minimum": 1,
+        "maximum": 4294967295,
+        "required": true
+      }
+    },
+    "pp_pod_remote_pools": {
+      "id": {
+        "type": "int",
+        "title": "Id",
+        "minimum": 1,
+        "maximum": 255,
+        "required": true
+      },
+      "remote_pool": {
+        "type": "ip",
+        "title": "Remote Pool",
+        "required": true
+      }
+    },
+    "pp_pod_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    }
+  }
+}

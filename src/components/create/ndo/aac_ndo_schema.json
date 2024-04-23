@@ -1,0 +1,2860 @@
+{
+  "ndo": {
+    "name": "Ndo",
+    "ndo": {
+      "version": {
+        "type": "string",
+        "title": "Version",
+        "required": false
+      },
+      "system_config": {
+        "type": "object",
+        "title": "System Config",
+        "ref": "system_config",
+        "required": false
+      },
+      "remote_locations": {
+        "type": "list",
+        "title": "Remote Locations",
+        "ref": "remote_locations",
+        "required": false
+      },
+      "sites": {
+        "type": "list",
+        "title": "Sites",
+        "ref": "sites",
+        "required": false
+      },
+      "fabric_connectivity": {
+        "type": "object",
+        "title": "Fabric Connectivity",
+        "ref": "fabric_connectivity",
+        "required": false
+      },
+      "tenants": {
+        "type": "list",
+        "title": "Tenants",
+        "ref": "tenants",
+        "required": false
+      },
+      "policies": {
+        "type": "object",
+        "title": "Policies",
+        "ref": "policies",
+        "required": false
+      },
+      "schemas": {
+        "type": "object",
+        "title": "Schemas",
+        "ref": "schemas",
+        "required": false
+      }
+    },
+    "system_config": {
+      "banner": {
+        "type": "object",
+        "title": "Banner",
+        "ref": "sc_banner",
+        "required": false
+      }
+    },
+    "sc_banner": {
+      "alias": {
+        "type": "string",
+        "title": "Alias",
+        "required": false
+      },
+      "type": {
+        "type": "select",
+        "title": "Type",
+        "enum": [
+          "informational",
+          "warning",
+          "critical"
+        ],
+        "required": false
+      },
+      "message": {
+        "type": "string",
+        "title": "Message",
+        "required": false
+      },
+      "state": {
+        "type": "select",
+        "title": "State",
+        "enum": [
+          "active",
+          "inactive"
+        ],
+        "required": false
+      }
+    },
+    "remote_locations": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "required": false
+      },
+      "hostname_ip": {
+        "type": "string",
+        "title": "Hostname Ip",
+        "required": true
+      },
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 0,
+        "maximum": 65535,
+        "required": false
+      },
+      "protocol": {
+        "type": "select",
+        "title": "Protocol",
+        "enum": [
+          "scp",
+          "sftp"
+        ],
+        "required": false
+      },
+      "path": {
+        "type": "string",
+        "title": "Path",
+        "required": false
+      },
+      "authentication": {
+        "type": "select",
+        "title": "Authentication",
+        "enum": [
+          "password",
+          "sshKey"
+        ],
+        "required": false
+      },
+      "username": {
+        "type": "string",
+        "title": "Username",
+        "required": false
+      }
+    },
+    "sites": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "required": true
+      },
+      "username": {
+        "type": "string",
+        "title": "Username",
+        "required": false
+      },
+      "id": {
+        "type": "int",
+        "title": "Id",
+        "minimum": 1,
+        "required": false
+      },
+      "location": {
+        "type": "object",
+        "title": "Location",
+        "ref": "sites_location",
+        "required": false
+      },
+      "multisite": {
+        "type": "select-bool",
+        "title": "Multisite",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "multicast_tep": {
+        "type": "ip",
+        "title": "Multicast Tep",
+        "required": false
+      },
+      "bgp": {
+        "type": "object",
+        "title": "Bgp",
+        "ref": "sites_bgp",
+        "required": false
+      },
+      "ospf": {
+        "type": "object",
+        "title": "Ospf",
+        "ref": "sites_ospf",
+        "required": false
+      },
+      "routed_domain": {
+        "type": "string",
+        "title": "Routed Domain",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "ospf_policies": {
+        "type": "list",
+        "title": "Ospf Policies",
+        "ref": "sites_ospf_policies",
+        "required": false
+      },
+      "pods": {
+        "type": "list",
+        "title": "Pods",
+        "ref": "sites_pods",
+        "required": false
+      }
+    },
+    "sites_location": {
+      "long": {
+        "type": "string",
+        "title": "Long",
+        "required": true
+      },
+      "lat": {
+        "type": "string",
+        "title": "Lat",
+        "required": true
+      }
+    },
+    "sites_bgp": {
+      "as": {
+        "type": "int",
+        "title": "As",
+        "minimum": 1,
+        "maximum": 4294967295,
+        "required": false
+      }
+    },
+    "sites_ospf": {
+      "area_id": {
+        "type": "oneOf",
+        "title": "Area Id",
+        "oneOf": [
+          {
+            "maximum": 4294967295,
+            "minimum": 0,
+            "type": "int"
+          },
+          {
+            "enum": [
+              "backbone",
+              "ip"
+            ],
+            "type": "enum"
+          }
+        ],
+        "required": false
+      },
+      "area_type": {
+        "type": "select",
+        "title": "Area Type",
+        "enum": [
+          "regular",
+          "stub",
+          "nssa"
+        ],
+        "required": false
+      }
+    },
+    "sites_ospf_policies": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "network_type": {
+        "type": "select",
+        "title": "Network Type",
+        "enum": [
+          "point-to-point",
+          "broadcast"
+        ],
+        "required": false
+      },
+      "priority": {
+        "type": "int",
+        "title": "Priority",
+        "minimum": 0,
+        "maximum": 255,
+        "required": false
+      },
+      "interface_cost": {
+        "type": "int",
+        "title": "Interface Cost",
+        "minimum": 0,
+        "maximum": 65535,
+        "required": false
+      },
+      "passive_interface": {
+        "type": "select-bool",
+        "title": "Passive Interface",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "mtu_ignore": {
+        "type": "select-bool",
+        "title": "Mtu Ignore",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "advertise_subnet": {
+        "type": "select-bool",
+        "title": "Advertise Subnet",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "bfd": {
+        "type": "select-bool",
+        "title": "Bfd",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "hello_interval": {
+        "type": "int",
+        "title": "Hello Interval",
+        "minimum": 1,
+        "maximum": 65535,
+        "required": false
+      },
+      "dead_interval": {
+        "type": "int",
+        "title": "Dead Interval",
+        "minimum": 1,
+        "maximum": 65535,
+        "required": false
+      },
+      "retransmit_interval": {
+        "type": "int",
+        "title": "Retransmit Interval",
+        "minimum": 1,
+        "maximum": 65535,
+        "required": false
+      },
+      "retransmit_delay": {
+        "type": "int",
+        "title": "Retransmit Delay",
+        "minimum": 1,
+        "maximum": 450,
+        "required": false
+      }
+    },
+    "sites_pods": {
+      "id": {
+        "type": "int",
+        "title": "Id",
+        "minimum": 1,
+        "maximum": 255,
+        "required": true
+      },
+      "unicast_tep": {
+        "type": "ip",
+        "title": "Unicast Tep",
+        "required": false
+      },
+      "spines": {
+        "type": "list",
+        "title": "Spines",
+        "ref": "sites_pods_spines",
+        "required": false
+      }
+    },
+    "sites_pods_spines": {
+      "id": {
+        "type": "int",
+        "title": "Id",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": true
+      },
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "bgp_peering": {
+        "type": "select-bool",
+        "title": "Bgp Peering",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "bgp_route_reflector": {
+        "type": "select-bool",
+        "title": "Bgp Route Reflector",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "control_plane_tep": {
+        "type": "ip",
+        "title": "Control Plane Tep",
+        "required": false
+      },
+      "interfaces": {
+        "type": "list",
+        "title": "Interfaces",
+        "ref": "sites_pods_spines_interfaces",
+        "required": false
+      }
+    },
+    "sites_pods_spines_interfaces": {
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 1,
+        "maximum": 127,
+        "required": true
+      },
+      "module": {
+        "type": "int",
+        "title": "Module",
+        "minimum": 1,
+        "maximum": 9,
+        "required": false
+      },
+      "ip": {
+        "type": "ip",
+        "title": "Ip",
+        "required": true
+      },
+      "mtu": {
+        "type": "oneOf",
+        "title": "Mtu",
+        "oneOf": [
+          {
+            "maximum": 9216,
+            "minimum": 576,
+            "type": "int"
+          },
+          {
+            "enum": [
+              "inherit"
+            ],
+            "type": "enum"
+          }
+        ],
+        "required": false
+      },
+      "ospf": {
+        "type": "object",
+        "title": "Ospf",
+        "ref": "sites_pods_spines_interfaces_ospf",
+        "required": false
+      }
+    },
+    "sites_pods_spines_interfaces_ospf": {
+      "policy": {
+        "type": "string",
+        "title": "Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "authentication_type": {
+        "type": "select",
+        "title": "Authentication Type",
+        "enum": [
+          "none",
+          "simple",
+          "md5"
+        ],
+        "required": false
+      },
+      "authentication_key_id": {
+        "type": "int",
+        "title": "Authentication Key Id",
+        "minimum": 1,
+        "maximum": 255,
+        "required": false
+      }
+    },
+    "fabric_connectivity": {
+      "bgp": {
+        "type": "object",
+        "title": "Bgp",
+        "ref": "fc_bgp",
+        "required": false
+      }
+    },
+    "fc_bgp": {
+      "peering_type": {
+        "type": "select",
+        "title": "Peering Type",
+        "enum": [
+          "full-mesh",
+          "route-reflector"
+        ],
+        "required": false
+      },
+      "ttl": {
+        "type": "int",
+        "title": "Ttl",
+        "minimum": 1,
+        "maximum": 255,
+        "required": false
+      },
+      "max_as": {
+        "type": "int",
+        "title": "Max As",
+        "minimum": 0,
+        "maximum": 2000,
+        "required": false
+      },
+      "keepalive_interval": {
+        "type": "int",
+        "title": "Keepalive Interval",
+        "minimum": 0,
+        "maximum": 3600,
+        "required": false
+      },
+      "hold_interval": {
+        "type": "int",
+        "title": "Hold Interval",
+        "minimum": 0,
+        "maximum": 3600,
+        "required": false
+      },
+      "stale_interval": {
+        "type": "int",
+        "title": "Stale Interval",
+        "minimum": 1,
+        "maximum": 3600,
+        "required": false
+      },
+      "graceful_restart": {
+        "type": "select-bool",
+        "title": "Graceful Restart",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      }
+    },
+    "tenants": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "sites": {
+        "type": "list",
+        "title": "Sites",
+        "ref": "tenants_sites",
+        "required": false
+      },
+      "users": {
+        "type": "list",
+        "title": "Users",
+        "ref": "tenants_users",
+        "required": false
+      },
+      "orchestrator_only": {
+        "type": "bool",
+        "title": "Orchestrator Only",
+        "required": false
+      }
+    },
+    "tenants_sites": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "required": true
+      },
+      "azure_subscription_id": {
+        "type": "string",
+        "title": "Azure Subscription Id",
+        "required": false
+      },
+      "azure_shared_tenant": {
+        "type": "string",
+        "title": "Azure Shared Tenant",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      }
+    },
+    "tenants_users": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "required": true
+      },
+      "domain": {
+        "type": "string",
+        "title": "Domain",
+        "required": false
+      }
+    },
+    "policies": {
+      "dhcp_relays": {
+        "type": "list",
+        "title": "Dhcp Relays",
+        "ref": "policies_dhcp_relays",
+        "required": false
+      },
+      "dhcp_options": {
+        "type": "list",
+        "title": "Dhcp Options",
+        "ref": "policies_dhcp_options",
+        "required": false
+      }
+    },
+    "policies_dhcp_relays": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "tenant": {
+        "type": "string",
+        "title": "Tenant",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "providers": {
+        "type": "list",
+        "title": "Providers",
+        "ref": "policies_dhcp_relays_providers",
+        "required": false
+      }
+    },
+    "policies_dhcp_relays_providers": {
+      "ip": {
+        "type": "ip",
+        "title": "Ip",
+        "required": true
+      },
+      "tenant": {
+        "type": "string",
+        "title": "Tenant",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "schema": {
+        "type": "string",
+        "title": "Schema",
+        "required": true
+      },
+      "template": {
+        "type": "string",
+        "title": "Template",
+        "required": true
+      },
+      "application_profile": {
+        "type": "string",
+        "title": "Application Profile",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "endpoint_group": {
+        "type": "string",
+        "title": "Endpoint Group",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "external_endpoint_group": {
+        "type": "string",
+        "title": "External Endpoint Group",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      }
+    },
+    "policies_dhcp_options": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "tenant": {
+        "type": "string",
+        "title": "Tenant",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "options": {
+        "type": "list",
+        "title": "Options",
+        "ref": "policies_dhcp_options_options",
+        "required": false
+      }
+    },
+    "policies_dhcp_options_options": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "id": {
+        "type": "int",
+        "title": "Id",
+        "minimum": 1,
+        "required": true
+      },
+      "data": {
+        "type": "string",
+        "title": "Data",
+        "required": true
+      }
+    }
+  },
+  "schemas": {
+    "name": "Schemas",
+    "schemas": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "templates": {
+        "type": "list",
+        "title": "Templates",
+        "ref": "schemas_templates",
+        "required": false
+      }
+    },
+    "schemas_templates": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "type": {
+        "type": "select",
+        "title": "Type",
+        "enum": [
+          "multi_site",
+          "autonomous"
+        ],
+        "required": false
+      },
+      "tenant": {
+        "type": "string",
+        "title": "Tenant",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "application_profiles": {
+        "type": "list",
+        "title": "Application Profiles",
+        "ref": "t_application_profiles",
+        "required": false
+      },
+      "vrfs": {
+        "type": "list",
+        "title": "Vrfs",
+        "ref": "t_vrfs",
+        "required": false
+      },
+      "bridge_domains": {
+        "type": "list",
+        "title": "Bridge Domains",
+        "ref": "t_bridge_domains",
+        "required": false
+      },
+      "filters": {
+        "type": "list",
+        "title": "Filters",
+        "ref": "t_filters",
+        "required": false
+      },
+      "contracts": {
+        "type": "list",
+        "title": "Contracts",
+        "ref": "t_contracts",
+        "required": false
+      },
+      "l3outs": {
+        "type": "list",
+        "title": "L3Outs",
+        "ref": "t_l3outs",
+        "required": false
+      },
+      "external_endpoint_groups": {
+        "type": "list",
+        "title": "External Endpoint Groups",
+        "ref": "t_external_endpoint_groups",
+        "required": false
+      },
+      "service_graphs": {
+        "type": "list",
+        "title": "Service Graphs",
+        "ref": "t_service_graphs",
+        "required": false
+      },
+      "deploy_order": {
+        "type": "int",
+        "title": "Deploy Order",
+        "minimum": 1,
+        "maximum": 3,
+        "required": false
+      }
+    },
+    "t_application_profiles": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "endpoint_groups": {
+        "type": "list",
+        "title": "Endpoint Groups",
+        "ref": "t_ap_endpoint_groups",
+        "required": false
+      }
+    },
+    "t_ap_endpoint_groups": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "useg": {
+        "type": "select-bool",
+        "title": "Useg",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "intra_epg_isolation": {
+        "type": "select-bool",
+        "title": "Intra Epg Isolation",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "proxy_arp": {
+        "type": "select-bool",
+        "title": "Proxy Arp",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "preferred_group": {
+        "type": "select-bool",
+        "title": "Preferred Group",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "bridge_domain": {
+        "type": "object",
+        "title": "Bridge Domain",
+        "ref": "t_ap_epg_bridge_domain",
+        "required": false
+      },
+      "vrf": {
+        "type": "object",
+        "title": "Vrf",
+        "ref": "t_ap_epg_vrf",
+        "required": false
+      },
+      "subnets": {
+        "type": "list",
+        "title": "Subnets",
+        "ref": "t_ap_epg_subnets",
+        "required": false
+      },
+      "contracts": {
+        "type": "object",
+        "title": "Contracts",
+        "ref": "t_ap_epg_contracts",
+        "required": false
+      },
+      "sites": {
+        "type": "list",
+        "title": "Sites",
+        "ref": "t_ap_epg_sites",
+        "required": false
+      }
+    },
+    "t_ap_epg_bridge_domain": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "schema": {
+        "type": "string",
+        "title": "Schema",
+        "required": false
+      },
+      "template": {
+        "type": "string",
+        "title": "Template",
+        "required": false
+      }
+    },
+    "t_ap_epg_vrf": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "schema": {
+        "type": "string",
+        "title": "Schema",
+        "required": false
+      },
+      "template": {
+        "type": "string",
+        "title": "Template",
+        "required": false
+      }
+    },
+    "t_ap_epg_subnets": {
+      "ip": {
+        "type": "ip",
+        "title": "Ip",
+        "required": true
+      },
+      "scope": {
+        "type": "select",
+        "title": "Scope",
+        "enum": [
+          "private",
+          "public"
+        ],
+        "required": false
+      },
+      "shared": {
+        "type": "select-bool",
+        "title": "Shared",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "no_default_gateway": {
+        "type": "select-bool",
+        "title": "No Default Gateway",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "primary": {
+        "type": "select-bool",
+        "title": "Primary",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      }
+    },
+    "t_ap_epg_contracts": {
+      "consumers": {
+        "type": "list",
+        "title": "Consumers",
+        "ref": "t_ap_epg_contracts_consumers",
+        "required": false
+      },
+      "providers": {
+        "type": "list",
+        "title": "Providers",
+        "ref": "t_ap_epg_contracts_providers",
+        "required": false
+      }
+    },
+    "t_ap_epg_contracts_consumers": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "schema": {
+        "type": "string",
+        "title": "Schema",
+        "required": false
+      },
+      "template": {
+        "type": "string",
+        "title": "Template",
+        "required": false
+      }
+    },
+    "t_ap_epg_contracts_providers": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "schema": {
+        "type": "string",
+        "title": "Schema",
+        "required": false
+      },
+      "template": {
+        "type": "string",
+        "title": "Template",
+        "required": false
+      }
+    },
+    "t_ap_epg_sites": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "required": true
+      },
+      "physical_domains": {
+        "type": "list",
+        "title": "Physical Domains",
+        "ref": "t_ap_epg_sites_physical_domains",
+        "required": false
+      },
+      "vmware_vmm_domains": {
+        "type": "list",
+        "title": "Vmware Vmm Domains",
+        "ref": "t_ap_epg_sites_vmware_vmm_domains",
+        "required": false
+      },
+      "static_ports": {
+        "type": "list",
+        "title": "Static Ports",
+        "ref": "t_ap_epg_sites_static_ports",
+        "required": false
+      },
+      "static_leafs": {
+        "type": "list",
+        "title": "Static Leafs",
+        "ref": "t_ap_epg_sites_static_leafs",
+        "required": false
+      },
+      "subnets": {
+        "type": "list",
+        "title": "Subnets",
+        "ref": "t_ap_epg_sites_subnets",
+        "required": false
+      },
+      "selectors": {
+        "type": "list",
+        "title": "Selectors",
+        "ref": "t_ap_epg_sites_selectors",
+        "required": false
+      }
+    },
+    "t_ap_epg_sites_physical_domains": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "deployment_immediacy": {
+        "type": "select",
+        "title": "Deployment Immediacy",
+        "enum": [
+          "immediate",
+          "lazy"
+        ],
+        "required": false
+      },
+      "resolution_immediacy": {
+        "type": "select",
+        "title": "Resolution Immediacy",
+        "enum": [
+          "immediate",
+          "lazy",
+          "pre-provision"
+        ],
+        "required": false
+      }
+    },
+    "t_ap_epg_sites_vmware_vmm_domains": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "deployment_immediacy": {
+        "type": "select",
+        "title": "Deployment Immediacy",
+        "enum": [
+          "immediate",
+          "lazy"
+        ],
+        "required": false
+      },
+      "resolution_immediacy": {
+        "type": "select",
+        "title": "Resolution Immediacy",
+        "enum": [
+          "immediate",
+          "lazy",
+          "pre-provision"
+        ],
+        "required": false
+      },
+      "vlan_mode": {
+        "type": "select",
+        "title": "Vlan Mode",
+        "enum": [
+          "static",
+          "dynamic"
+        ],
+        "required": false
+      },
+      "vlan": {
+        "type": "int",
+        "title": "Vlan",
+        "minimum": 1,
+        "maximum": 4096,
+        "required": false
+      },
+      "u_segmentation": {
+        "type": "select-bool",
+        "title": "U Segmentation",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "useg_vlan": {
+        "type": "int",
+        "title": "Useg Vlan",
+        "minimum": 1,
+        "maximum": 4096,
+        "required": false
+      }
+    },
+    "t_ap_epg_sites_static_ports": {
+      "type": {
+        "type": "select",
+        "title": "Type",
+        "enum": [
+          "port",
+          "vpc",
+          "pc"
+        ],
+        "required": false
+      },
+      "pod": {
+        "type": "int",
+        "title": "Pod",
+        "minimum": 1,
+        "maximum": 255,
+        "required": false
+      },
+      "node": {
+        "type": "int",
+        "title": "Node",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": false
+      },
+      "fex": {
+        "type": "int",
+        "title": "Fex",
+        "minimum": 101,
+        "maximum": 199,
+        "required": false
+      },
+      "node_1": {
+        "type": "int",
+        "title": "Node 1",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": false
+      },
+      "node_2": {
+        "type": "int",
+        "title": "Node 2",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": false
+      },
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 1,
+        "maximum": 127,
+        "required": false
+      },
+      "sub_port": {
+        "type": "int",
+        "title": "Sub Port",
+        "minimum": 1,
+        "maximum": 16,
+        "required": false
+      },
+      "module": {
+        "type": "int",
+        "title": "Module",
+        "minimum": 1,
+        "maximum": 9,
+        "required": false
+      },
+      "channel": {
+        "type": "string",
+        "title": "Channel",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "vlan": {
+        "type": "int",
+        "title": "Vlan",
+        "minimum": 1,
+        "maximum": 4096,
+        "required": true
+      },
+      "useg_vlan": {
+        "type": "int",
+        "title": "Useg Vlan",
+        "minimum": 1,
+        "maximum": 4096,
+        "required": false
+      },
+      "deployment_immediacy": {
+        "type": "select",
+        "title": "Deployment Immediacy",
+        "enum": [
+          "immediate",
+          "lazy"
+        ],
+        "required": false
+      },
+      "mode": {
+        "type": "select",
+        "title": "Mode",
+        "enum": [
+          "regular",
+          "native",
+          "untagged"
+        ],
+        "required": false
+      }
+    },
+    "t_ap_epg_sites_static_leafs": {
+      "pod": {
+        "type": "int",
+        "title": "Pod",
+        "minimum": 1,
+        "maximum": 255,
+        "required": false
+      },
+      "node": {
+        "type": "int",
+        "title": "Node",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": true
+      },
+      "vlan": {
+        "type": "int",
+        "title": "Vlan",
+        "minimum": 1,
+        "maximum": 4096,
+        "required": true
+      }
+    },
+    "t_ap_epg_sites_subnets": {
+      "ip": {
+        "type": "ip",
+        "title": "Ip",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "scope": {
+        "type": "select",
+        "title": "Scope",
+        "enum": [
+          "private",
+          "public"
+        ],
+        "required": false
+      },
+      "shared": {
+        "type": "select-bool",
+        "title": "Shared",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "no_default_gateway": {
+        "type": "select-bool",
+        "title": "No Default Gateway",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "primary": {
+        "type": "select-bool",
+        "title": "Primary",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      }
+    },
+    "t_ap_epg_sites_selectors": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "required": true
+      },
+      "expressions": {
+        "type": "list",
+        "title": "Expressions",
+        "ref": "t_ap_epg_sites_selectors_expressions",
+        "required": false
+      }
+    },
+    "t_ap_epg_sites_selectors_expressions": {
+      "key": {
+        "type": "select",
+        "title": "Key",
+        "enum": [
+          "ipAddress"
+        ],
+        "required": true
+      },
+      "operator": {
+        "type": "select",
+        "title": "Operator",
+        "enum": [
+          "equals"
+        ],
+        "required": true
+      },
+      "value": {
+        "type": "string",
+        "title": "Value",
+        "required": true
+      }
+    },
+    "t_vrfs": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "data_plane_learning": {
+        "type": "bool",
+        "title": "Data Plane Learning",
+        "required": false
+      },
+      "preferred_group": {
+        "type": "bool",
+        "title": "Preferred Group",
+        "required": false
+      },
+      "l3_multicast": {
+        "type": "select-bool",
+        "title": "L3 Multicast",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "vzany": {
+        "type": "select-bool",
+        "title": "Vzany",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "sites": {
+        "type": "list",
+        "title": "Sites",
+        "ref": "t_vrf_sites",
+        "required": false
+      },
+      "contracts": {
+        "type": "object",
+        "title": "Contracts",
+        "ref": "t_vrfs_contracts",
+        "required": false
+      }
+    },
+    "t_vrfs_contracts": {
+      "consumers": {
+        "type": "list",
+        "title": "Consumers",
+        "ref": "t_vrfs_contracts_consumers",
+        "required": false
+      },
+      "providers": {
+        "type": "list",
+        "title": "Providers",
+        "ref": "t_vrfs_contracts_providers",
+        "required": false
+      }
+    },
+    "t_vrfs_contracts_consumers": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "schema": {
+        "type": "string",
+        "title": "Schema",
+        "required": false
+      },
+      "template": {
+        "type": "string",
+        "title": "Template",
+        "required": false
+      }
+    },
+    "t_vrfs_contracts_providers": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "schema": {
+        "type": "string",
+        "title": "Schema",
+        "required": false
+      },
+      "template": {
+        "type": "string",
+        "title": "Template",
+        "required": false
+      }
+    },
+    "t_vrf_sites": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "required": true
+      },
+      "regions": {
+        "type": "list",
+        "title": "Regions",
+        "ref": "t_vrf_sites_regions",
+        "required": false
+      }
+    },
+    "t_vrf_sites_regions": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "required": true
+      },
+      "hub_network": {
+        "type": "select-bool",
+        "title": "Hub Network",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "hub_network_name": {
+        "type": "string",
+        "title": "Hub Network Name",
+        "required": false
+      },
+      "hub_network_tenant": {
+        "type": "string",
+        "title": "Hub Network Tenant",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "vpn_gateway": {
+        "type": "select-bool",
+        "title": "Vpn Gateway",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "cidrs": {
+        "type": "list",
+        "title": "Cidrs",
+        "ref": "t_vrf_sites_regions_cidrs",
+        "required": false
+      }
+    },
+    "t_vrf_sites_regions_cidrs": {
+      "ip": {
+        "type": "ip",
+        "title": "Ip",
+        "required": true
+      },
+      "subnets": {
+        "type": "list",
+        "title": "Subnets",
+        "ref": "t_vrf_sites_regions_cidrs_subnets",
+        "required": false
+      }
+    },
+    "t_vrf_sites_regions_cidrs_subnets": {
+      "ip": {
+        "type": "ip",
+        "title": "Ip",
+        "required": true
+      },
+      "zone": {
+        "type": "string",
+        "title": "Zone",
+        "required": false
+      },
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "required": false
+      }
+    },
+    "t_bridge_domains": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "l2_unknown_unicast": {
+        "type": "select",
+        "title": "L2 Unknown Unicast",
+        "enum": [
+          "proxy",
+          "flood"
+        ],
+        "required": false
+      },
+      "intersite_bum_traffic": {
+        "type": "select-bool",
+        "title": "Intersite Bum Traffic",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "optimize_wan_bandwidth": {
+        "type": "select-bool",
+        "title": "Optimize Wan Bandwidth",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "l2_stretch": {
+        "type": "select-bool",
+        "title": "L2 Stretch",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "unicast_routing": {
+        "type": "select-bool",
+        "title": "Unicast Routing",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "arp_flooding": {
+        "type": "select-bool",
+        "title": "Arp Flooding",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "l3_multicast": {
+        "type": "select-bool",
+        "title": "L3 Multicast",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "virtual_mac": {
+        "type": "mac",
+        "title": "Virtual Mac",
+        "pattern": "^([0-9A-Fa-f]{2}:){5}([0-9A-Fa-f]{2})$",
+        "required": false
+      },
+      "multi_destination_flooding": {
+        "type": "select",
+        "title": "Multi Destination Flooding",
+        "enum": [
+          "bd-flood",
+          "encap-flood",
+          "drop"
+        ],
+        "required": false
+      },
+      "unknown_ipv4_multicast": {
+        "type": "select",
+        "title": "Unknown Ipv4 Multicast",
+        "enum": [
+          "flood",
+          "opt-flood"
+        ],
+        "required": false
+      },
+      "unknown_ipv6_multicast": {
+        "type": "select",
+        "title": "Unknown Ipv6 Multicast",
+        "enum": [
+          "flood",
+          "opt-flood"
+        ],
+        "required": false
+      },
+      "vrf": {
+        "type": "object",
+        "title": "Vrf",
+        "ref": "t_bd_vrf",
+        "required": true
+      },
+      "subnets": {
+        "type": "list",
+        "title": "Subnets",
+        "ref": "t_bd_subnets",
+        "required": false
+      },
+      "sites": {
+        "type": "list",
+        "title": "Sites",
+        "ref": "t_bd_sites",
+        "required": false
+      },
+      "dhcp_policies": {
+        "type": "list",
+        "title": "Dhcp Policies",
+        "ref": "t_bd_dhcp_policies",
+        "required": false
+      },
+      "dhcp_relay_policy": {
+        "type": "string",
+        "title": "Dhcp Relay Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "dhcp_option_policy": {
+        "type": "string",
+        "title": "Dhcp Option Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      }
+    },
+    "t_bd_vrf": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "schema": {
+        "type": "string",
+        "title": "Schema",
+        "required": false
+      },
+      "template": {
+        "type": "string",
+        "title": "Template",
+        "required": false
+      }
+    },
+    "t_bd_subnets": {
+      "ip": {
+        "type": "ip",
+        "title": "Ip",
+        "required": true
+      },
+      "scope": {
+        "type": "select",
+        "title": "Scope",
+        "enum": [
+          "private",
+          "public"
+        ],
+        "required": false
+      },
+      "shared": {
+        "type": "select-bool",
+        "title": "Shared",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "no_default_gateway": {
+        "type": "bool",
+        "title": "No Default Gateway",
+        "required": false
+      },
+      "querier": {
+        "type": "select-bool",
+        "title": "Querier",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "primary": {
+        "type": "select-bool",
+        "title": "Primary",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      }
+    },
+    "t_bd_dhcp_policies": {
+      "dhcp_relay_policy": {
+        "type": "string",
+        "title": "Dhcp Relay Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "dhcp_option_policy": {
+        "type": "string",
+        "title": "Dhcp Option Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      }
+    },
+    "t_bd_sites": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "required": true
+      },
+      "advertise_host_routes": {
+        "type": "select-bool",
+        "title": "Advertise Host Routes",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "subnets": {
+        "type": "list",
+        "title": "Subnets",
+        "ref": "t_bd_subnets",
+        "required": false
+      },
+      "l3outs": {
+        "type": "list-string",
+        "title": "L3Outs",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "mac": {
+        "type": "mac",
+        "title": "Mac",
+        "pattern": "^([0-9A-Fa-f]{2}:){5}([0-9A-Fa-f]{2})$",
+        "required": false
+      }
+    },
+    "t_filters": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "entries": {
+        "type": "list",
+        "title": "Entries",
+        "ref": "t_filters_entries",
+        "required": false
+      }
+    },
+    "t_filters_entries": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "ethertype": {
+        "type": "select",
+        "title": "Ethertype",
+        "enum": [
+          "unspecified",
+          "ipv4",
+          "trill",
+          "arp",
+          "ipv6",
+          "mpls_ucast",
+          "mac_security",
+          "fcoe",
+          "ip"
+        ],
+        "required": false
+      },
+      "protocol": {
+        "type": "oneOf",
+        "title": "Protocol",
+        "oneOf": [
+          {
+            "maximum": 255,
+            "minimum": 0,
+            "type": "int"
+          },
+          {
+            "enum": [
+              "unspecified",
+              "icmp",
+              "igmp",
+              "tcp",
+              "egp",
+              "igp",
+              "udp",
+              "icmpv6",
+              "eigrp",
+              "ospfigp",
+              "pim",
+              "l2tp"
+            ],
+            "type": "enum"
+          }
+        ],
+        "required": false
+      },
+      "source_from_port": {
+        "type": "oneOf",
+        "title": "Source From Port",
+        "oneOf": [
+          {
+            "maximum": 65535,
+            "minimum": 0,
+            "type": "int"
+          },
+          {
+            "enum": [
+              "unspecified",
+              "ftpData",
+              "smtp",
+              "dns",
+              "http",
+              "pop3",
+              "https",
+              "rtsp",
+              "ssh"
+            ],
+            "type": "enum"
+          }
+        ],
+        "required": false
+      },
+      "source_to_port": {
+        "type": "oneOf",
+        "title": "Source To Port",
+        "oneOf": [
+          {
+            "maximum": 65535,
+            "minimum": 0,
+            "type": "int"
+          },
+          {
+            "enum": [
+              "unspecified",
+              "ftpData",
+              "smtp",
+              "dns",
+              "http",
+              "pop3",
+              "https",
+              "rtsp",
+              "ssh"
+            ],
+            "type": "enum"
+          }
+        ],
+        "required": false
+      },
+      "destination_from_port": {
+        "type": "oneOf",
+        "title": "Destination From Port",
+        "oneOf": [
+          {
+            "maximum": 65535,
+            "minimum": 0,
+            "type": "int"
+          },
+          {
+            "enum": [
+              "unspecified",
+              "ftpData",
+              "smtp",
+              "dns",
+              "http",
+              "pop3",
+              "https",
+              "rtsp",
+              "ssh"
+            ],
+            "type": "enum"
+          }
+        ],
+        "required": false
+      },
+      "destination_to_port": {
+        "type": "oneOf",
+        "title": "Destination To Port",
+        "oneOf": [
+          {
+            "maximum": 65535,
+            "minimum": 0,
+            "type": "int"
+          },
+          {
+            "enum": [
+              "unspecified",
+              "ftpData",
+              "smtp",
+              "dns",
+              "http",
+              "pop3",
+              "https",
+              "rtsp",
+              "ssh"
+            ],
+            "type": "enum"
+          }
+        ],
+        "required": false
+      },
+      "stateful": {
+        "type": "select-bool",
+        "title": "Stateful",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      }
+    },
+    "t_l3outs": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "vrf": {
+        "type": "object",
+        "title": "Vrf",
+        "ref": "t_l3outs_vrf",
+        "required": true
+      }
+    },
+    "t_l3outs_vrf": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "schema": {
+        "type": "string",
+        "title": "Schema",
+        "required": false
+      },
+      "template": {
+        "type": "string",
+        "title": "Template",
+        "required": false
+      }
+    },
+    "t_external_endpoint_groups": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "type": {
+        "type": "select",
+        "title": "Type",
+        "enum": [
+          "on-premise",
+          "cloud"
+        ],
+        "required": false
+      },
+      "preferred_group": {
+        "type": "select-bool",
+        "title": "Preferred Group",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "vrf": {
+        "type": "object",
+        "title": "Vrf",
+        "ref": "t_eepg_vrf",
+        "required": true
+      },
+      "l3out": {
+        "type": "object",
+        "title": "L3Out",
+        "ref": "t_eepg_l3out",
+        "required": false
+      },
+      "application_profile": {
+        "type": "object",
+        "title": "Application Profile",
+        "ref": "t_eepg_ap",
+        "required": false
+      },
+      "subnets": {
+        "type": "list",
+        "title": "Subnets",
+        "ref": "t_eepg_subnet",
+        "required": false
+      },
+      "contracts": {
+        "type": "object",
+        "title": "Contracts",
+        "ref": "t_eepg_contracts",
+        "required": false
+      },
+      "selectors": {
+        "type": "list",
+        "title": "Selectors",
+        "ref": "t_eepg_selectors",
+        "required": false
+      },
+      "sites": {
+        "type": "list",
+        "title": "Sites",
+        "ref": "t_eepg_sites",
+        "required": false
+      }
+    },
+    "t_eepg_vrf": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "schema": {
+        "type": "string",
+        "title": "Schema",
+        "required": false
+      },
+      "template": {
+        "type": "string",
+        "title": "Template",
+        "required": false
+      }
+    },
+    "t_eepg_l3out": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "schema": {
+        "type": "string",
+        "title": "Schema",
+        "required": false
+      },
+      "template": {
+        "type": "string",
+        "title": "Template",
+        "required": false
+      }
+    },
+    "t_eepg_ap": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "schema": {
+        "type": "string",
+        "title": "Schema",
+        "required": false
+      },
+      "template": {
+        "type": "string",
+        "title": "Template",
+        "required": false
+      }
+    },
+    "t_eepg_subnet": {
+      "prefix": {
+        "type": "ip",
+        "title": "Prefix",
+        "required": true
+      },
+      "import_route_control": {
+        "type": "select-bool",
+        "title": "Import Route Control",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "export_route_control": {
+        "type": "select-bool",
+        "title": "Export Route Control",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "shared_route_control": {
+        "type": "select-bool",
+        "title": "Shared Route Control",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "import_security": {
+        "type": "select-bool",
+        "title": "Import Security",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "shared_security": {
+        "type": "select-bool",
+        "title": "Shared Security",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "aggregate_import": {
+        "type": "select-bool",
+        "title": "Aggregate Import",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "aggregate_export": {
+        "type": "select-bool",
+        "title": "Aggregate Export",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "aggregate_shared": {
+        "type": "select-bool",
+        "title": "Aggregate Shared",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      }
+    },
+    "t_eepg_contracts": {
+      "consumers": {
+        "type": "list",
+        "title": "Consumers",
+        "ref": "t_eepg_contracts_consumers",
+        "required": false
+      },
+      "providers": {
+        "type": "list",
+        "title": "Providers",
+        "ref": "t_eepg_contracts_providers",
+        "required": false
+      }
+    },
+    "t_eepg_contracts_consumers": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "schema": {
+        "type": "string",
+        "title": "Schema",
+        "required": false
+      },
+      "template": {
+        "type": "string",
+        "title": "Template",
+        "required": false
+      }
+    },
+    "t_eepg_contracts_providers": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "schema": {
+        "type": "string",
+        "title": "Schema",
+        "required": false
+      },
+      "template": {
+        "type": "string",
+        "title": "Template",
+        "required": false
+      }
+    },
+    "t_eepg_selectors": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "required": true
+      }
+    },
+    "t_eepg_sites": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "required": true
+      },
+      "tenant": {
+        "type": "string",
+        "title": "Tenant",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "l3out": {
+        "type": "object",
+        "title": "L3Out",
+        "ref": "t_eepg_sites_l3out",
+        "required": false
+      },
+      "route_reachability": {
+        "type": "select",
+        "title": "Route Reachability",
+        "enum": [
+          "internet",
+          "site-ext"
+        ],
+        "required": false
+      },
+      "selectors": {
+        "type": "list",
+        "title": "Selectors",
+        "ref": "t_eepg_sites_selectors",
+        "required": false
+      }
+    },
+    "t_eepg_sites_l3out": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "tenant": {
+        "type": "string",
+        "title": "Tenant",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "schema": {
+        "type": "string",
+        "title": "Schema",
+        "required": false
+      },
+      "template": {
+        "type": "string",
+        "title": "Template",
+        "required": false
+      }
+    },
+    "t_eepg_sites_selectors": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "required": true
+      }
+    },
+    "t_contracts": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "scope": {
+        "type": "select",
+        "title": "Scope",
+        "enum": [
+          "application-profile",
+          "tenant",
+          "context",
+          "global"
+        ],
+        "required": false
+      },
+      "type": {
+        "type": "select",
+        "title": "Type",
+        "enum": [
+          "bothWay",
+          "oneWay"
+        ],
+        "required": false
+      },
+      "filters": {
+        "type": "list",
+        "title": "Filters",
+        "ref": "t_contracts_filters",
+        "required": false
+      },
+      "provider_to_consumer_filters": {
+        "type": "list",
+        "title": "Provider To Consumer Filters",
+        "ref": "t_contracts_filters",
+        "required": false
+      },
+      "consumer_to_provider_filters": {
+        "type": "list",
+        "title": "Consumer To Provider Filters",
+        "ref": "t_contracts_filters",
+        "required": false
+      },
+      "service_graph": {
+        "type": "object",
+        "title": "Service Graph",
+        "ref": "t_contracts_service_graph",
+        "required": false
+      }
+    },
+    "t_contracts_filters": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "schema": {
+        "type": "string",
+        "title": "Schema",
+        "required": false
+      },
+      "template": {
+        "type": "string",
+        "title": "Template",
+        "required": false
+      },
+      "log": {
+        "type": "select-bool",
+        "title": "Log",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      }
+    },
+    "t_contracts_service_graph": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "schema": {
+        "type": "string",
+        "title": "Schema",
+        "required": false
+      },
+      "template": {
+        "type": "string",
+        "title": "Template",
+        "required": false
+      },
+      "nodes": {
+        "type": "list",
+        "title": "Nodes",
+        "ref": "t_contracts_service_graph_nodes",
+        "required": true
+      }
+    },
+    "t_contracts_service_graph_nodes": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "index": {
+        "type": "int",
+        "title": "Index",
+        "minimum": 1,
+        "maximum": 3,
+        "required": false
+      },
+      "provider": {
+        "type": "object",
+        "title": "Provider",
+        "ref": "t_contracts_service_graph_nodes_prov",
+        "required": true
+      },
+      "consumer": {
+        "type": "object",
+        "title": "Consumer",
+        "ref": "t_contracts_service_graph_nodes_con",
+        "required": true
+      }
+    },
+    "t_contracts_service_graph_nodes_prov": {
+      "bridge_domain": {
+        "type": "string",
+        "title": "Bridge Domain",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "schema": {
+        "type": "string",
+        "title": "Schema",
+        "required": false
+      },
+      "template": {
+        "type": "string",
+        "title": "Template",
+        "required": false
+      },
+      "sites": {
+        "type": "list",
+        "title": "Sites",
+        "ref": "t_contracts_service_graph_nodes_prov_sites",
+        "required": true
+      }
+    },
+    "t_contracts_service_graph_nodes_prov_sites": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "required": true
+      },
+      "tenant": {
+        "type": "string",
+        "title": "Tenant",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "device": {
+        "type": "string",
+        "title": "Device",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "logical_interface": {
+        "type": "string",
+        "title": "Logical Interface",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "redirect_policy": {
+        "type": "string",
+        "title": "Redirect Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      }
+    },
+    "t_contracts_service_graph_nodes_con": {
+      "bridge_domain": {
+        "type": "string",
+        "title": "Bridge Domain",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "schema": {
+        "type": "string",
+        "title": "Schema",
+        "required": false
+      },
+      "template": {
+        "type": "string",
+        "title": "Template",
+        "required": false
+      },
+      "sites": {
+        "type": "list",
+        "title": "Sites",
+        "ref": "t_contracts_service_graph_nodes_con_sites",
+        "required": true
+      }
+    },
+    "t_contracts_service_graph_nodes_con_sites": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "required": true
+      },
+      "tenant": {
+        "type": "string",
+        "title": "Tenant",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "device": {
+        "type": "string",
+        "title": "Device",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "logical_interface": {
+        "type": "string",
+        "title": "Logical Interface",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "redirect_policy": {
+        "type": "string",
+        "title": "Redirect Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      }
+    },
+    "t_service_graphs": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "nodes": {
+        "type": "list",
+        "title": "Nodes",
+        "ref": "t_service_graphs_nodes",
+        "required": true
+      }
+    },
+    "t_service_graphs_nodes": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "type": {
+        "type": "select",
+        "title": "Type",
+        "enum": [
+          "firewall",
+          "load-balancer",
+          "other"
+        ],
+        "required": false
+      },
+      "index": {
+        "type": "int",
+        "title": "Index",
+        "minimum": 1,
+        "maximum": 3,
+        "required": false
+      },
+      "sites": {
+        "type": "list",
+        "title": "Sites",
+        "ref": "t_service_graphs_nodes_sites",
+        "required": true
+      }
+    },
+    "t_service_graphs_nodes_sites": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "required": true
+      },
+      "tenant": {
+        "type": "string",
+        "title": "Tenant",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "device": {
+        "type": "string",
+        "title": "Device",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      }
+    }
+  }
+}

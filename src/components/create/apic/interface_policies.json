@@ -1,0 +1,246 @@
+{
+  "interface_policies": {
+    "name": "Interface Policies",
+    "interface_policies": {
+      "nodes": {
+        "type": "list",
+        "title": "Nodes",
+        "ref": "ip_node",
+        "required": false
+      }
+    },
+    "ip_node": {
+      "id": {
+        "type": "int",
+        "title": "Id",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": true
+      },
+      "interfaces": {
+        "type": "list",
+        "title": "Interfaces",
+        "ref": "ip_interface",
+        "required": false
+      },
+      "fexes": {
+        "type": "list",
+        "title": "Fexes",
+        "ref": "ip_fex",
+        "required": false
+      }
+    },
+    "ip_fex": {
+      "id": {
+        "type": "int",
+        "title": "Id",
+        "minimum": 101,
+        "maximum": 199,
+        "required": true
+      },
+      "interfaces": {
+        "type": "list",
+        "title": "Interfaces",
+        "ref": "ip_fex_interface",
+        "required": false
+      }
+    },
+    "ip_fex_interface": {
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 1,
+        "maximum": 127,
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "module": {
+        "type": "int",
+        "title": "Module",
+        "minimum": 1,
+        "maximum": 9,
+        "required": false
+      },
+      "policy_group": {
+        "type": "string",
+        "title": "Policy Group",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "shutdown": {
+        "type": "bool",
+        "title": "Shutdown",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "ip_fex_interface_expected_state",
+        "required": false
+      }
+    },
+    "ip_fex_interface_expected_state": {
+      "lldp_neighbor": {
+        "type": "string",
+        "title": "Lldp Neighbor",
+        "required": false
+      }
+    },
+    "ip_interface": {
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 1,
+        "maximum": 127,
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "module": {
+        "type": "int",
+        "title": "Module",
+        "minimum": 1,
+        "maximum": 9,
+        "required": false
+      },
+      "policy_group": {
+        "type": "string",
+        "title": "Policy Group",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "fex_id": {
+        "type": "int",
+        "title": "Fex Id",
+        "minimum": 101,
+        "maximum": 199,
+        "required": false
+      },
+      "type": {
+        "type": "select",
+        "title": "Type",
+        "enum": [
+          "uplink",
+          "downlink"
+        ],
+        "required": false
+      },
+      "sub_ports": {
+        "type": "list",
+        "title": "Sub Ports",
+        "ref": "ip_interface_sub_ports",
+        "required": false
+      },
+      "breakout": {
+        "type": "select",
+        "title": "Breakout",
+        "enum": [
+          "100g-2x",
+          "100g-4x",
+          "10g-4x",
+          "25g-4x",
+          "50g-8x",
+          "none"
+        ],
+        "required": false
+      },
+      "fabric": {
+        "type": "bool",
+        "title": "Fabric",
+        "required": false
+      },
+      "shutdown": {
+        "type": "bool",
+        "title": "Shutdown",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "ip_interface_expected_state",
+        "required": false
+      }
+    },
+    "ip_interface_expected_state": {
+      "lldp_neighbor": {
+        "type": "string",
+        "title": "Lldp Neighbor",
+        "required": false
+      }
+    },
+    "ip_interface_sub_ports": {
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 1,
+        "maximum": 127,
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "module": {
+        "type": "int",
+        "title": "Module",
+        "minimum": 1,
+        "maximum": 9,
+        "required": false
+      },
+      "policy_group": {
+        "type": "string",
+        "title": "Policy Group",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "fex_id": {
+        "type": "int",
+        "title": "Fex Id",
+        "minimum": 101,
+        "maximum": 199,
+        "required": false
+      },
+      "shutdown": {
+        "type": "bool",
+        "title": "Shutdown",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "ip_interface_sub_ports_expected_state",
+        "required": false
+      }
+    },
+    "ip_interface_sub_ports_expected_state": {
+      "lldp_neighbor": {
+        "type": "string",
+        "title": "Lldp Neighbor",
+        "required": false
+      }
+    }
+  }
+}

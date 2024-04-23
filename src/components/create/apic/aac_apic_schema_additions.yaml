@@ -1,0 +1,3038 @@
+fabric_policies:
+  name: {}
+  fabric_policies:
+    leaf_switch_profile_name: {}
+    leaf_switch_selector_name: {}
+    leaf_interface_profile_name: {}
+    spine_switch_profile_name: {}
+    spine_switch_selector_name: {}
+    spine_interface_profile_name: {}
+    pod_profile_name: {}
+    pod_profile_pod_selector_name: {}
+    config_passphrase: {}
+    apic_conn_pref: {}
+    banners: {}
+    ep_loop_protection: {}
+    rogue_ep_control: {}
+    global_settings: {}
+    port_tracking: {}
+    ptp: {}
+    ip_aging: {}
+    ignore_acked_faults: {}
+    use_infra_gipo: {}
+    coop_group_policy: {}
+    l2_port_mtu: {}
+    fabric_isis_redistribute_metric: {}
+    fabric_isis_bfd: {}
+    fabric_bgp_as: {}
+    date_time_format: {}
+    dns_policies: {}
+    err_disabled_recovery: {}
+    pod_policies: {}
+    pod_policy_groups: {}
+    pod_profiles: {}
+    switch_policies: {}
+    leaf_switch_policy_groups: {}
+    spine_switch_policy_groups: {}
+    leaf_switch_profiles: {}
+    spine_switch_profiles: {}
+    leaf_interface_profiles: {}
+    spine_interface_profiles: {}
+    external_connectivity_policy: {}
+    infra_dscp_translation_policy: {}
+    vmware_vmm_domains: {}
+    aaa: {}
+    geolocation: {}
+    remote_locations: {}
+    schedulers: {}
+    config_exports: {}
+    monitoring: {}
+    span: {}
+    smart_licensing: {}
+    l2_mtu_policies: {}
+    system_performance: {}
+  fp_banners:
+    apic_gui_alias: {}
+    apic_gui_banner_url: {}
+    apic_gui_banner_message: {}
+    apic_cli_banner: {}
+    switch_cli_banner: {}
+  fp_ep_loop_protection:
+    admin_state: {}
+    detection_interval: {}
+    detection_multiplier: {}
+    action: {}
+  fp_rogue_ep_control:
+    admin_state: {}
+    detection_interval: {}
+    detection_multiplier: {}
+    hold_interval: {}
+  fp_global_settings:
+    domain_validation: {}
+    enforce_subnet_check: {}
+    opflex_authentication: {}
+    disable_remote_endpoint_learn: {}
+    overlapping_vlan_validation: {}
+    remote_leaf_direct: {}
+    reallocate_gipo: {}
+  fp_port_tracking:
+    admin_state: {}
+    delay: {}
+    min_links: {}
+    include_apic: {}
+  fp_ptp:
+    admin_state: {}
+    global_domain: {}
+    profile: {}
+    announce_interval: {}
+    announce_timeout: {}
+    sync_interval: {}
+    delay_interval: {}
+  fp_date_time_format:
+    display_format: {}
+    timezone: {}
+    show_offset: {}
+  fp_dns_policy:
+    name: {}
+    mgmt_epg: {}
+    providers: {}
+    domains: {}
+  fp_dns_policy_provider:
+    ip:
+      type: ip
+    preferred: {}
+  fp_dns_policy_domain:
+    name: {}
+    default: {}
+  fp_err_disabled_recovery:
+    interval: {}
+    mcp_loop: {}
+    ep_move: {}
+    bpdu_guard: {}
+  fp_pod_policies:
+    date_time_policies: {}
+    snmp_policies: {}
+    management_access_policies: {}
+  fp_date_time_policy:
+    name: {}
+    ntp_admin_state: {}
+    ntp_auth_state: {}
+    apic_ntp_server_state: {}
+    apic_ntp_server_master_mode: {}
+    apic_ntp_server_master_stratum: {}
+    ntp_servers: {}
+    ntp_keys: {}
+    expected_state: {}
+  fp_ntp_servers:
+    auth_key_id: {}
+    preferred: {}
+    mgmt_epg: {}
+  fp_ntp_keys:
+    id: {}
+    key: {}
+    auth_type: {}
+    trusted: {}
+  fp_date_time_policy_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  fp_snmp_policy:
+    name: {}
+    admin_state: {}
+    location: {}
+    contact: {}
+    users: {}
+    trap_forwarders: {}
+    clients: {}
+  fp_snmp_policy_user:
+    name: {}
+    privacy_type: {}
+    privacy_key: {}
+    authorization_type: {}
+    authorization_key: {}
+  fp_snmp_policy_trap_forwarder:
+    ip:
+      type: ip
+    port: {}
+  fp_snmp_policy_client:
+    name: {}
+    mgmt_epg: {}
+    entries: {}
+  fp_snmp_policy_client_entry:
+    name: {}
+    ip:
+      type: ip
+  fp_management_access_policy:
+    name: {}
+    description: {}
+    alias: {}
+    ssh: {}
+    telnet: {}
+    https: {}
+    http: {}
+  fp_management_access_policy_ssh:
+    admin_state: {}
+    password_auth: {}
+    port: {}
+    aes128_ctr: {}
+    aes128_gcm: {}
+    aes192_ctr: {}
+    aes256_ctr: {}
+    aes256_gcm: {}
+    chacha: {}
+    hmac_sha1: {}
+    hmac_sha2_256: {}
+    hmac_sha2_512: {}
+    curve25519_sha256: {}
+    curve25519_sha256_libssh: {}
+    dh1_sha1: {}
+    dh14_sha1: {}
+    dh14_sha256: {}
+    dh16_sha512: {}
+    ecdh_sha2_nistp256: {}
+    ecdh_sha2_nistp384: {}
+    ecdh_sha2_nistp521: {}
+  fp_management_access_policy_telnet:
+    admin_state: {}
+    port: {}
+  fp_management_access_policy_https:
+    admin_state: {}
+    client_cert_auth_state: {}
+    dh: {}
+    port: {}
+    tlsv1: {}
+    tlsv1_1: {}
+    tlsv1_2: {}
+    tlsv1_3: {}
+    key_ring: {}
+  fp_management_access_policy_http:
+    admin_state: {}
+    port: {}
+  fp_pod_policy_groups:
+    name: {}
+    snmp_policy: {}
+    date_time_policy: {}
+    management_access_policy: {}
+    isis_policy: {}
+    coop_group_policy: {}
+    bgp_route_reflector_policy: {}
+    macsec_policy: {}
+  fp_pod_profiles:
+    name: {}
+    selectors: {}
+    expected_state: {}
+  fp_pod_profiles_selectors:
+    name: {}
+    policy: {}
+    type: {}
+    pod_blocks: {}
+  fp_pod_profiles_selectors_pod_blocks:
+    name: {}
+    from: {}
+    to: {}
+  fp_pod_profiles_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  fp_switch_policies:
+    psu_policies: {}
+    node_control_policies: {}
+  fp_switch_policies_psu_policies:
+    name: {}
+    admin_state: {}
+  fp_switch_policies_node_control_policies:
+    name: {}
+    dom: {}
+    telemetry: {}
+  fp_leaf_interface_profiles:
+    name: {}
+    expected_state: {}
+  fp_leaf_interface_profiles_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  fp_spine_interface_profiles:
+    name: {}
+    selectors: {}
+    expected_state: {}
+  fp_spine_interface_profiles_selectors:
+    name: {}
+    port_blocks: {}
+  fp_spine_interface_profiles_selectors_port_blocks:
+    name: {}
+    from_module: {}
+    from_port: {}
+    to_module: {}
+    to_port: {}
+  fp_spine_interface_profiles_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  fp_leaf_switch_policy_groups:
+    name: {}
+    psu_policy: {}
+    node_control_policy: {}
+    monitoring_policy: {}
+    tech_support_export_policy: {}
+    core_export_policy: {}
+    inventory_policy: {}
+    twamp_server_policy: {}
+    twamp_receiver_policy: {}
+  fp_leaf_switch_profiles:
+    name: {}
+    selectors: {}
+    interface_profiles: {}
+    expected_state: {}
+  fp_leaf_switch_profiles_selectors:
+    name: {}
+    policy: {}
+    node_blocks: {}
+  fp_leaf_switch_profiles_selectors_node_blocks:
+    name: {}
+    from: {}
+    to: {}
+  fp_leaf_switch_profiles_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  fp_spine_switch_policy_groups:
+    name: {}
+    psu_policy: {}
+    node_control_policy: {}
+    monitoring_policy: {}
+    tech_support_export_policy: {}
+    core_export_policy: {}
+    inventory_policy: {}
+    twamp_server_policy: {}
+    twamp_receiver_policy: {}
+  fp_spine_switch_profiles:
+    name: {}
+    selectors: {}
+    interface_profiles: {}
+    expected_state: {}
+  fp_spine_switch_profiles_selectors:
+    name: {}
+    policy: {}
+    node_blocks: {}
+  fp_spine_switch_profiles_selectors_node_blocks:
+    name: {}
+    from: {}
+    to: {}
+  fp_spine_switch_profiles_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  fp_external_connectivity_policy:
+    name: {}
+    fabric_id: {}
+    site_id: {}
+    bgp_password: {}
+    route_target: {}
+    routing_profiles: {}
+    expected_state: {}
+  fp_external_connectivity_policy_routing_profiles:
+    name: {}
+    description: {}
+  fp_external_connectivity_policy_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  fp_infra_dscp_translation_policy:
+    admin_state: {}
+    control_plane: {}
+    policy_plane: {}
+    span: {}
+    traceroute: {}
+    level_1: {}
+    level_2: {}
+    level_3: {}
+    level_4: {}
+    level_5: {}
+    level_6: {}
+  fp_vmware_vmm_domains:
+    name: {}
+    access_mode: {}
+    delimiter: {}
+    tag_collection: {}
+    vlan_pool: {}
+    security_domains: {}
+    vswitch: {}
+    credential_policies: {}
+    vcenters: {}
+    uplinks: {}
+    expected_state: {}
+  fp_vmware_vmm_domains_vswitch:
+    cdp_policy: {}
+    lldp_policy: {}
+    port_channel_policy: {}
+    enhanced_lags: {}
+    mtu_policy: {}
+  fp_vmware_vmm_domains_vswitch_elag:
+    name: {}
+    mode: {}
+    lb_mode: {}
+    num_links: {}
+  fp_vmware_vmm_domains_credential_policies:
+    name: {}
+    username: {}
+    password: {}
+  fp_vmware_vmm_domains_vcenters:
+    name: {}
+    datacenter: {}
+    dvs_version: {}
+    statistics: {}
+    credential_policy: {}
+    mgmt_epg: {}
+  fp_vmware_vmm_domains_uplinks:
+    id: {}
+    name: {}
+  fp_vmware_vmm_domains_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  fp_aaa:
+    remote_user_login_policy: {}
+    default_fallback_check: {}
+    default_realm: {}
+    default_login_domain: {}
+    console_realm: {}
+    console_login_domain: {}
+    management_settings: {}
+    tacacs_providers: {}
+    radius_providers: {}
+    users: {}
+    login_domains: {}
+    ca_certificates: {}
+    key_rings: {}
+    ldap: {}
+    security_domains: {}
+  fp_aaa_management_settings:
+    password_strength_check: {}
+    password_strength_profile: {}
+    password_change_during_interval: {}
+    password_change_count: {}
+    password_change_interval: {}
+    password_no_change_interval: {}
+    password_history_count: {}
+    web_token_timeout: {}
+    web_token_max_validity: {}
+    web_session_idle_timeout: {}
+    include_refresh_session_records: {}
+    enable_login_block: {}
+    login_block_duration: {}
+    login_max_failed_attempts: {}
+    login_max_failed_attempts_window: {}
+  fp_password_strength_profile:
+    password_mininum_length: {}
+    password_maximum_length: {}
+    password_strength_test_type: {}
+  fp_aaa_radius_providers:
+    description: {}
+    port: {}
+    protocol: {}
+    key: {}
+    timeout: {}
+    retries: {}
+    mgmt_epg: {}
+    monitoring: {}
+    monitoring_username: {}
+    monitoring_password: {}
+    expected_state: {}
+  fp_aaa_radius_providers_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  fp_aaa_tacacs_providers:
+    description: {}
+    port: {}
+    protocol: {}
+    key: {}
+    timeout: {}
+    retries: {}
+    mgmt_epg: {}
+    monitoring: {}
+    monitoring_username: {}
+    monitoring_password: {}
+    expected_state: {}
+  fp_aaa_tacacs_providers_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  fp_aaa_users:
+    username: {}
+    password: {}
+    first_name: {}
+    last_name: {}
+    phone: {}
+    email: {}
+    certificate_name: {}
+    description: {}
+    status: {}
+    expires: {}
+    expire_date: {}
+    domains: {}
+    certificates: {}
+    ssh_keys: {}
+  fp_aaa_users_domains:
+    name: {}
+    roles: {}
+  fp_aaa_users_domains_roles:
+    name: {}
+    privilege_type: {}
+  fp_aaa_users_certificates:
+    name: {}
+    data: {}
+  fp_aaa_users_ssh_keys:
+    name: {}
+    data: {}
+  fp_aaa_login_domains:
+    name: {}
+    realm: {}
+    description: {}
+    auth_choice: {}
+    ldap_group_map: {}
+    tacacs_providers: {}
+    ldap_providers: {}
+    radius_providers: {}
+  fp_aaa_login_domains_tacacs_providers:
+    priority: {}
+  fp_aaa_login_domains_ldap_providers:
+    priority: {}
+  fp_aaa_login_domains_radius_providers:
+    priority: {}
+  fp_aaa_security_domains:
+    name: {}
+    description: {}
+    restricted_rbac_domain: {}
+  fp_ca_certificate:
+    name: {}
+    description: {}
+    certificate_chain: {}
+  fp_key_ring:
+    name: {}
+    description: {}
+    certificate: {}
+    modulus: {}
+    ca_certificate: {}
+    private_key: {}
+  fp_aaa_ldap:
+    providers: {}
+    group_map_rules: {}
+    group_maps: {}
+  fp_aa_ldap_providers:
+    description: {}
+    port: {}
+    bind_dn: {}
+    base_dn: {}
+    password: {}
+    timeout: {}
+    retries: {}
+    enable_ssl: {}
+    filter: {}
+    attribute: {}
+    ssl_validation_level: {}
+    mgmt_epg: {}
+    server_monitoring: {}
+    monitoring_username: {}
+    monitoring_password: {}
+    expected_state: {}
+  fp_aa_ldap_providers_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  fp_aa_ldap_group_map_rules:
+    name: {}
+    description: {}
+    group_dn: {}
+    security_domains: {}
+  fp_aa_ldap_group_map_rules_security_domains:
+    name: {}
+    roles: {}
+  fp_aa_ldap_group_map_rules_security_domains_roles:
+    name: {}
+    privilege_type: {}
+  fp_aa_ldap_group_maps:
+    name: {}
+    rules: {}
+  fp_aa_ldap_group_maps_rules:
+    name: {}
+  fp_geolocation:
+    sites: {}
+  fp_geolocation_sites:
+    name: {}
+    description: {}
+    buildings: {}
+  fp_geolocation_sites_buildings:
+    name: {}
+    description: {}
+    floors: {}
+  fp_geolocation_sites_buildings_floors:
+    name: {}
+    description: {}
+    rooms: {}
+  fp_geolocation_sites_buildings_floors_rooms:
+    name: {}
+    description: {}
+    rows: {}
+  fp_geolocation_sites_buildings_floors_rooms_rows:
+    name: {}
+    description: {}
+    racks: {}
+  fp_geolocation_sites_buildings_floors_rooms_rows_racks:
+    name: {}
+    description: {}
+  fp_remote_locations:
+    name: {}
+    description: {}
+    protocol: {}
+    path: {}
+    port: {}
+    auth_type: {}
+    username: {}
+    password: {}
+    ssh_public_key: {}
+    ssh_private_key: {}
+    ssh_passphrase: {}
+    mgmt_epg: {}
+    expected_state: {}
+  fp_remote_locations_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  fp_schedulers:
+    name: {}
+    description: {}
+    recurring_windows: {}
+  fp_schedulers_recurring_windows:
+    name: {}
+    day: {}
+    hour: {}
+    minute: {}
+  fp_config_exports:
+    name: {}
+    description: {}
+    format: {}
+    remote_location: {}
+    scheduler: {}
+    snapshot: {}
+    expected_state: {}
+  fp_config_exports_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  fp_monitoring:
+    snmp_traps: {}
+    syslogs: {}
+    callhomes: {}
+    smart_callhomes: {}
+    policies: {}
+  fp_monitoring_snmp_traps:
+    name: {}
+    description: {}
+    destinations: {}
+  fp_monitoring_snmp_traps_destinations:
+    port: {}
+    version: {}
+    community: {}
+    security: {}
+    mgmt_epg: {}
+  fp_monitoring_syslogs:
+    name: {}
+    description: {}
+    audit: {}
+    events: {}
+    faults: {}
+    session: {}
+    minimum_severity: {}
+    admin_state: {}
+    format: {}
+    show_millisecond: {}
+    show_timezone: {}
+    local_admin_state: {}
+    local_severity: {}
+    console_admin_state: {}
+    console_severity: {}
+    destinations: {}
+  fp_monitoring_syslogs_destinations:
+    name: {}
+    protocol: {}
+    port: {}
+    admin_state: {}
+    facility: {}
+    severity: {}
+    mgmt_epg: {}
+  fp_monitoring_callhomes:
+    name: {}
+    description: {}
+    admin_state: {}
+    port: {}
+    smtp_server: {}
+    smtp_username: {}
+    smtp_password: {}
+    mgmt_epg: {}
+    from_email: {}
+    reply_to_email: {}
+    customer_contact_email: {}
+    phone_contact: {}
+    contact_information: {}
+    street_address: {}
+    contract_id: {}
+    customer_id: {}
+    site_id: {}
+    destinations: {}
+  fp_monitoring_callhomes_destinations:
+    name: {}
+    admin_state: {}
+    severity: {}
+    email: {}
+    format: {}
+    maximum_size: {}
+    rfc_compliant: {}
+  fp_monitoring_smart_callhomes:
+    name: {}
+    description: {}
+    admin_state: {}
+    port: {}
+    smtp_server: {}
+    smtp_username: {}
+    smtp_password: {}
+    mgmt_epg: {}
+    from_email: {}
+    reply_to_email: {}
+    customer_contact_email: {}
+    phone_contact: {}
+    contact_information: {}
+    street_address: {}
+    contract_id: {}
+    customer_id: {}
+    site_id: {}
+    destinations: {}
+  fp_monitoring_smart_callhomes_destinations:
+    name: {}
+    admin_state: {}
+    email: {}
+    format: {}
+    rfc_compliant: {}
+  fp_monitoring_policies:
+    name: {}
+  fp_span:
+    source_groups: {}
+    destination_groups: {}
+  fp_span_source_groups:
+    name: {}
+    description: {}
+    admin_state: {}
+    sources: {}
+    destination: {}
+    expected_state: {}
+  fp_span_source_groups_destination:
+    name: {}
+    description: {}
+  fp_span_source_groups_sources:
+    name: {}
+    description: {}
+    direction: {}
+    span_drop: {}
+    tenant: {}
+    vrf: {}
+    bridge_domain: {}
+    fabric_paths: {}
+  fp_span_source_groups_sources_access_paths:
+    node_id: {}
+    pod_id: {}
+    module: {}
+    port: {}
+  fp_span_source_groups_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  fp_span_destination_groups:
+    name: {}
+    description: {}
+    ip:
+      type: ip
+    source_prefix:
+      type: cidr
+    dscp: {}
+    flow_id: {}
+    mtu: {}
+    ttl: {}
+    version: {}
+    enforce_version: {}
+    tenant: {}
+    application_profile: {}
+    endpoint_group: {}
+    expected_state: {}
+  fp_span_destination_groups_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  fp_smart_licensing:
+    mode: {}
+    registration_token: {}
+    url: {}
+    proxy: {}
+  fp_smart_licensing_proxy:
+    port: {}
+  fp_l2_mtu_policies:
+    name: {}
+    port_mtu_size: {}
+  fp_system_performance:
+    admin_state: {}
+    response_threshold: {}
+    top_slowest_requests: {}
+    calculation_window: {}
+access_policies:
+  name: {}
+  access_policies:
+    leaf_switch_profile_name: {}
+    leaf_switch_selector_name: {}
+    leaf_interface_profile_name: {}
+    leaf_interface_selector_name: {}
+    leaf_interface_selector_sub_port_name: {}
+    fex_profile_name: {}
+    fex_interface_selector_name: {}
+    spine_switch_profile_name: {}
+    spine_switch_selector_name: {}
+    spine_interface_profile_name: {}
+    spine_interface_selector_name: {}
+    vpc_group_name: {}
+    infra_vlan: {}
+    vlan_pools: {}
+    physical_domains: {}
+    routed_domains: {}
+    aaeps: {}
+    switch_policies: {}
+    spine_switch_policy_groups: {}
+    leaf_switch_policy_groups: {}
+    leaf_switch_profiles: {}
+    spine_switch_profiles: {}
+    interface_policies: {}
+    leaf_interface_policy_groups: {}
+    spine_interface_policy_groups: {}
+    leaf_interface_profiles: {}
+    fex_interface_profiles: {}
+    spine_interface_profiles: {}
+    mcp: {}
+    qos: {}
+    span: {}
+    vspan: {}
+  ap_vlan_pool:
+    name: {}
+    description: {}
+    allocation: {}
+    ranges: {}
+  ap_vlan_pool_range:
+    from: {}
+    to: {}
+    allocation: {}
+    role: {}
+    description: {}
+  ap_physical_domain:
+    name: {}
+    vlan_pool: {}
+    expected_state: {}
+    security_domains: {}
+  ap_physical_domain_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ap_routed_domain:
+    name: {}
+    vlan_pool: {}
+    expected_state: {}
+    security_domains: {}
+  ap_routed_domain_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ap_aaep:
+    name: {}
+    infra_vlan: {}
+    physical_domains: {}
+    routed_domains: {}
+    vmware_vmm_domains: {}
+    endpoint_groups: {}
+    expected_state: {}
+  ap_aaep_endpoint_groups:
+    tenant: {}
+    application_profile: {}
+    endpoint_group: {}
+    vlan: {}
+    primary_vlan: {}
+    secondary_vlan: {}
+    mode: {}
+    deployment_immediacy: {}
+  ap_aaep_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ap_mcp:
+    action: {}
+    admin_state: {}
+    frequency_sec: {}
+    frequency_msec: {}
+    initial_delay: {}
+    loop_detection: {}
+    per_vlan: {}
+    key: {}
+  ap_qos:
+    preserve_cos: {}
+    qos_classes: {}
+  ap_qos_class:
+    level: {}
+    admin_state: {}
+    mtu: {}
+    scheduling: {}
+    bandwidth_percent: {}
+    congestion_algorithm: {}
+    minimum_buffer: {}
+    pfc_state: {}
+    no_drop_cos: {}
+    pfc_scope: {}
+    ecn: {}
+    forward_non_ecn: {}
+    wred_max_threshold: {}
+    wred_min_threshold: {}
+    wred_probability: {}
+    weight: {}
+  ap_span:
+    destination_groups: {}
+    source_groups: {}
+    filter_groups: {}
+  ap_span_destination_groups:
+    name: {}
+    description: {}
+    node_id: {}
+    pod_id: {}
+    sub_port: {}
+    module: {}
+    port: {}
+    channel: {}
+    ip:
+      type: ip
+    source_prefix:
+      type: ip_cidr
+    dscp: {}
+    flow_id: {}
+    mtu: {}
+    ttl: {}
+    version: {}
+    enforce_version: {}
+    tenant: {}
+    application_profile: {}
+    endpoint_group: {}
+    expected_state: {}
+  ap_span_destination_groups_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ap_span_source_groups:
+    name: {}
+    description: {}
+    admin_state: {}
+    sources: {}
+    destination: {}
+    filter_group: {}
+    expected_state: {}
+  ap_span_source_groups_destination:
+    name: {}
+    description: {}
+  ap_span_source_groups_sources:
+    name: {}
+    description: {}
+    direction: {}
+    span_drop: {}
+    tenant: {}
+    application_profile: {}
+    endpoint_group: {}
+    l3out: {}
+    vlan: {}
+    access_paths: {}
+  ap_span_source_groups_sources_access_paths:
+    node_id: {}
+    node2_id: {}
+    pod_id: {}
+    module: {}
+    port: {}
+    fex_id: {}
+    sub_port: {}
+    channel: {}
+    type: {}
+  ap_span_source_groups_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ap_span_filter_groups:
+    name: {}
+    description: {}
+    entries: {}
+  ap_span_filter_groups_entries:
+    name: {}
+    source_ip:
+      type: ip
+    destination_ip:
+      type: ip
+    source_from_port: {}
+    source_to_port: {}
+    destination_from_port: {}
+    destination_to_port: {}
+    ip_protocol: {}
+  ap_vspan:
+    sessions: {}
+    destination_groups: {}
+  ap_vspan_sessions:
+    name: {}
+    description: {}
+    admin_state: {}
+    sources: {}
+    destination: {}
+    expected_state: {}
+  ap_vspan_sessions_sources:
+    name: {}
+    description: {}
+    direction: {}
+    access_paths: {}
+    tenant: {}
+    application_profile: {}
+    endpoint_group: {}
+    endpoint: {}
+  ap_vspan_sessions_sources_access_paths:
+    node_id: {}
+    node2_id: {}
+    pod_id: {}
+    module: {}
+    port: {}
+    channel: {}
+    type: {}
+  ap_vspan_sessions_destination:
+    name: {}
+    description: {}
+  ap_vspan_sessions_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ap_vspan_destination_groups:
+    name: {}
+    description: {}
+    destinations: {}
+    expected_state: {}
+  ap_vspan_destination_groups_destinations:
+    name: {}
+    description: {}
+    tenant: {}
+    application_profile: {}
+    endpoint_group: {}
+    endpoint: {}
+    ip:
+      type: ip
+    source_to_port: {}
+    dscp: {}
+    flow_id: {}
+    mtu: {}
+    ttl: {}
+  ap_vspan_destination_groups_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ap_leaf_interface_profiles:
+    name: {}
+    selectors: {}
+    expected_state: {}
+  ap_leaf_interface_profiles_selectors:
+    name: {}
+    fex_id: {}
+    fex_profile: {}
+    policy_group: {}
+    port_blocks: {}
+    sub_port_blocks: {}
+  ap_leaf_interface_profiles_selectors_port_blocks:
+    name: {}
+    description: {}
+    from_module: {}
+    from_port: {}
+    to_module: {}
+    to_port: {}
+  ap_leaf_interface_profiles_selectors_sub_port_blocks:
+    name: {}
+    description: {}
+    from_module: {}
+    from_port: {}
+    to_module: {}
+    to_port: {}
+    from_sub_port: {}
+    to_sub_port: {}
+  ap_leaf_interface_profiles_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ap_fex_interface_profiles:
+    name: {}
+    selectors: {}
+    expected_state: {}
+  ap_fex_interface_profiles_selectors:
+    name: {}
+    fex_id: {}
+    fex_profile: {}
+    policy_group: {}
+    port_blocks: {}
+  ap_fex_interface_profiles_selectors_port_blocks:
+    name: {}
+    description: {}
+    from_module: {}
+    from_port: {}
+    to_module: {}
+    to_port: {}
+  ap_fex_interface_profiles_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ap_spine_interface_profiles:
+    name: {}
+    selectors: {}
+    expected_state: {}
+  ap_spine_interface_profiles_selectors:
+    name: {}
+    fex_id: {}
+    fex_profile: {}
+    policy_group: {}
+    port_blocks: {}
+  ap_spine_interface_profiles_selectors_port_blocks:
+    name: {}
+    description: {}
+    from_module: {}
+    from_port: {}
+    to_module: {}
+    to_port: {}
+  ap_spine_interface_profiles_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ap_interface_policies:
+    cdp_policies: {}
+    lldp_policies: {}
+    link_level_policies: {}
+    port_channel_policies: {}
+    port_channel_member_policies: {}
+    spanning_tree_policies: {}
+    mcp_policies: {}
+    l2_policies: {}
+    storm_control_policies: {}
+  ap_cdp_policy:
+    name: {}
+    admin_state: {}
+  ap_lldp_policy:
+    name: {}
+    admin_rx_state: {}
+    admin_tx_state: {}
+  ap_link_level_policy:
+    name: {}
+    speed: {}
+    auto: {}
+    fec_mode: {}
+    physical_media_type: {}
+  ap_port_channel_policy:
+    name: {}
+    mode: {}
+    min_links: {}
+    max_links: {}
+    suspend_individual: {}
+    graceful_convergence: {}
+    fast_select_standby: {}
+    load_defer: {}
+    symmetric_hash: {}
+    hash_key: {}
+  ap_port_channel_member_policy:
+    name: {}
+    rate: {}
+    priority: {}
+  ap_spanning_tree_policy:
+    name: {}
+    bpdu_filter: {}
+    bpdu_guard: {}
+  ap_mcp_policy:
+    name: {}
+    admin_state: {}
+  ap_l2_policy:
+    name: {}
+    vlan_scope: {}
+    qinq: {}
+    reflective_relay: {}
+  ap_storm_control_policy:
+    name: {}
+    description: {}
+    alias: {}
+    broadcast_burst_pps: {}
+    broadcast_pps: {}
+    multicast_burst_pps: {}
+    multicast_pps: {}
+    unknown_unicast_burst_pps: {}
+    unknown_unicast_pps: {}
+    action: {}
+  ap_leaf_interface_policy_group:
+    name: {}
+    description: {}
+    type: {}
+    map: {}
+    link_level_policy: {}
+    cdp_policy: {}
+    lldp_policy: {}
+    spanning_tree_policy: {}
+    mcp_policy: {}
+    l2_policy: {}
+    port_channel_policy: {}
+    port_channel_member_policy: {}
+    storm_control_policy: {}
+    aaep: {}
+  ap_spine_interface_policy_group:
+    name: {}
+    link_level_policy: {}
+    cdp_policy: {}
+    aaep: {}
+  ap_switch_policies:
+    mst_policies: {}
+    vpc_policies: {}
+    forwarding_scale_policies: {}
+  ap_mst_policy:
+    name: {}
+    region: {}
+    revision: {}
+    instances: {}
+  ap_mst_policy_instance:
+    name: {}
+    id: {}
+    vlan_ranges: {}
+  ap_mst_policy_instance_vlan_range:
+    from: {}
+    to: {}
+  ap_vpc_policy:
+    name: {}
+    peer_dead_interval: {}
+  ap_forwarding_scale_policy:
+    name: {}
+    profile: {}
+  ap_leaf_switch_profiles:
+    name: {}
+    selectors: {}
+    interface_profiles: {}
+    expected_state: {}
+  ap_leaf_switch_profiles_selectors:
+    name: {}
+    policy: {}
+    node_blocks: {}
+  ap_leaf_switch_profiles_selectors_node_blocks:
+    name: {}
+    from: {}
+    to: {}
+  ap_leaf_switch_profiles_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ap_spine_switch_profiles:
+    name: {}
+    selectors: {}
+    interface_profiles: {}
+    expected_state: {}
+  ap_spine_switch_profiles_selectors:
+    name: {}
+    policy: {}
+    node_blocks: {}
+  ap_spine_switch_profiles_selectors_node_blocks:
+    name: {}
+    from: {}
+    to: {}
+  ap_spine_switch_profiles_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ap_spine_switch_policy_groups:
+    name: {}
+    lldp_policy: {}
+    coop_spine_policy: {}
+    bfd_ipv4_policy: {}
+    bfd_ipv6_policy: {}
+    cdp_policy: {}
+  ap_leaf_switch_policy_groups:
+    name: {}
+    forwarding_scale_policy: {}
+    bfd_ipv4_policy: {}
+    bfd_ipv6_policy: {}
+    equipment_flash_config_policy: {}
+    fibre_channel_node_policy: {}
+    fibre_channel_san_policy: {}
+    8021x_node_authentication_policy: {}
+    coop_leaf_policy: {}
+    cdp_policy: {}
+    lldp_policy: {}
+    monitoring_policy: {}
+    netflow_node_policy: {}
+    poe_node_policy: {}
+    fast_link_failover_policy: {}
+pod_policies:
+  name: {}
+  pod_policies:
+    pods: {}
+  pp_pod:
+    id: {}
+    tep_pool:
+      type: cidr
+    data_plane_tep:
+      type: cidr
+    unicast_tep:
+      type: cidr
+    policy: {}
+    external_tep_pools: {}
+    remote_pools: {}
+    expected_state: {}
+  pp_pod_external_tep_pools:
+    prefix:
+      type: cidr
+    reserved_address_count: {}
+  pp_pod_remote_pools:
+    id: {}
+    remote_pool:
+      type: cidr
+  pp_pod_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+node_policies:
+  name: {}
+  node_policies:
+    inb_endpoint_group: {}
+    oob_endpoint_group: {}
+    update_groups: {}
+    vpc_groups: {}
+    nodes: {}
+    expected_state: {}
+  np_expected_state:
+    nodes_status: {}
+  np_update_group:
+    name: {}
+    scheduler: {}
+  np_vpc_group:
+    mode: {}
+    groups: {}
+  np_vpc_group_group:
+    id: {}
+    name: {}
+    switch_1: {}
+    switch_2: {}
+    policy: {}
+  np_node:
+    id: {}
+    pod: {}
+    role: {}
+    type: {}
+    serial_number: {}
+    name: {}
+    oob_address:
+      type: cidr
+    oob_gateway:
+      type: ip
+    oob_v6_address:
+      type: cidr
+    oob_v6_gateway:
+      type: ip
+    inb_address:
+      type: cidr
+    inb_gateway:
+      type: ip
+    inb_v6_address:
+      type: cidr
+    inb_v6_gateway:
+      type: ip
+    update_group: {}
+    fabric_policy_group: {}
+    access_policy_group: {}
+    remote_pool_id: {}
+    expected_state: {}
+  np_node_expected_state:
+    psu_count: {}
+interface_policies:
+  name: {}
+  interface_policies:
+    nodes: {}
+  ip_node:
+    id: {}
+    interfaces: {}
+    fexes: {}
+  ip_fex:
+    id: {}
+    interfaces: {}
+  ip_fex_interface:
+    port: {}
+    description: {}
+    module: {}
+    policy_group: {}
+    shutdown: {}
+    expected_state: {}
+  ip_fex_interface_expected_state:
+    lldp_neighbor: {}
+  ip_interface:
+    port: {}
+    description: {}
+    module: {}
+    policy_group: {}
+    fex_id: {}
+    type: {}
+    sub_ports: {}
+    breakout: {}
+    fabric: {}
+    shutdown: {}
+    expected_state: {}
+  ip_interface_expected_state:
+    lldp_neighbor: {}
+  ip_interface_sub_ports:
+    port: {}
+    description: {}
+    module: {}
+    policy_group: {}
+    fex_id: {}
+    shutdown: {}
+    expected_state: {}
+  ip_interface_sub_ports_expected_state:
+    lldp_neighbor: {}
+tenant:
+  name: {}
+  tenant:
+    name: {}
+    managed: {}
+    alias: {}
+    description: {}
+    vrfs: {}
+    bridge_domains: {}
+    application_profiles: {}
+    inb_endpoint_groups: {}
+    oob_endpoint_groups: {}
+    ext_mgmt_instances: {}
+    l3outs: {}
+    sr_mpls_l3outs: {}
+    filters: {}
+    contracts: {}
+    oob_contracts: {}
+    imported_contracts: {}
+    policies: {}
+    services: {}
+    security_domains: {}
+    expected_state: {}
+  ten_vrf:
+    name: {}
+    alias: {}
+    description: {}
+    data_plane_learning: {}
+    enforcement_direction: {}
+    enforcement_preference: {}
+    preferred_group: {}
+    endpoint_retention_policy: {}
+    monitoring_policy: {}
+    transit_route_tag_policy: {}
+    leaked_internal_prefixes: {}
+    leaked_external_prefixes: {}
+    contracts: {}
+    bgp: {}
+    ospf: {}
+    dns_labels: {}
+    pim: {}
+    expected_state: {}
+  ten_vrf_leaked_internal_prefixes:
+    prefix:
+      type: cidr
+    public: {}
+    destinations: {}
+  ten_vrf_leaked_internal_prefixes_destinations:
+    description: {}
+    tenant: {}
+    vrf: {}
+    public: {}
+  ten_vrf_leaked_external_prefixes:
+    prefix:
+      type: cidr
+    from_prefix_length: {}
+    to_prefix_length: {}
+    destinations: {}
+  ten_vrf_leaked_external_prefixes_destinations:
+    description: {}
+    tenant: {}
+    vrf: {}
+  ten_vrf_bgp:
+    timer_policy:
+      type: select-ref
+      ref: policies.bgp_timer_policies.name
+    ipv4_address_family_context_policy: {}
+    ipv6_address_family_context_policy: {}
+    ipv4_import_route_target: {}
+    ipv4_export_route_target: {}
+    ipv6_import_route_target: {}
+    ipv6_export_route_target: {}
+  ten_vrf_ospf:
+    timer_policy: 
+      type: select-ref
+      ref: policies.ospf_timer_policies.name
+    ipv4_address_family_context_policy: {}
+    ipv6_address_family_context_policy: {}
+  ten_vrf_contracts:
+    consumers:
+      type: multiselect-ref
+      ref: contracts.name
+    providers:
+      type: multiselect-ref
+      ref: contracts.name
+    imported_consumers:
+      type: multiselect-ref
+      ref: imported_contracts.name
+  ten_vrf_pim:
+    mtu: {}
+    fast_convergence: {}
+    strict_rfc: {}
+    max_multicast_entries: {}
+    reserved_multicast_entries: {}
+    resource_policy_multicast_route_map: {}
+    static_rps: {}
+    fabric_rps: {}
+    bsr_forward_updates: {}
+    bsr_listen_updates: {}
+    bsr_filter_multicast_route_map: {}
+    auto_rp_forward_updates: {}
+    auto_rp_listen_updates: {}
+    auto_rp_filter_multicast_route_map: {}
+    asm_shared_range_multicast_route_map: {}
+    asm_sg_expiry_multicast_route_map: {}
+    asm_sg_expiry: {}
+    asm_traffic_registry_max_rate: {}
+    asm_traffic_registry_source_ip:
+      type: ip
+    ssm_group_range_multicast_route_map: {}
+    igmp_context_ssm_translate_policies: {}
+    inter_vrf_policies: {}
+  ten_vrf_pim_rps:
+    ip:
+      type: ip
+    multicast_route_map: {}
+  ten_vrf_pim_igmp_context_ssm_translate_policies:
+    group_prefix:
+      type: cidr
+    source_address:
+      type: ip
+  ten_vrf_inter_vrf_policies:
+    tenant: {}
+    vrf: {}
+    multicast_route_map: {}
+  ten_vrf_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_bridge_domains:
+    name: {}
+    alias: {}
+    description: {}
+    arp_flooding: {}
+    advertise_host_routes: {}
+    ip_dataplane_learning: {}
+    clear_remote_mac_entries: {}
+    limit_ip_learn_to_subnets: {}
+    mac: {}
+    virtual_mac: {}
+    ep_move_detection: {}
+    l3_multicast: {}
+    pim_source_filter: {}
+    pim_destination_filter: {}
+    multi_destination_flooding: {}
+    unicast_routing: {}
+    unknown_unicast: {}
+    unknown_ipv4_multicast: {}
+    unknown_ipv6_multicast: {}
+    vrf: 
+      type: select-ref
+      ref: vrfs.name
+    subnets: {}
+    l3outs: 
+      type: multiselect-ref
+      ref: l3outs.name
+    dhcp_labels: {}
+    igmp_interface_policy:
+      type: select-ref
+      ref: policies.igmp_interface_policies.name
+    igmp_snooping_policy:
+      type: select-ref
+      ref: policies.igmp_snooping_policies.name
+    expected_state: {}
+  ten_bridge_domain_subnets:
+    description: {}
+    ip:
+      type: cidr
+    primary_ip: {}
+    public: {}
+    private: {}
+    shared: {}
+    virtual: {}
+    igmp_querier: {}
+    nd_ra_prefix: {}
+    no_default_gateway: {}
+    nd_ra_prefix_policy:
+      type: select-ref
+      ref: policies.nd_ra_prefix_policies.name
+  ten_bridge_domain_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_application_profiles:
+    name: {}
+    managed: {}
+    alias: {}
+    description: {}
+    endpoint_groups: {}
+    endpoint_security_groups: {}
+    expected_state: {}
+  ten_ap_endpoint_groups:
+    name: {}
+    alias: {}
+    description: {}
+    flood_in_encap: {}
+    intra_epg_isolation: {}
+    preferred_group: {}
+    proxy_arp: {}
+    bridge_domain: 
+      type: select-ref
+      ref: bridge_domains.name
+    physical_domains: {}
+    vmware_vmm_domains: {}
+    static_ports: {}
+    static_leafs: {}
+    static_endpoints: {}
+    subnets: {}
+    contracts: {}
+    qos_class: {}
+    custom_qos_policy: {}
+    tags: {}
+    trust_control_policy: {}
+    l4l7_virtual_ips: {}
+    l4l7_address_pools: {}
+    expected_state: {}
+  ten_ap_endpoint_groups_static_ports:
+    node_id: {}
+    node2_id: {}
+    fex_id: {}
+    pod_id: {}
+    module: {}
+    port: {}
+    sub_port: {}
+    channel: {}
+    vlan: {}
+    deployment_immediacy: {}
+    mode: {}
+  ten_ap_endpoint_groups_static_leafs:
+    node_id: {}
+    pod_id: {}
+    vlan: {}
+    deployment_immediacy: {}
+    mode: {}
+  ten_ap_endpoint_groups_static_endpoints:
+    name: {}
+    alias: {}
+    vlan: {}
+    mac: {}
+    ip:
+      type: ip
+    type: {}
+    node_id: {}
+    node2_id: {}
+    pod_id: {}
+    module: {}
+    port: {}
+    channel: {}
+  ten_ap_endpoint_groups_vmware_vmm_domains:
+    name: {}
+    u_segmentation: {}
+    delimiter: {}
+    vlan: {}
+    primary_vlan: {}
+    secondary_vlan: {}
+    netflow: {}
+    deployment_immediacy: {}
+    resolution_immediacy: {}
+    allow_promiscuous: {}
+    forged_transmits: {}
+    mac_changes: {}
+    elag: {}
+    active_uplinks_order: {}
+    standby_uplinks: {}
+    custom_epg_name: {}
+  ten_ap_endpoint_groups_subnets:
+    description: {}
+    ip:
+      type: cidr
+    public: {}
+    private: {}
+    shared: {}
+    igmp_querier: {}
+    nd_ra_prefix: {}
+    no_default_gateway: {}
+    virtual: {}
+    next_hop_ip:
+      type: ip
+    anycast_mac: {}
+    nlb_mode: {}
+    nlb_group:
+      type: ip
+    nlb_mac: {}
+    ip_pools: {}
+    nd_ra_prefix_policy: {}
+  ten_ap_endpoint_groups_subnets_ip_address_pools:
+    name: {}
+    start_ip:
+      type: ip
+    end_ip:
+      type: ip
+    dns_search_suffix: {}
+    dns_server: {}
+    dns_suffix: {}
+    wins_server: {}
+  ten_ap_endpoint_groups_contracts:
+    consumers:
+      type: multiselect-ref
+      ref: contracts.name
+    providers: 
+      type: multiselect-ref
+      ref: contracts.name
+    imported_consumers: 
+      type: multiselect-ref
+      ref: imported_contracts.name
+    intra_epgs: {}
+    masters: {}
+  ten_ap_endpoint_groups_contracts_masters:
+    application_profile: {}
+    endpoint_group: {}
+  ten_ap_endpoint_groups_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_ap_endpoint_security_groups:
+    name: {}
+    description: {}
+    vrf: {}
+    shutdown: {}
+    intra_esg_isolation: {}
+    preferred_group: {}
+    contracts: {}
+    tag_selectors: {}
+    epg_selectors: {}
+    ip_subnet_selectors: {}
+    expected_state: {}
+  ten_ap_endpoint_security_groups_contracts:
+    consumers: {}
+    providers: {}
+    imported_consumers: {}
+    intra_esgs: {}
+    masters: {}
+  ten_ap_endpoint_security_groups_contracts_masters:
+    application_profile: {}
+    endpoint_security_group: {}
+  ten_ap_endpoint_security_groups_tag_selectors:
+    key: {}
+    operator: {}
+    value: {}
+    description: {}
+  ten_ap_endpoint_security_groups_epg_selectors:
+    application_profile: {}
+    endpoint_group: {}
+    description: {}
+  ten_ap_endpoint_security_groups_ip_subnet_selectors:
+    value:
+      type: ip
+    description: {}
+  ten_ap_endpoint_security_groups_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_ap_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_contracts:
+    name: {}
+    alias: {}
+    description: {}
+    scope: {}
+    qos_class: {}
+    target_dscp: {}
+    subjects: {}
+    expected_state: {}
+  ten_contracts_subjects:
+    name: {}
+    alias: {}
+    description: {}
+    qos_class: {}
+    target_dscp: {}
+    service_graph: {}
+    filters: {}
+  ten_contracts_subjects_filters:
+    filter: {}
+    action: {}
+    priority: {}
+    log: {}
+    no_stats: {}
+  ten_contracts_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_oob_contracts:
+    name: {}
+    alias: {}
+    description: {}
+    scope: {}
+    subjects: {}
+    expected_state: {}
+  ten_oob_contracts_subjects:
+    name: {}
+    alias: {}
+    description: {}
+    service_graph: {}
+    filters: {}
+  ten_oob_contracts_subjects_filters:
+    filter: {}
+  ten_oob_contracts_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_filters:
+    name: {}
+    alias: {}
+    description: {}
+    entries: {}
+  ten_filters_entries:
+    name: {}
+    alias: {}
+    ethertype: {}
+    protocol: {}
+    source_from_port: {}
+    source_to_port: {}
+    destination_from_port: {}
+    destination_to_port: {}
+    stateful: {}
+  ten_l3outs:
+    name: {}
+    alias: {}
+    description: {}
+    target_dscp: {}
+    vrf: {}
+    domain: {}
+    ospf: {}
+    eigrp: {}
+    bfd_policy: {}
+    bgp_peers: {}
+    nodes: {}
+    node_profiles: {}
+    external_endpoint_groups: {}
+    import_route_map: {}
+    export_route_map: {}
+    interleak_route_map: {}
+    default_route_leak_policy: {}
+    dampening_ipv4_route_map: {}
+    dampening_ipv6_route_map: {}
+    redistribution_route_maps: {}
+    l3_multicast_ipv4: {}
+    pim_policy: {}
+    igmp_interface_policy: {}
+    qos_class: {}
+    custom_qos_policy: {}
+    multipod: {}
+    remote_leaf: {}
+    expected_state: {}
+    import_route_control_enforcement: {}
+    export_route_control_enforcement: {}
+  ten_l3outs_ospf:
+    ospf_interface_profile_name: {}
+    area: {}
+    area_type: {}
+    area_cost: {}
+    area_control_redistribute: {}
+    area_control_summary: {}
+    area_control_suppress_fa: {}
+    auth_type: {}
+    auth_key: {}
+    auth_key_id: {}
+    policy: {}
+  ten_l3outs_eigrp:
+    interface_profile_name: {}
+    asn: {}
+    interface_policy: {}
+  ten_l3outs_bgp_peers:
+    ip:
+      type: ip
+    remote_as: {}
+    description: {}
+    allow_self_as: {}
+    as_override: {}
+    disable_peer_as_check: {}
+    next_hop_self: {}
+    send_community: {}
+    send_ext_community: {}
+    password: {}
+    allowed_self_as_count: {}
+    bfd: {}
+    disable_connected_check: {}
+    ttl: {}
+    weight: {}
+    remove_all_private_as: {}
+    remove_private_as: {}
+    replace_private_as_with_local_as: {}
+    unicast_address_family: {}
+    multicast_address_family: {}
+    admin_state: {}
+    local_as: {}
+    as_propagate: {}
+    peer_prefix_policy: {}
+    export_route_control: {}
+    import_route_control: {}
+  ten_l3outs_nodes:
+    node_id: {}
+    pod_id: {}
+    router_id:
+      type: ip
+    router_id_as_loopback: {}
+    loopback:
+      type: cidr
+    static_routes: {}
+    interfaces: {}
+  ten_l3outs_nodes_static_routes:
+    description: {}
+    prefix:
+      type: cidr
+    preference: {}
+    bfd: {}
+    next_hops: {}
+  ten_l3outs_nodes_static_routes_next_hops:
+    ip:
+      type: ip
+    preference: {}
+    type: {}
+  ten_l3outs_nodes_interfaces:
+    description: {}
+    node_id: {}
+    node2_id: {}
+    port: {}
+    module: {}
+    channel: {}
+    ip:
+      type: cidr
+    svi: {}
+    multipod_direct: {}
+    autostate: {}
+    floating_svi: {}
+    vlan: {}
+    mac: {}
+    mtu: {}
+    ip_a:
+      type: cidr
+    ip_b:
+      type: cidr
+    ip_shared:
+      type: cidr
+    bgp_peers: {}
+    paths: {}
+    mode: {}
+    expected_state: {}
+  ten_l3outs_nodes_interfaces_bgp_peers:
+    ip:
+      type: ip
+    remote_as: {}
+    description: {}
+    allow_self_as: {}
+    as_override: {}
+    disable_peer_as_check: {}
+    next_hop_self: {}
+    send_community: {}
+    send_ext_community: {}
+    password: {}
+    allowed_self_as_count: {}
+    bfd: {}
+    disable_connected_check: {}
+    ttl: {}
+    weight: {}
+    remove_all_private_as: {}
+    remove_private_as: {}
+    replace_private_as_with_local_as: {}
+    unicast_address_family: {}
+    multicast_address_family: {}
+    admin_state: {}
+    local_as: {}
+    as_propagate: {}
+    peer_prefix_policy: {}
+    export_route_control: {}
+    import_route_control: {}
+  ten_l3outs_nodes_interfaces_paths:
+    physical_domain: {}
+    vmware_vmm_domain: {}
+    elag: {}
+    floating_ip:
+      type: ip
+  ten_l3outs_nodes_interfaces_expected_state:
+    ospf_neighbors: {}
+    bfd_neighbors: {}
+  ten_l3outs_nodes_interfaces_expected_state_ospf_neighbors:
+    ip:
+      type: ip
+    state: {}
+  ten_l3outs_nodes_interfaces_expected_state_bfd_neighbors:
+    ip:
+      type: ip
+  ten_l3outs_node_profiles:
+    name: {}
+    bgp_peers: {}
+    nodes: {}
+    interface_profiles: {}
+  ten_l3outs_node_profiles_bgp_peers:
+    ip:
+      type: ip
+    remote_as: {}
+    description: {}
+    allow_self_as: {}
+    as_override: {}
+    disable_peer_as_check: {}
+    next_hop_self: {}
+    send_community: {}
+    send_ext_community: {}
+    password: {}
+    allowed_self_as_count: {}
+    bfd: {}
+    disable_connected_check: {}
+    ttl: {}
+    weight: {}
+    remove_all_private_as: {}
+    remove_private_as: {}
+    replace_private_as_with_local_as: {}
+    unicast_address_family: {}
+    multicast_address_family: {}
+    admin_state: {}
+    local_as: {}
+    as_propagate: {}
+    peer_prefix_policy: {}
+    export_route_control: {}
+    import_route_control: {}
+  ten_l3outs_node_profiles_nodes:
+    node_id: {}
+    pod_id: {}
+    router_id:
+      type: ip
+    router_id_as_loopback: {}
+    loopback:
+      type: ip
+    static_routes: {}
+  ten_l3outs_node_profiles_nodes_static_routes:
+    description: {}
+    prefix:
+      type: cidr
+    preference: {}
+    bfd: {}
+    next_hops: {}
+  ten_l3outs_node_profiles_nodes_static_routes_next_hops:
+    ip:
+      type: ip
+    preference: {}
+    type: {}
+  ten_l3outs_node_profiles_interface_profiles:
+    name: {}
+    bfd_policy: {}
+    ospf: {}
+    eigrp: {}
+    pim_policy: {}
+    igmp_interface_policy: {}
+    qos_class: {}
+    custom_qos_policy: {}
+    interfaces: {}
+  ten_l3outs_node_profiles_interface_profiles_ospf:
+    ospf_interface_profile_name: {}
+    auth_type: {}
+    auth_key: {}
+    auth_key_id: {}
+    policy: {}
+  ten_l3outs_node_profiles_interface_profiles_eigrp:
+    interface_profile_name: {}
+    interface_policy: {}
+    keychain_policy: {}
+  ten_l3outs_node_profiles_interface_profiles_interfaces:
+    description: {}
+    node_id: {}
+    node2_id: {}
+    pod_id: {}
+    module: {}
+    port: {}
+    channel: {}
+    ip:
+      type: cidr
+    multipod_direct: {}
+    svi: {}
+    autostate: {}
+    floating_svi: {}
+    vlan: {}
+    mac: {}
+    mtu: {}
+    ip_a:
+      type: cidr
+    ip_b:
+      type: cidr
+    ip_shared:
+      type: cidr
+    bgp_peers: {}
+    paths: {}
+    mode: {}
+    expected_state: {}
+  ten_l3outs_node_profiles_interface_profiles_interfaces_bgp_peers:
+    ip:
+      type: ip
+    remote_as: {}
+    description: {}
+    allow_self_as: {}
+    as_override: {}
+    disable_peer_as_check: {}
+    next_hop_self: {}
+    send_community: {}
+    send_ext_community: {}
+    password: {}
+    allowed_self_as_count: {}
+    bfd: {}
+    disable_connected_check: {}
+    ttl: {}
+    weight: {}
+    remove_all_private_as: {}
+    remove_private_as: {}
+    replace_private_as_with_local_as: {}
+    unicast_address_family: {}
+    multicast_address_family: {}
+    admin_state: {}
+    local_as: {}
+    as_propagate: {}
+    peer_prefix_policy: {}
+    export_route_control: {}
+    import_route_control: {}
+  ten_l3outs_node_profiles_interface_profiles_interfaces_paths:
+    physical_domain: {}
+    vmware_vmm_domain: {}
+    elag: {}
+    floating_ip:
+      type: cidr
+  ten_l3outs_node_profiles_interface_profiles_interfaces_expected_state:
+    ospf_neighbors: {}
+    bfd_neighbors: {}
+  ten_l3outs_node_profiles_interface_profiles_interfaces_expected_state_ospf_neighbors:
+    ip:
+      type: ip
+    state: {}
+  ten_l3outs_node_profiles_interface_profiles_interfaces_expected_state_bfd_neighbors:
+    ip:
+      type: ip
+  ten_l3outs_external_endpoint_groups:
+    name: {}
+    alias: {}
+    description: {}
+    preferred_group: {}
+    qos_class: {}
+    target_dscp: {}
+    subnets: {}
+    contracts: {}
+    route_control_profiles: {}
+    expected_state: {}
+  ten_l3outs_external_endpoint_groups_subnets:
+    name: {}
+    prefix:
+      type: cidr
+    import_route_control: {}
+    export_route_control: {}
+    shared_route_control: {}
+    import_security: {}
+    shared_security: {}
+    aggregate_import_route_control: {}
+    aggregate_export_route_control: {}
+    aggregate_shared_route_control: {}
+    bgp_route_summarization: {}
+    ospf_route_summarization: {}
+    route_control_profiles: {}
+  ten_l3outs_external_endpoint_groups_route_control_profiles:
+    name: {}
+    direction: {}
+  ten_l3outs_external_endpoint_groups_subnets_route_control_profiles:
+    name: {}
+    direction: {}
+  ten_l3outs_external_endpoint_groups_contracts:
+    consumers: {}
+    providers: {}
+    imported_consumers: {}
+  ten_l3outs_external_endpoint_groups_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_l3outs_import_route_map:
+    description: {}
+    type: {}
+    contexts: {}
+  ten_l3outs_export_route_map:
+    description: {}
+    type: {}
+    contexts: {}
+  ten_l3outs_default_route_leak_policy:
+    always: {}
+    criteria: {}
+    context_scope: {}
+    outside_scope: {}
+  ten_l3outs_redistribution_route_maps:
+    source: {}
+    route_map: {}
+  ten_l3outs_route_map_context:
+    name: {}
+    description: {}
+    action: {}
+    order: {}
+    match_rule: {}
+    set_rule: {}
+  ten_l3outs_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+    learned_prefixes: {}
+  ten_l3outs_expected_state_learned_prefixes:
+    prefix:
+      type: cidr
+    route_type: {}
+    source_protocol: {}
+    administrative_distance: {}
+  ten_dhcp_labels:
+    dhcp_relay_policy: {}
+    dhcp_option_policy: {}
+    scope: {}
+  ten_inb_endpoint_groups:
+    name: {}
+    vlan: {}
+    bridge_domain: {}
+    contracts: {}
+    expected_state: {}
+  ten_inb_endpoint_groups_contracts:
+    consumers: {}
+    providers: {}
+    imported_consumers: {}
+  ten_inb_endpoint_groups_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_oob_endpoint_groups:
+    name: {}
+    oob_contracts: {}
+    expected_state: {}
+  ten_oob_endpoint_groups_oob_contracts:
+    providers: {}
+  ten_oob_endpoint_groups_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_ext_mgmt_instances:
+    name: {}
+    oob_contracts: {}
+    expected_state: {}
+  ten_ext_mgmt_instances_oob_contracts:
+    consumers: {}
+  ten_ext_mgmt_instances_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_imported_contracts:
+    name: {}
+    tenant: {}
+    contract: {}
+  ten_ap_endpoint_groups_l4l7_virtual_ips:
+    ip:
+      type: ip
+    description: {}
+  ten_ap_endpoint_groups_l4l7_address_pools:
+    name: {}
+    gateway_address:
+      type: cidr
+    from:
+      type: ip
+    to:
+      type: ip
+  ten_sr_mpls_l3outs:
+    name: {}
+    alias: {}
+    description: {}
+    vrf: {}
+    sr_mpls_infra_l3out: {}
+    domain: {}
+    transport_data_plane: {}
+    node_profiles: {}
+    external_endpoint_groups: {}
+    inbound_route_map: {}
+    outbound_route_map: {}
+  ten_sr_mpls_l3outs_node_profiles:
+    name: {}
+    mpls_custom_qos_policy: {}
+    bfd_multihop_node_policy: {}
+    nodes: {}
+    interface_profiles: {}
+    evpn_connectivity: {}
+  ten_sr_mpls_l3outs_node_profiles_nodes:
+    node_id: {}
+    pod_id: {}
+    router_id:
+      type: ip
+    bgp_evpn_loopback:
+      type: ip
+    mpls_transport_loopback:
+      type: ip
+    segment_id_index: {}
+  ten_sr_mpls_l3outs_node_profiles_evpn_connectivity:
+    ip:
+      type: ip
+    description: {}
+    remote_as: {}
+    allow_self_as: {}
+    disable_peer_as_check: {}
+    ttl: {}
+    bfd: {}
+    password: {}
+    peer_prefix_policy: {}
+    admin_state: {}
+    local_as: {}
+    as_propagate: {}
+  ten_sr_mpls_l3outs_node_profiles_interface_profiles:
+    name: {}
+    description: {}
+    bfd_policy: {}
+    interfaces: {}
+  ten_sr_mpls_l3outs_node_profiles_interface_profiles_interfaces:
+    description: {}
+    node_id: {}
+    pod_id: {}
+    module: {}
+    port: {}
+    channel: {}
+    ip:
+      type: cidr
+    vlan: {}
+    mac: {}
+    mtu: {}
+    bgp_peers: {}
+  ten_sr_mpls_l3outs_node_profiles_interface_profiles_interfaces_bgp_peers:
+    ip:
+      type: ip
+    remote_as: {}
+    description: {}
+    allow_self_as: {}
+    send_community: {}
+    send_ext_community: {}
+    password: {}
+    bfd: {}
+    unicast_address_family: {}
+    admin_state: {}
+    local_as: {}
+    peer_prefix_policy: {}
+  ten_sr_mpls_l3outs_external_endpoint_groups:
+    name: {}
+    alias: {}
+    description: {}
+    preferred_group: {}
+    subnets: {}
+    contracts: {}
+  ten_sr_mpls_l3outs_external_endpoint_groups_subnets:
+    name: {}
+    prefix:
+      type: cidr
+    route_leaking: {}
+    security: {}
+    aggregate_shared_route_control: {}
+  ten_sr_mpls_l3outs_external_endpoint_groups_contracts:
+    consumers: {}
+    providers: {}
+    imported_consumers: {}
+  ten_policies:
+    ospf_interface_policies: {}
+    eigrp_interface_policies: {}
+    ospf_timer_policies: {}
+    bgp_timer_policies: {}
+    bgp_peer_prefix_policies: {}
+    bgp_best_path_policies: {}
+    bgp_address_family_context_policies: {}
+    dhcp_relay_policies: {}
+    dhcp_option_policies: {}
+    route_tag_policies: {}
+    route_control_route_maps: {}
+    match_rules: {}
+    set_rules: {}
+    bfd_interface_policies: {}
+    multicast_route_maps: {}
+    pim_policies: {}
+    igmp_snooping_policies: {}
+    igmp_interface_policies: {}
+    ip_sla_policies: {}
+    trust_control_policies: {}
+    span: {}
+    qos: {}
+    mpls_custom_qos_policies: {}
+    bfd_multihop_node_policies: {}
+    nd_interface_policies: {}
+    nd_ra_prefix_policies: {}
+  ten_ospf_interface_policies:
+    name: {}
+    description: {}
+    cost: {}
+    passive_interface: {}
+    mtu_ignore: {}
+    advertise_subnet: {}
+    bfd: {}
+    hello_interval: {}
+    dead_interval: {}
+    network_type: {}
+    priority: {}
+    lsa_retransmit_interval: {}
+    lsa_transmit_delay: {}
+  ten_eigrp_interface_policies:
+    name: {}
+    description: {}
+    passive_interface: {}
+    split_horizon: {}
+    self_nexthop: {}
+    bfd: {}
+    hello_interval: {}
+    hold_interval: {}
+    bandwidth: {}
+    delay: {}
+    delay_unit: {}
+  ten_ospf_timer_policies:
+    name: {}
+    description: {}
+    reference_bandwidth: {}
+    distance: {}
+    max_ecmp: {}
+    spf_init_interval: {}
+    spf_hold_interval: {}
+    spf_max_interval: {}
+    max_lsa_reset_interval: {}
+    max_lsa_sleep_count: {}
+    max_lsa_sleep_interval: {}
+    lsa_arrival_interval: {}
+    lsa_group_pacing_interval: {}
+    lsa_hold_interval: {}
+    lsa_start_interval: {}
+    lsa_max_interval: {}
+    max_lsa_num: {}
+    max_lsa_threshold: {}
+    max_lsa_action: {}
+    graceful_restart: {}
+    router_id_lookup: {}
+    prefix_suppression: {}
+  ten_bgp_peer_prefix_policies:
+    name: {}
+    description: {}
+    action: {}
+    max_prefixes: {}
+    threshold: {}
+    restart_time: {}
+  ten_bgp_timer_policy:
+    name: {}
+    description: {}
+    keepalive_interval: {}
+    hold_interval: {}
+    stale_interval: {}
+    graceful_restart_helper: {}
+    maximum_as_limit: {}
+  ten_bgp_best_path_policy:
+    name: {}
+    description: {}
+    control_type: {}
+  ten_bgp_address_family_context_policy:
+    name: {}
+    description: {}
+    ebgp_distance: {}
+    ibgp_distance: {}
+    local_distance: {}
+    ebgp_max_ecmp: {}
+    ibgp_max_ecmp: {}
+    local_max_ecmp: {}
+    enable_host_route_leak: {}
+  ten_dhcp_relay_policy:
+    name: {}
+    description: {}
+    providers: {}
+  ten_dhcp_option_policy:
+    name: {}
+    description: {}
+    options: {}
+  ten_dhcp_provider:
+    ip:
+      type: ip
+    type: {}
+    tenant: {}
+    application_profile: {}
+    endpoint_group: {}
+    l3out: {}
+    external_endpoint_group: {}
+  ten_dhcp_options:
+    name: {}
+    id: {}
+    data: {}
+  ten_route_tag_policies:
+    name: {}
+    description: {}
+    tag: {}
+  ten_route_control_route_maps:
+    name: {}
+    description: {}
+    contexts: {}
+  ten_route_control_route_maps_contexts:
+    name: {}
+    description: {}
+    action: {}
+    order: {}
+    set_rule: {}
+  ten_match_rule:
+    name: {}
+    description: {}
+    regex_community_terms: {}
+    community_terms: {}
+    prefixes: {}
+  ten_match_rule_regex_community_terms:
+    name: {}
+    regex: {}
+    type: {}
+    description: {}
+  ten_match_rule_community_terms:
+    name: {}
+    description: {}
+    factors: {}
+  ten_match_rule_community_terms_factors:
+    community: {}
+    description: {}
+    scope: {}
+  ten_match_rule_prefixes:
+    ip:
+      type: cidr
+    description: {}
+    aggregate: {}
+    from_length: {}
+    to_length: {}
+  ten_set_rule:
+    name: {}
+    description: {}
+    community_mode: {}
+    community: {}
+    tag: {}
+    weight: {}
+    next_hop:
+      type: ip
+    preference: {}
+    metric: {}
+    metric_type: {}
+    dampening: {}
+    additional_communities: {}
+    set_as_path: {}
+    next_hop_propagation: {}
+    multipath: {}
+    external_endpoint_group: {}
+  ten_set_rule_dampening:
+    half_life: {}
+    max_suppress_time: {}
+    reuse_limit: {}
+    suppress_limit: {}
+  ten_set_rule_additional_communities:
+    community: {}
+    description: {}
+  ten_set_rule_set_as_path:
+    criteria: {}
+    count: {}
+    asn: {}
+    order: {}
+  ten_set_rule_external_endpoint_group:
+    name: {}
+    l3out: {}
+    tenant: {}
+  ten_bfd_interface_policies:
+    name: {}
+    description: {}
+    subinterface_optimization: {}
+    detection_multiplier: {}
+    echo_admin_state: {}
+    echo_rx_interval: {}
+    min_rx_interval: {}
+    min_tx_interval: {}
+  ten_multicast_route_maps:
+    name: {}
+    description: {}
+    entries: {}
+    expected_state: {}
+  ten_multicast_route_map_entries:
+    order: {}
+    source_ip:
+      type: cidr
+    group_ip:
+      type: cidr
+    rp_ip:
+      type: cidr
+    action: {}
+  ten_multicast_route_maps_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_pim_policies:
+    name: {}
+    auth_type: {}
+    designated_router_delay: {}
+    designated_router_priority: {}
+    hello_interval: {}
+    join_prune_interval: {}
+    mcast_dom_boundary: {}
+    passive: {}
+    strict_rfc: {}
+    join_prune_filter_policy_in: {}
+    join_prune_filter_policy_out: {}
+    neighbor_filter_policy: {}
+  ten_igmp_snooping_policies:
+    name: {}
+    description: {}
+    admin_state: {}
+    last_member_query_interval: {}
+    query_interval: {}
+    query_response_interval: {}
+    start_query_count: {}
+    start_query_interval: {}
+    fast_leave: {}
+    querier: {}
+    expected_state: {}
+  ten_igmp_snooping_policies_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_igmp_interface_policies:
+    name: {}
+    description: {}
+    grp_timeout: {}
+    allow_v3_asm: {}
+    fast_leave: {}
+    report_link_local_groups: {}
+    last_member_count: {}
+    last_member_response_time: {}
+    querier_timeout: {}
+    query_interval: {}
+    robustness_variable: {}
+    query_response_interval: {}
+    startup_query_count: {}
+    startup_query_interval: {}
+    version: {}
+    max_mcast_entries: {}
+    reserved_mcast_entries: {}
+    state_limit_multicast_route_map: {}
+    report_policy_multicast_route_map: {}
+    static_report_multicast_route_map: {}
+    expected_state: {}
+  ten_igmp_interface_policies_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_ip_sla_policies:
+    name: {}
+    description: {}
+    frequency: {}
+    multiplier: {}
+    sla_type: {}
+    port: {}
+    expected_state: {}
+  ten_ip_sla_policies_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_qos:
+    name: {}
+    description: {}
+    alias: {}
+    dscp_priority_maps: {}
+    dot1p_classifiers: {}
+  ten_qos_dscp_priority_map:
+    priority: {}
+    dscp_from: {}
+    dscp_to: {}
+    dscp_target: {}
+    cos_target: {}
+  ten_qos_dot1p_classifiers:
+    priority: {}
+    dot1p_from: {}
+    dot1p_to: {}
+    dscp_target: {}
+    cos_target: {}
+  ten_trust_control_policies:
+    name: {}
+    description: {}
+    dhcp_v4_server: {}
+    dhcp_v6_server: {}
+    ipv6_router: {}
+    arp: {}
+    nd: {}
+    ra: {}
+  ten_span:
+    destination_groups: {}
+    source_groups: {}
+  ten_span_destination_groups:
+    name: {}
+    description: {}
+    ip:
+      type: ip, cidr
+    source_prefix: {}
+    dscp: {}
+    flow_id: {}
+    mtu: {}
+    ttl: {}
+    version: {}
+    enforce_version: {}
+    tenant: {}
+    application_profile: {}
+    endpoint_group: {}
+    expected_state: {}
+  ten_span_destination_groups_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_span_source_groups:
+    name: {}
+    description: {}
+    admin_state: {}
+    destination: {}
+    sources: {}
+    expected_state: {}
+  ten_span_source_groups_sources:
+    name: {}
+    description: {}
+    direction: {}
+    application_profile: {}
+    endpoint_group: {}
+  ten_span_source_groups_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_mpls_custom_qos_policies:
+    name: {}
+    description: {}
+    alias: {}
+    ingress_rules: {}
+    egress_rules: {}
+  ten_mpls_custom_qos_ingress_rules:
+    priority: {}
+    exp_from: {}
+    exp_to: {}
+    dscp_target: {}
+    cos_target: {}
+  ten_mpls_custom_qos_egress_ruless:
+    dscp_from: {}
+    dscp_to: {}
+    exp_target: {}
+    cos_target: {}
+  ten_bfd_multihop_node_policies:
+    name: {}
+    description: {}
+    detection_multiplier: {}
+    min_rx_interval: {}
+    min_tx_interval: {}
+  ten_nd_interface_policies:
+    name: {}
+    description: {}
+    hop_limit: {}
+    ns_tx_interval: {}
+    mtu: {}
+    retransmit_retry_count: {}
+    nud_retransmit_base: {}
+    nud_retransmit_interval: {}
+    nud_retransmit_count: {}
+    route_advertise_interval: {}
+    router_lifetime: {}
+    reachable_time: {}
+    retransmit_timer: {}
+  ten_nd_ra_prefix_policies:
+    name: {}
+    description: {}
+    valid_lifetime: {}
+    preferred_lifetime: {}
+    auto_configuration: {}
+    on_link: {}
+    router_address: {}
+    expected_state: {}
+  ten_nd_ra_prefix_policies_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_services:
+    l4l7_devices: {}
+    imported_l4l7_devices: {}
+    redirect_policies: {}
+    service_epg_policies: {}
+    redirect_health_groups: {}
+    redirect_backup_policies: {}
+    service_graph_templates: {}
+    device_selection_policies: {}
+  ten_ser_l4l7_devices:
+    name: {}
+    alias: {}
+    context_aware: {}
+    type: {}
+    function: {}
+    copy_device: {}
+    managed: {}
+    promiscuous_mode: {}
+    service_type: {}
+    trunking: {}
+    physical_domain: {}
+    vmware_vmm_domain: {}
+    concrete_devices: {}
+    logical_interfaces: {}
+    expected_state: {}
+  ten_ser_imported_l4l7_devices:
+    name: {}
+    tenant: {}
+    description: {}
+  ten_ser_l4l7_devices_concrete_devices:
+    name: {}
+    alias: {}
+    vcenter_name: {}
+    vm_name: {}
+    interfaces: {}
+  ten_ser_l4l7_devices_concrete_devices_interfaces:
+    name: {}
+    alias: {}
+    vnic_name: {}
+    node_id: {}
+    node2_id: {}
+    pod_id: {}
+    fex_id: {}
+    module: {}
+    port: {}
+    channel: {}
+  ten_ser_l4l7_devices_logical_interfaces:
+    name: {}
+    alias: {}
+    vlan: {}
+    concrete_interfaces: {}
+  ten_ser_l4l7_devices_logical_interfaces_concrete_interfaces:
+    device: {}
+    interface_name: {}
+  ten_ser_l4l7_devices_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_ser_redirect_policies:
+    name: {}
+    alias: {}
+    description: {}
+    anycast: {}
+    type: {}
+    hashing: {}
+    threshold: {}
+    max_threshold: {}
+    min_threshold: {}
+    pod_aware: {}
+    resilient_hashing: {}
+    redirect_backup_policy: {}
+    threshold_down_action: {}
+    l1l2_destinations: {}
+    l3_destinations: {}
+    ip_sla_policy: {}
+    expected_state: {}
+  ten_ser_redirect_policies_l1l2_destinations:
+    description: {}
+    name: {}
+    mac: {}
+    weight: {}
+    pod: {}
+    redirect_health_group: {}
+    concrete_interface: {}
+  ten_ser_redirect_policies_l1l2_destinations_concrete_interface:
+    l4l7_device: {}
+    concrete_device: {}
+    interface: {}
+  ten_ser_redirect_policies_l3_destinations:
+    description: {}
+    ip:
+      type: ip
+    ip_2:
+      type: ip
+    mac: {}
+    pod: {}
+    redirect_health_group: {}
+  ten_ser_redirect_policies_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_ser_redirect_backup_policies:
+    name: {}
+    description: {}
+    l3_destinations: {}
+    expected_state: {}
+  ten_ser_redirect_backup_policies_l3_destinations:
+    description: {}
+    ip:
+      type: ip
+    ip_2:
+      type: ip
+    destination_name: {}
+    mac: {}
+    redirect_health_group: {}
+  ten_ser_redirect_backup_policies_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_ser_service_epg_policies:
+    name: {}
+    description: {}
+    preferred_group: {}
+  ten_ser_redirect_health_groups:
+    name: {}
+    description: {}
+    expected_state: {}
+  ten_ser_redirect_health_groups_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_ser_service_graph_templates:
+    name: {}
+    alias: {}
+    description: {}
+    template_type: {}
+    redirect: {}
+    share_encapsulation: {}
+    device: {}
+    consumer: {}
+    provider: {}
+    expected_state: {}
+  ten_ser_service_graph_templates_device:
+    name: {}
+    tenant: {}
+  ten_ser_service_graph_templates_consumer_provider:
+    direct_connect: {}
+  ten_ser_service_graph_templates_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_ser_device_selection_policies:
+    contract: {}
+    service_graph_template: {}
+    consumer: {}
+    provider: {}
+    copy_service: {}
+    expected_state: {}
+  ten_ser_device_selection_policies_consumer_provider:
+    l3_destination: {}
+    permit_logging: {}
+    logical_interface: {}
+    redirect_policy: {}
+    bridge_domain: {}
+    external_endpoint_group: {}
+    service_epg_policy: {}
+    custom_qos_policy: {}
+  ten_ser_device_selection_policies_consumer_provider_redirect_policy:
+    name: {}
+    tenant: {}
+  ten_ser_device_selection_policies_consumer_provider_bridge_domain:
+    name: {}
+    tenant: {}
+  ten_ser_device_selection_policies_consumer_provider_external_endpoint_group:
+    tenant: {}
+    l3out: {}
+    name: {}
+    redistribute: {}
+  ten_ser_device_selection_policies_consumer_provider_external_endpoint_group_redistribute:
+    bgp: {}
+    ospf: {}
+    connected: {}
+    static: {}
+  ten_ser_device_selection_policies_copy_service:
+    l3_destination: {}
+    permit_logging: {}
+    logical_interface: {}
+    service_epg_policy: {}
+    custom_qos_policy: {}
+  ten_ser_device_selection_policies_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+  ten_expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}
+apic:
+  name: {}
+  apic:
+    version: {}
+    bootstrap: {}
+    fabric_policies: {}
+    access_policies: {}
+    pod_policies: {}
+    node_policies: {}
+    interface_policies: {}
+    tenants: {}
+    auto_generate_switch_pod_profiles: {}
+    auto_generate_pod_profiles: {}
+    auto_generate_fabric_leaf_switch_interface_profiles: {}
+    auto_generate_fabric_spine_switch_interface_profiles: {}
+    auto_generate_access_leaf_switch_interface_profiles: {}
+    auto_generate_access_spine_switch_interface_profiles: {}
+    nae_assurance_group: {}
+    new_interface_configuration: {}
+    expected_state: {}
+  bootstrap:
+    admin_username: {}
+    admin_password: {}
+    snapshot_policy: {}
+    objects_to_delete: {}
+  expected_state:
+    minimum_health: {}
+    maximum_critical_faults: {}
+    maximum_major_faults: {}
+    maximum_minor_faults: {}

@@ -1,0 +1,5043 @@
+{
+  "fabric_policies": {
+    "name": "Fabric Policies",
+    "fabric_policies": {
+      "leaf_switch_profile_name": {
+        "type": "string",
+        "title": "Leaf Switch Profile Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "required": false
+      },
+      "leaf_switch_selector_name": {
+        "type": "string",
+        "title": "Leaf Switch Selector Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "required": false
+      },
+      "leaf_interface_profile_name": {
+        "type": "string",
+        "title": "Leaf Interface Profile Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "required": false
+      },
+      "spine_switch_profile_name": {
+        "type": "string",
+        "title": "Spine Switch Profile Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "required": false
+      },
+      "spine_switch_selector_name": {
+        "type": "string",
+        "title": "Spine Switch Selector Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "required": false
+      },
+      "spine_interface_profile_name": {
+        "type": "string",
+        "title": "Spine Interface Profile Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "required": false
+      },
+      "pod_profile_name": {
+        "type": "string",
+        "title": "Pod Profile Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "required": false
+      },
+      "pod_profile_pod_selector_name": {
+        "type": "string",
+        "title": "Pod Profile Pod Selector Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "required": false
+      },
+      "config_passphrase": {
+        "type": "string",
+        "title": "Config Passphrase",
+        "minLength": 0,
+        "maxLength": 32,
+        "required": false
+      },
+      "apic_conn_pref": {
+        "type": "select",
+        "title": "Apic Conn Pref",
+        "enum": [
+          "inband",
+          "ooband"
+        ],
+        "required": false
+      },
+      "banners": {
+        "type": "object",
+        "title": "Banners",
+        "ref": "fp_banners",
+        "required": false
+      },
+      "ep_loop_protection": {
+        "type": "object",
+        "title": "Ep Loop Protection",
+        "ref": "fp_ep_loop_protection",
+        "required": false
+      },
+      "rogue_ep_control": {
+        "type": "object",
+        "title": "Rogue Ep Control",
+        "ref": "fp_rogue_ep_control",
+        "required": false
+      },
+      "global_settings": {
+        "type": "object",
+        "title": "Global Settings",
+        "ref": "fp_global_settings",
+        "required": false
+      },
+      "port_tracking": {
+        "type": "object",
+        "title": "Port Tracking",
+        "ref": "fp_port_tracking",
+        "required": false
+      },
+      "ptp": {
+        "type": "object",
+        "title": "Ptp",
+        "ref": "fp_ptp",
+        "required": false
+      },
+      "ip_aging": {
+        "type": "select-bool",
+        "title": "Ip Aging",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "ignore_acked_faults": {
+        "type": "select-bool",
+        "title": "Ignore Acked Faults",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "use_infra_gipo": {
+        "type": "select-bool",
+        "title": "Use Infra Gipo",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "coop_group_policy": {
+        "type": "select",
+        "title": "Coop Group Policy",
+        "enum": [
+          "compatible",
+          "strict"
+        ],
+        "required": false
+      },
+      "l2_port_mtu": {
+        "type": "int",
+        "title": "L2 Port Mtu",
+        "minimum": 576,
+        "maximum": 9216,
+        "required": false
+      },
+      "fabric_isis_redistribute_metric": {
+        "type": "int",
+        "title": "Fabric Isis Redistribute Metric",
+        "required": false
+      },
+      "fabric_isis_bfd": {
+        "type": "select-bool",
+        "title": "Fabric Isis Bfd",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "fabric_bgp_as": {
+        "type": "int",
+        "title": "Fabric Bgp As",
+        "minimum": 1,
+        "maximum": 4294967295,
+        "required": false
+      },
+      "date_time_format": {
+        "type": "object",
+        "title": "Date Time Format",
+        "ref": "fp_date_time_format",
+        "required": false
+      },
+      "dns_policies": {
+        "type": "list",
+        "title": "Dns Policies",
+        "ref": "fp_dns_policy",
+        "required": false
+      },
+      "err_disabled_recovery": {
+        "type": "object",
+        "title": "Err Disabled Recovery",
+        "ref": "fp_err_disabled_recovery",
+        "required": false
+      },
+      "pod_policies": {
+        "type": "object",
+        "title": "Pod Policies",
+        "ref": "fp_pod_policies",
+        "required": false
+      },
+      "pod_policy_groups": {
+        "type": "list",
+        "title": "Pod Policy Groups",
+        "ref": "fp_pod_policy_groups",
+        "required": false
+      },
+      "pod_profiles": {
+        "type": "list",
+        "title": "Pod Profiles",
+        "ref": "fp_pod_profiles",
+        "required": false
+      },
+      "switch_policies": {
+        "type": "object",
+        "title": "Switch Policies",
+        "ref": "fp_switch_policies",
+        "required": false
+      },
+      "leaf_switch_policy_groups": {
+        "type": "list",
+        "title": "Leaf Switch Policy Groups",
+        "ref": "fp_leaf_switch_policy_groups",
+        "required": false
+      },
+      "spine_switch_policy_groups": {
+        "type": "list",
+        "title": "Spine Switch Policy Groups",
+        "ref": "fp_spine_switch_policy_groups",
+        "required": false
+      },
+      "leaf_switch_profiles": {
+        "type": "list",
+        "title": "Leaf Switch Profiles",
+        "ref": "fp_leaf_switch_profiles",
+        "required": false
+      },
+      "spine_switch_profiles": {
+        "type": "list",
+        "title": "Spine Switch Profiles",
+        "ref": "fp_spine_switch_profiles",
+        "required": false
+      },
+      "leaf_interface_profiles": {
+        "type": "list",
+        "title": "Leaf Interface Profiles",
+        "ref": "fp_leaf_interface_profiles",
+        "required": false
+      },
+      "spine_interface_profiles": {
+        "type": "list",
+        "title": "Spine Interface Profiles",
+        "ref": "fp_spine_interface_profiles",
+        "required": false
+      },
+      "external_connectivity_policy": {
+        "type": "object",
+        "title": "External Connectivity Policy",
+        "ref": "fp_external_connectivity_policy",
+        "required": false
+      },
+      "infra_dscp_translation_policy": {
+        "type": "object",
+        "title": "Infra Dscp Translation Policy",
+        "ref": "fp_infra_dscp_translation_policy",
+        "required": false
+      },
+      "vmware_vmm_domains": {
+        "type": "list",
+        "title": "Vmware Vmm Domains",
+        "ref": "fp_vmware_vmm_domains",
+        "required": false
+      },
+      "aaa": {
+        "type": "object",
+        "title": "Aaa",
+        "ref": "fp_aaa",
+        "required": false
+      },
+      "geolocation": {
+        "type": "object",
+        "title": "Geolocation",
+        "ref": "fp_geolocation",
+        "required": false
+      },
+      "remote_locations": {
+        "type": "list",
+        "title": "Remote Locations",
+        "ref": "fp_remote_locations",
+        "required": false
+      },
+      "schedulers": {
+        "type": "list",
+        "title": "Schedulers",
+        "ref": "fp_schedulers",
+        "required": false
+      },
+      "config_exports": {
+        "type": "list",
+        "title": "Config Exports",
+        "ref": "fp_config_exports",
+        "required": false
+      },
+      "monitoring": {
+        "type": "object",
+        "title": "Monitoring",
+        "ref": "fp_monitoring",
+        "required": false
+      },
+      "span": {
+        "type": "object",
+        "title": "Span",
+        "ref": "fp_span",
+        "required": false
+      },
+      "smart_licensing": {
+        "type": "object",
+        "title": "Smart Licensing",
+        "ref": "fp_smart_licensing",
+        "required": false
+      },
+      "l2_mtu_policies": {
+        "type": "list",
+        "title": "L2 Mtu Policies",
+        "ref": "fp_l2_mtu_policies",
+        "required": false
+      },
+      "system_performance": {
+        "type": "object",
+        "title": "System Performance",
+        "ref": "fp_system_performance",
+        "required": false
+      }
+    },
+    "fp_banners": {
+      "apic_gui_alias": {
+        "type": "string",
+        "title": "Apic Gui Alias",
+        "required": false
+      },
+      "apic_gui_banner_url": {
+        "type": "string",
+        "title": "Apic Gui Banner Url",
+        "required": false
+      },
+      "apic_gui_banner_message": {
+        "type": "string",
+        "title": "Apic Gui Banner Message",
+        "required": false
+      },
+      "apic_cli_banner": {
+        "type": "string",
+        "title": "Apic Cli Banner",
+        "required": false
+      },
+      "switch_cli_banner": {
+        "type": "string",
+        "title": "Switch Cli Banner",
+        "required": false
+      }
+    },
+    "fp_ep_loop_protection": {
+      "admin_state": {
+        "type": "select-bool",
+        "title": "Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "detection_interval": {
+        "type": "int",
+        "title": "Detection Interval",
+        "minimum": 30,
+        "maximum": 300,
+        "required": false
+      },
+      "detection_multiplier": {
+        "type": "int",
+        "title": "Detection Multiplier",
+        "minimum": 1,
+        "maximum": 255,
+        "required": false
+      },
+      "action": {
+        "type": "select",
+        "title": "Action",
+        "enum": [
+          "bd-learn-disable",
+          "port-disable"
+        ],
+        "required": false
+      }
+    },
+    "fp_rogue_ep_control": {
+      "admin_state": {
+        "type": "select-bool",
+        "title": "Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "detection_interval": {
+        "type": "int",
+        "title": "Detection Interval",
+        "minimum": 30,
+        "maximum": 3600,
+        "required": false
+      },
+      "detection_multiplier": {
+        "type": "int",
+        "title": "Detection Multiplier",
+        "minimum": 2,
+        "maximum": 65535,
+        "required": false
+      },
+      "hold_interval": {
+        "type": "int",
+        "title": "Hold Interval",
+        "minimum": 300,
+        "maximum": 3600,
+        "required": false
+      }
+    },
+    "fp_global_settings": {
+      "domain_validation": {
+        "type": "select-bool",
+        "title": "Domain Validation",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "enforce_subnet_check": {
+        "type": "select-bool",
+        "title": "Enforce Subnet Check",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "opflex_authentication": {
+        "type": "select-bool",
+        "title": "Opflex Authentication",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "disable_remote_endpoint_learn": {
+        "type": "select-bool",
+        "title": "Disable Remote Endpoint Learn",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "overlapping_vlan_validation": {
+        "type": "select-bool",
+        "title": "Overlapping Vlan Validation",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "remote_leaf_direct": {
+        "type": "select-bool",
+        "title": "Remote Leaf Direct",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "reallocate_gipo": {
+        "type": "select-bool",
+        "title": "Reallocate Gipo",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      }
+    },
+    "fp_port_tracking": {
+      "admin_state": {
+        "type": "select-bool",
+        "title": "Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "delay": {
+        "type": "int",
+        "title": "Delay",
+        "minimum": 1,
+        "maximum": 300,
+        "required": false
+      },
+      "min_links": {
+        "type": "int",
+        "title": "Min Links",
+        "minimum": 0,
+        "maximum": 48,
+        "required": false
+      },
+      "include_apic": {
+        "type": "bool",
+        "title": "Include Apic",
+        "required": false
+      }
+    },
+    "fp_ptp": {
+      "admin_state": {
+        "type": "select-bool",
+        "title": "Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "global_domain": {
+        "type": "int",
+        "title": "Global Domain",
+        "minimum": 0,
+        "maximum": 128,
+        "required": false
+      },
+      "profile": {
+        "type": "select",
+        "title": "Profile",
+        "enum": [
+          "aes67",
+          "default",
+          "smpte",
+          "telecom_full_path"
+        ],
+        "required": false
+      },
+      "announce_interval": {
+        "type": "int",
+        "title": "Announce Interval",
+        "minimum": -3,
+        "maximum": 4,
+        "required": false
+      },
+      "announce_timeout": {
+        "type": "int",
+        "title": "Announce Timeout",
+        "minimum": 2,
+        "maximum": 10,
+        "required": false
+      },
+      "sync_interval": {
+        "type": "int",
+        "title": "Sync Interval",
+        "minimum": -7,
+        "maximum": 1,
+        "required": false
+      },
+      "delay_interval": {
+        "type": "int",
+        "title": "Delay Interval",
+        "minimum": -7,
+        "maximum": 5,
+        "required": false
+      }
+    },
+    "fp_date_time_format": {
+      "display_format": {
+        "type": "select",
+        "title": "Display Format",
+        "enum": [
+          "local",
+          "utc"
+        ],
+        "required": false
+      },
+      "timezone": {
+        "type": "string",
+        "title": "Timezone",
+        "required": false
+      },
+      "show_offset": {
+        "type": "select-bool",
+        "title": "Show Offset",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      }
+    },
+    "fp_dns_policy": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "mgmt_epg": {
+        "type": "select",
+        "title": "Mgmt Epg",
+        "enum": [
+          "inb",
+          "oob"
+        ],
+        "required": false
+      },
+      "providers": {
+        "type": "list",
+        "title": "Providers",
+        "ref": "fp_dns_policy_provider",
+        "required": false
+      },
+      "domains": {
+        "type": "list",
+        "title": "Domains",
+        "ref": "fp_dns_policy_domain",
+        "required": false
+      }
+    },
+    "fp_dns_policy_provider": {
+      "ip": {
+        "type": "ip",
+        "title": "Ip",
+        "required": true
+      },
+      "preferred": {
+        "type": "select-bool",
+        "title": "Preferred",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      }
+    },
+    "fp_dns_policy_domain": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "default": {
+        "type": "select-bool",
+        "title": "Default",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      }
+    },
+    "fp_err_disabled_recovery": {
+      "interval": {
+        "type": "int",
+        "title": "Interval",
+        "minimum": 30,
+        "maximum": 65535,
+        "required": false
+      },
+      "mcp_loop": {
+        "type": "select-bool",
+        "title": "Mcp Loop",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "ep_move": {
+        "type": "select-bool",
+        "title": "Ep Move",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "bpdu_guard": {
+        "type": "select-bool",
+        "title": "Bpdu Guard",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      }
+    },
+    "fp_pod_policies": {
+      "date_time_policies": {
+        "type": "list",
+        "title": "Date Time Policies",
+        "ref": "fp_date_time_policy",
+        "required": false
+      },
+      "snmp_policies": {
+        "type": "list",
+        "title": "Snmp Policies",
+        "ref": "fp_snmp_policy",
+        "required": false
+      },
+      "management_access_policies": {
+        "type": "list",
+        "title": "Management Access Policies",
+        "ref": "fp_management_access_policy",
+        "required": false
+      }
+    },
+    "fp_date_time_policy": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "ntp_admin_state": {
+        "type": "select-bool",
+        "title": "Ntp Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "ntp_auth_state": {
+        "type": "select-bool",
+        "title": "Ntp Auth State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "apic_ntp_server_state": {
+        "type": "select-bool",
+        "title": "Apic Ntp Server State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "apic_ntp_server_master_mode": {
+        "type": "select-bool",
+        "title": "Apic Ntp Server Master Mode",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "apic_ntp_server_master_stratum": {
+        "type": "int",
+        "title": "Apic Ntp Server Master Stratum",
+        "minimum": 1,
+        "maximum": 14,
+        "required": false
+      },
+      "ntp_servers": {
+        "type": "list",
+        "title": "Ntp Servers",
+        "ref": "fp_ntp_servers",
+        "required": false
+      },
+      "ntp_keys": {
+        "type": "list",
+        "title": "Ntp Keys",
+        "ref": "fp_ntp_keys",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "fp_date_time_policy_expected_state",
+        "required": false
+      }
+    },
+    "fp_ntp_servers": {
+      "auth_key_id": {
+        "type": "int",
+        "title": "Auth Key Id",
+        "minimum": 1,
+        "maximum": 65535,
+        "required": false
+      },
+      "preferred": {
+        "type": "select-bool",
+        "title": "Preferred",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "mgmt_epg": {
+        "type": "select",
+        "title": "Mgmt Epg",
+        "enum": [
+          "inb",
+          "oob"
+        ],
+        "required": false
+      }
+    },
+    "fp_ntp_keys": {
+      "id": {
+        "type": "int",
+        "title": "Id",
+        "minimum": 1,
+        "maximum": 65535,
+        "required": true
+      },
+      "key": {
+        "type": "string",
+        "title": "Key",
+        "minLength": 0,
+        "maxLength": 40,
+        "required": true
+      },
+      "auth_type": {
+        "type": "select",
+        "title": "Auth Type",
+        "enum": [
+          "md5"
+        ],
+        "required": true
+      },
+      "trusted": {
+        "type": "select-bool",
+        "title": "Trusted",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": true
+      }
+    },
+    "fp_date_time_policy_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "fp_snmp_policy": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "admin_state": {
+        "type": "select-bool",
+        "title": "Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "location": {
+        "type": "string",
+        "title": "Location",
+        "minLength": 0,
+        "maxLength": 512,
+        "required": false
+      },
+      "contact": {
+        "type": "string",
+        "title": "Contact",
+        "minLength": 0,
+        "maxLength": 255,
+        "required": false
+      },
+      "users": {
+        "type": "list",
+        "title": "Users",
+        "ref": "fp_snmp_policy_user",
+        "required": false
+      },
+      "trap_forwarders": {
+        "type": "list",
+        "title": "Trap Forwarders",
+        "ref": "fp_snmp_policy_trap_forwarder",
+        "required": false
+      },
+      "clients": {
+        "type": "list",
+        "title": "Clients",
+        "ref": "fp_snmp_policy_client",
+        "required": false
+      }
+    },
+    "fp_snmp_policy_user": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "privacy_type": {
+        "type": "select",
+        "title": "Privacy Type",
+        "enum": [
+          "none",
+          "des",
+          "aes-128"
+        ],
+        "required": false
+      },
+      "privacy_key": {
+        "type": "string",
+        "title": "Privacy Key",
+        "minLength": 8,
+        "maxLength": 130,
+        "required": false
+      },
+      "authorization_type": {
+        "type": "select",
+        "title": "Authorization Type",
+        "enum": [
+          "hmac-md5-96",
+          "hmac-sha1-96",
+          "hmac-sha2-224",
+          "hmac-sha2-256",
+          "hmac-sha2-384",
+          "hmac-sha2-512"
+        ],
+        "required": false
+      },
+      "authorization_key": {
+        "type": "string",
+        "title": "Authorization Key",
+        "minLength": 8,
+        "maxLength": 130,
+        "required": true
+      }
+    },
+    "fp_snmp_policy_trap_forwarder": {
+      "ip": {
+        "type": "ip",
+        "title": "Ip",
+        "required": false
+      },
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 0,
+        "maximum": 65535,
+        "required": false
+      }
+    },
+    "fp_snmp_policy_client": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "mgmt_epg": {
+        "type": "select",
+        "title": "Mgmt Epg",
+        "enum": [
+          "inb"
+        ],
+        "required": true
+      },
+      "entries": {
+        "type": "list",
+        "title": "Entries",
+        "ref": "fp_snmp_policy_client_entry",
+        "required": false
+      }
+    },
+    "fp_snmp_policy_client_entry": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "ip": {
+        "type": "ip",
+        "title": "Ip",
+        "required": true
+      }
+    },
+    "fp_management_access_policy": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "alias": {
+        "type": "string",
+        "title": "Alias",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "ssh": {
+        "type": "object",
+        "title": "Ssh",
+        "ref": "fp_management_access_policy_ssh",
+        "required": false
+      },
+      "telnet": {
+        "type": "object",
+        "title": "Telnet",
+        "ref": "fp_management_access_policy_telnet",
+        "required": false
+      },
+      "https": {
+        "type": "object",
+        "title": "Https",
+        "ref": "fp_management_access_policy_https",
+        "required": false
+      },
+      "http": {
+        "type": "object",
+        "title": "Http",
+        "ref": "fp_management_access_policy_http",
+        "required": false
+      }
+    },
+    "fp_management_access_policy_ssh": {
+      "admin_state": {
+        "type": "select-bool",
+        "title": "Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "password_auth": {
+        "type": "select-bool",
+        "title": "Password Auth",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 1,
+        "maximum": 65535,
+        "required": false
+      },
+      "aes128_ctr": {
+        "type": "select-bool",
+        "title": "Aes128 Ctr",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "aes128_gcm": {
+        "type": "select-bool",
+        "title": "Aes128 Gcm",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "aes192_ctr": {
+        "type": "select-bool",
+        "title": "Aes192 Ctr",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "aes256_ctr": {
+        "type": "select-bool",
+        "title": "Aes256 Ctr",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "aes256_gcm": {
+        "type": "select-bool",
+        "title": "Aes256 Gcm",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "chacha": {
+        "type": "select-bool",
+        "title": "Chacha",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "hmac_sha1": {
+        "type": "select-bool",
+        "title": "Hmac Sha1",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "hmac_sha2_256": {
+        "type": "select-bool",
+        "title": "Hmac Sha2 256",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "hmac_sha2_512": {
+        "type": "select-bool",
+        "title": "Hmac Sha2 512",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "curve25519_sha256": {
+        "type": "select-bool",
+        "title": "Curve25519 Sha256",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "curve25519_sha256_libssh": {
+        "type": "select-bool",
+        "title": "Curve25519 Sha256 Libssh",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "dh1_sha1": {
+        "type": "select-bool",
+        "title": "Dh1 Sha1",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "dh14_sha1": {
+        "type": "select-bool",
+        "title": "Dh14 Sha1",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "dh14_sha256": {
+        "type": "select-bool",
+        "title": "Dh14 Sha256",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "dh16_sha512": {
+        "type": "select-bool",
+        "title": "Dh16 Sha512",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "ecdh_sha2_nistp256": {
+        "type": "select-bool",
+        "title": "Ecdh Sha2 Nistp256",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "ecdh_sha2_nistp384": {
+        "type": "select-bool",
+        "title": "Ecdh Sha2 Nistp384",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "ecdh_sha2_nistp521": {
+        "type": "select-bool",
+        "title": "Ecdh Sha2 Nistp521",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      }
+    },
+    "fp_management_access_policy_telnet": {
+      "admin_state": {
+        "type": "select-bool",
+        "title": "Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 1,
+        "maximum": 65535,
+        "required": false
+      }
+    },
+    "fp_management_access_policy_https": {
+      "admin_state": {
+        "type": "select-bool",
+        "title": "Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "client_cert_auth_state": {
+        "type": "select-bool",
+        "title": "Client Cert Auth State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "dh": {
+        "type": "select",
+        "title": "Dh",
+        "enum": [
+          "1024",
+          "2048"
+        ],
+        "required": false
+      },
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 1,
+        "maximum": 65535,
+        "required": false
+      },
+      "tlsv1": {
+        "type": "select-bool",
+        "title": "Tlsv1",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "tlsv1_1": {
+        "type": "select-bool",
+        "title": "Tlsv1 1",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "tlsv1_2": {
+        "type": "select-bool",
+        "title": "Tlsv1 2",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "tlsv1_3": {
+        "type": "select-bool",
+        "title": "Tlsv1 3",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "key_ring": {
+        "type": "string",
+        "title": "Key Ring",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      }
+    },
+    "fp_management_access_policy_http": {
+      "admin_state": {
+        "type": "select-bool",
+        "title": "Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 1,
+        "maximum": 65535,
+        "required": false
+      }
+    },
+    "fp_pod_policy_groups": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "snmp_policy": {
+        "type": "string",
+        "title": "Snmp Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "date_time_policy": {
+        "type": "string",
+        "title": "Date Time Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "management_access_policy": {
+        "type": "string",
+        "title": "Management Access Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "isis_policy": {
+        "type": "string",
+        "title": "Isis Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "coop_group_policy": {
+        "type": "string",
+        "title": "Coop Group Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "bgp_route_reflector_policy": {
+        "type": "string",
+        "title": "Bgp Route Reflector Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "macsec_policy": {
+        "type": "string",
+        "title": "Macsec Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      }
+    },
+    "fp_pod_profiles": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "selectors": {
+        "type": "list",
+        "title": "Selectors",
+        "ref": "fp_pod_profiles_selectors",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "fp_pod_profiles_expected_state",
+        "required": false
+      }
+    },
+    "fp_pod_profiles_selectors": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "policy": {
+        "type": "string",
+        "title": "Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "type": {
+        "type": "select",
+        "title": "Type",
+        "enum": [
+          "all",
+          "range"
+        ],
+        "required": false
+      },
+      "pod_blocks": {
+        "type": "list",
+        "title": "Pod Blocks",
+        "ref": "fp_pod_profiles_selectors_pod_blocks",
+        "required": false
+      }
+    },
+    "fp_pod_profiles_selectors_pod_blocks": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "from": {
+        "type": "int",
+        "title": "From",
+        "minimum": 1,
+        "maximum": 255,
+        "required": true
+      },
+      "to": {
+        "type": "int",
+        "title": "To",
+        "minimum": 1,
+        "maximum": 255,
+        "required": false
+      }
+    },
+    "fp_pod_profiles_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "fp_switch_policies": {
+      "psu_policies": {
+        "type": "list",
+        "title": "Psu Policies",
+        "ref": "fp_switch_policies_psu_policies",
+        "required": false
+      },
+      "node_control_policies": {
+        "type": "list",
+        "title": "Node Control Policies",
+        "ref": "fp_switch_policies_node_control_policies",
+        "required": false
+      }
+    },
+    "fp_switch_policies_psu_policies": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "admin_state": {
+        "type": "select",
+        "title": "Admin State",
+        "enum": [
+          "combined",
+          "nnred"
+        ],
+        "required": true
+      }
+    },
+    "fp_switch_policies_node_control_policies": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "dom": {
+        "type": "select-bool",
+        "title": "Dom",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "telemetry": {
+        "type": "select",
+        "title": "Telemetry",
+        "enum": [
+          "netflow",
+          "telemetry",
+          "analytics"
+        ],
+        "required": false
+      }
+    },
+    "fp_leaf_interface_profiles": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "fp_leaf_interface_profiles_expected_state",
+        "required": false
+      }
+    },
+    "fp_leaf_interface_profiles_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "fp_spine_interface_profiles": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "selectors": {
+        "type": "list",
+        "title": "Selectors",
+        "ref": "fp_spine_interface_profiles_selectors",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "fp_spine_interface_profiles_expected_state",
+        "required": false
+      }
+    },
+    "fp_spine_interface_profiles_selectors": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "port_blocks": {
+        "type": "list",
+        "title": "Port Blocks",
+        "ref": "fp_spine_interface_profiles_selectors_port_blocks",
+        "required": false
+      }
+    },
+    "fp_spine_interface_profiles_selectors_port_blocks": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "from_module": {
+        "type": "int",
+        "title": "From Module",
+        "minimum": 1,
+        "maximum": 9,
+        "required": false
+      },
+      "from_port": {
+        "type": "int",
+        "title": "From Port",
+        "minimum": 1,
+        "maximum": 127,
+        "required": true
+      },
+      "to_module": {
+        "type": "int",
+        "title": "To Module",
+        "minimum": 1,
+        "maximum": 9,
+        "required": false
+      },
+      "to_port": {
+        "type": "int",
+        "title": "To Port",
+        "minimum": 1,
+        "maximum": 127,
+        "required": false
+      }
+    },
+    "fp_spine_interface_profiles_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "fp_leaf_switch_policy_groups": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "psu_policy": {
+        "type": "string",
+        "title": "Psu Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "node_control_policy": {
+        "type": "string",
+        "title": "Node Control Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "monitoring_policy": {
+        "type": "string",
+        "title": "Monitoring Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "tech_support_export_policy": {
+        "type": "string",
+        "title": "Tech Support Export Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "core_export_policy": {
+        "type": "string",
+        "title": "Core Export Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "inventory_policy": {
+        "type": "string",
+        "title": "Inventory Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "twamp_server_policy": {
+        "type": "string",
+        "title": "Twamp Server Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "twamp_receiver_policy": {
+        "type": "string",
+        "title": "Twamp Receiver Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      }
+    },
+    "fp_leaf_switch_profiles": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "selectors": {
+        "type": "list",
+        "title": "Selectors",
+        "ref": "fp_leaf_switch_profiles_selectors",
+        "required": false
+      },
+      "interface_profiles": {
+        "type": "list-string",
+        "title": "Interface Profiles",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "fp_leaf_switch_profiles_expected_state",
+        "required": false
+      }
+    },
+    "fp_leaf_switch_profiles_selectors": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "policy": {
+        "type": "string",
+        "title": "Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "node_blocks": {
+        "type": "list",
+        "title": "Node Blocks",
+        "ref": "fp_leaf_switch_profiles_selectors_node_blocks",
+        "required": false
+      }
+    },
+    "fp_leaf_switch_profiles_selectors_node_blocks": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "from": {
+        "type": "int",
+        "title": "From",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": true
+      },
+      "to": {
+        "type": "int",
+        "title": "To",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": false
+      }
+    },
+    "fp_leaf_switch_profiles_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "fp_spine_switch_policy_groups": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "psu_policy": {
+        "type": "string",
+        "title": "Psu Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "node_control_policy": {
+        "type": "string",
+        "title": "Node Control Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "monitoring_policy": {
+        "type": "string",
+        "title": "Monitoring Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "tech_support_export_policy": {
+        "type": "string",
+        "title": "Tech Support Export Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "core_export_policy": {
+        "type": "string",
+        "title": "Core Export Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "inventory_policy": {
+        "type": "string",
+        "title": "Inventory Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "twamp_server_policy": {
+        "type": "string",
+        "title": "Twamp Server Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "twamp_receiver_policy": {
+        "type": "string",
+        "title": "Twamp Receiver Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      }
+    },
+    "fp_spine_switch_profiles": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "selectors": {
+        "type": "list",
+        "title": "Selectors",
+        "ref": "fp_spine_switch_profiles_selectors",
+        "required": false
+      },
+      "interface_profiles": {
+        "type": "list-string",
+        "title": "Interface Profiles",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "fp_spine_switch_profiles_expected_state",
+        "required": false
+      }
+    },
+    "fp_spine_switch_profiles_selectors": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "policy": {
+        "type": "string",
+        "title": "Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "node_blocks": {
+        "type": "list",
+        "title": "Node Blocks",
+        "ref": "fp_spine_switch_profiles_selectors_node_blocks",
+        "required": false
+      }
+    },
+    "fp_spine_switch_profiles_selectors_node_blocks": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "from": {
+        "type": "int",
+        "title": "From",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": true
+      },
+      "to": {
+        "type": "int",
+        "title": "To",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": false
+      }
+    },
+    "fp_spine_switch_profiles_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "fp_external_connectivity_policy": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "fabric_id": {
+        "type": "int",
+        "title": "Fabric Id",
+        "minimum": 0,
+        "maximum": 1000,
+        "required": false
+      },
+      "site_id": {
+        "type": "int",
+        "title": "Site Id",
+        "minimum": 0,
+        "maximum": 1000,
+        "required": false
+      },
+      "bgp_password": {
+        "type": "string",
+        "title": "Bgp Password",
+        "required": false
+      },
+      "route_target": {
+        "type": "string",
+        "title": "Route Target",
+        "required": false
+      },
+      "routing_profiles": {
+        "type": "list",
+        "title": "Routing Profiles",
+        "ref": "fp_external_connectivity_policy_routing_profiles",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "fp_external_connectivity_policy_expected_state",
+        "required": false
+      }
+    },
+    "fp_external_connectivity_policy_routing_profiles": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      }
+    },
+    "fp_external_connectivity_policy_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "fp_infra_dscp_translation_policy": {
+      "admin_state": {
+        "type": "select-bool",
+        "title": "Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      }
+    },
+    "fp_vmware_vmm_domains": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "access_mode": {
+        "type": "select",
+        "title": "Access Mode",
+        "enum": [
+          "read-only",
+          "read-write"
+        ],
+        "required": false
+      },
+      "delimiter": {
+        "type": "string",
+        "title": "Delimiter",
+        "pattern": "^[|~!@^+=]$",
+        "required": false
+      },
+      "tag_collection": {
+        "type": "select-bool",
+        "title": "Tag Collection",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "vlan_pool": {
+        "type": "string",
+        "title": "Vlan Pool",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "security_domains": {
+        "type": "list-string",
+        "title": "Security Domains",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "vswitch": {
+        "type": "object",
+        "title": "Vswitch",
+        "ref": "fp_vmware_vmm_domains_vswitch",
+        "required": false
+      },
+      "credential_policies": {
+        "type": "list",
+        "title": "Credential Policies",
+        "ref": "fp_vmware_vmm_domains_credential_policies",
+        "required": false
+      },
+      "vcenters": {
+        "type": "list",
+        "title": "Vcenters",
+        "ref": "fp_vmware_vmm_domains_vcenters",
+        "required": false
+      },
+      "uplinks": {
+        "type": "list",
+        "title": "Uplinks",
+        "ref": "fp_vmware_vmm_domains_uplinks",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "fp_vmware_vmm_domains_expected_state",
+        "required": false
+      }
+    },
+    "fp_vmware_vmm_domains_vswitch": {
+      "cdp_policy": {
+        "type": "string",
+        "title": "Cdp Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "lldp_policy": {
+        "type": "string",
+        "title": "Lldp Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "port_channel_policy": {
+        "type": "string",
+        "title": "Port Channel Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "enhanced_lags": {
+        "type": "list",
+        "title": "Enhanced Lags",
+        "ref": "fp_vmware_vmm_domains_vswitch_elag",
+        "required": false
+      },
+      "mtu_policy": {
+        "type": "string",
+        "title": "Mtu Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      }
+    },
+    "fp_vmware_vmm_domains_vswitch_elag": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 16,
+        "pattern": "^[a-zA-Z0-9_.:-]{1,16}$",
+        "required": true
+      },
+      "mode": {
+        "type": "select",
+        "title": "Mode",
+        "enum": [
+          "active",
+          "passive"
+        ],
+        "required": false
+      },
+      "lb_mode": {
+        "type": "select",
+        "title": "Lb Mode",
+        "enum": [
+          "dst-ip",
+          "dst-ip-l4port",
+          "dst-ip-vlan",
+          "dst-ip-l4port-vlan",
+          "dst-mac",
+          "dst-l4port",
+          "src-ip",
+          "src-ip-l4port",
+          "src-ip-vlan",
+          "src-ip-l4port-vlan",
+          "src-mac",
+          "src-l4port",
+          "src-dst-ip",
+          "src-dst-ip-l4port",
+          "src-dst-ip-vlan",
+          "src-dst-ip-l4port-vlan",
+          "src-dst-mac",
+          "src-dst-l4port",
+          "src-port-id",
+          "vlan"
+        ],
+        "required": false
+      },
+      "num_links": {
+        "type": "int",
+        "title": "Num Links",
+        "minimum": 2,
+        "maximum": 8,
+        "required": false
+      }
+    },
+    "fp_vmware_vmm_domains_credential_policies": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "username": {
+        "type": "string",
+        "title": "Username",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "[a-zA-Z0-9\\\\\\\\!#$%()*,-./:;@ _{|}~?&+]{1,128}$",
+        "required": true
+      },
+      "password": {
+        "type": "string",
+        "title": "Password",
+        "required": true
+      }
+    },
+    "fp_vmware_vmm_domains_vcenters": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "datacenter": {
+        "type": "string",
+        "title": "Datacenter",
+        "minLength": 1,
+        "maxLength": 512,
+        "required": true
+      },
+      "dvs_version": {
+        "type": "select",
+        "title": "Dvs Version",
+        "enum": [
+          "unmanaged",
+          "5.1",
+          "5.5",
+          "6.0",
+          "6.5",
+          "6.6','7.0"
+        ],
+        "required": false
+      },
+      "statistics": {
+        "type": "select-bool",
+        "title": "Statistics",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "credential_policy": {
+        "type": "string",
+        "title": "Credential Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "mgmt_epg": {
+        "type": "select",
+        "title": "Mgmt Epg",
+        "enum": [
+          "inb",
+          "oob"
+        ],
+        "required": false
+      }
+    },
+    "fp_vmware_vmm_domains_uplinks": {
+      "id": {
+        "type": "int",
+        "title": "Id",
+        "minimum": 1,
+        "maximum": 32,
+        "required": true
+      },
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      }
+    },
+    "fp_vmware_vmm_domains_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "fp_aaa": {
+      "remote_user_login_policy": {
+        "type": "select",
+        "title": "Remote User Login Policy",
+        "enum": [
+          "assign-default-role",
+          "no-login"
+        ],
+        "required": false
+      },
+      "default_fallback_check": {
+        "type": "select-bool",
+        "title": "Default Fallback Check",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "default_realm": {
+        "type": "select",
+        "title": "Default Realm",
+        "enum": [
+          "local",
+          "tacacs",
+          "ldap",
+          "radius"
+        ],
+        "required": false
+      },
+      "default_login_domain": {
+        "type": "string",
+        "title": "Default Login Domain",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "console_realm": {
+        "type": "select",
+        "title": "Console Realm",
+        "enum": [
+          "local",
+          "tacacs",
+          "ldap",
+          "radius"
+        ],
+        "required": false
+      },
+      "console_login_domain": {
+        "type": "string",
+        "title": "Console Login Domain",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "management_settings": {
+        "type": "object",
+        "title": "Management Settings",
+        "ref": "fp_aaa_management_settings",
+        "required": false
+      },
+      "tacacs_providers": {
+        "type": "list",
+        "title": "Tacacs Providers",
+        "ref": "fp_aaa_tacacs_providers",
+        "required": false
+      },
+      "radius_providers": {
+        "type": "list",
+        "title": "Radius Providers",
+        "ref": "fp_aaa_radius_providers",
+        "required": false
+      },
+      "users": {
+        "type": "list",
+        "title": "Users",
+        "ref": "fp_aaa_users",
+        "required": false
+      },
+      "login_domains": {
+        "type": "list",
+        "title": "Login Domains",
+        "ref": "fp_aaa_login_domains",
+        "required": false
+      },
+      "ca_certificates": {
+        "type": "list",
+        "title": "Ca Certificates",
+        "ref": "fp_ca_certificate",
+        "required": false
+      },
+      "key_rings": {
+        "type": "list",
+        "title": "Key Rings",
+        "ref": "fp_key_ring",
+        "required": false
+      },
+      "ldap": {
+        "type": "object",
+        "title": "Ldap",
+        "ref": "fp_aaa_ldap",
+        "required": false
+      },
+      "security_domains": {
+        "type": "list",
+        "title": "Security Domains",
+        "ref": "fp_aaa_security_domains",
+        "required": false
+      }
+    },
+    "fp_aaa_management_settings": {
+      "password_strength_check": {
+        "type": "bool",
+        "title": "Password Strength Check",
+        "required": false
+      },
+      "password_strength_profile": {
+        "type": "object",
+        "title": "Password Strength Profile",
+        "ref": "fp_password_strength_profile",
+        "required": false
+      },
+      "password_change_during_interval": {
+        "type": "bool",
+        "title": "Password Change During Interval",
+        "required": false
+      },
+      "password_change_count": {
+        "type": "int",
+        "title": "Password Change Count",
+        "minimum": 0,
+        "maximum": 10,
+        "required": false
+      },
+      "password_change_interval": {
+        "type": "int",
+        "title": "Password Change Interval",
+        "minimum": 0,
+        "maximum": 745,
+        "required": false
+      },
+      "password_no_change_interval": {
+        "type": "int",
+        "title": "Password No Change Interval",
+        "minimum": 0,
+        "maximum": 745,
+        "required": false
+      },
+      "password_history_count": {
+        "type": "int",
+        "title": "Password History Count",
+        "minimum": 0,
+        "maximum": 15,
+        "required": false
+      },
+      "web_token_timeout": {
+        "type": "int",
+        "title": "Web Token Timeout",
+        "minimum": 300,
+        "maximum": 9600,
+        "required": false
+      },
+      "web_token_max_validity": {
+        "type": "int",
+        "title": "Web Token Max Validity",
+        "minimum": 4,
+        "maximum": 24,
+        "required": false
+      },
+      "web_session_idle_timeout": {
+        "type": "int",
+        "title": "Web Session Idle Timeout",
+        "minimum": 600,
+        "maximum": 65525,
+        "required": false
+      },
+      "include_refresh_session_records": {
+        "type": "bool",
+        "title": "Include Refresh Session Records",
+        "required": false
+      },
+      "enable_login_block": {
+        "type": "bool",
+        "title": "Enable Login Block",
+        "required": false
+      },
+      "login_block_duration": {
+        "type": "int",
+        "title": "Login Block Duration",
+        "minimum": 1,
+        "maximum": 1440,
+        "required": false
+      },
+      "login_max_failed_attempts": {
+        "type": "int",
+        "title": "Login Max Failed Attempts",
+        "minimum": 1,
+        "maximum": 15,
+        "required": false
+      },
+      "login_max_failed_attempts_window": {
+        "type": "int",
+        "title": "Login Max Failed Attempts Window",
+        "minimum": 1,
+        "maximum": 720,
+        "required": false
+      }
+    },
+    "fp_password_strength_profile": {
+      "password_mininum_length": {
+        "type": "int",
+        "title": "Password Mininum Length",
+        "minimum": 8,
+        "maximum": 64,
+        "required": false
+      },
+      "password_maximum_length": {
+        "type": "int",
+        "title": "Password Maximum Length",
+        "minimum": 8,
+        "maximum": 64,
+        "required": false
+      },
+      "password_strength_test_type": {
+        "type": "select",
+        "title": "Password Strength Test Type",
+        "enum": [
+          "default",
+          "custom"
+        ],
+        "required": false
+      }
+    },
+    "fp_aaa_radius_providers": {
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 0,
+        "maximum": 65535,
+        "required": false
+      },
+      "protocol": {
+        "type": "select",
+        "title": "Protocol",
+        "enum": [
+          "pap",
+          "chap",
+          "mschap"
+        ],
+        "required": false
+      },
+      "key": {
+        "type": "string",
+        "title": "Key",
+        "required": false
+      },
+      "timeout": {
+        "type": "int",
+        "title": "Timeout",
+        "minimum": 0,
+        "maximum": 60,
+        "required": false
+      },
+      "retries": {
+        "type": "int",
+        "title": "Retries",
+        "minimum": 0,
+        "maximum": 5,
+        "required": false
+      },
+      "mgmt_epg": {
+        "type": "select",
+        "title": "Mgmt Epg",
+        "enum": [
+          "inb",
+          "oob"
+        ],
+        "required": false
+      },
+      "monitoring": {
+        "type": "bool",
+        "title": "Monitoring",
+        "required": false
+      },
+      "monitoring_username": {
+        "type": "string",
+        "title": "Monitoring Username",
+        "minLength": 0,
+        "maxLength": 31,
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.@-]{0,31}$",
+        "required": false
+      },
+      "monitoring_password": {
+        "type": "string",
+        "title": "Monitoring Password",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "fp_aaa_radius_providers_expected_state",
+        "required": false
+      }
+    },
+    "fp_aaa_radius_providers_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "fp_aaa_tacacs_providers": {
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 0,
+        "maximum": 65535,
+        "required": false
+      },
+      "protocol": {
+        "type": "select",
+        "title": "Protocol",
+        "enum": [
+          "pap",
+          "chap",
+          "mschap"
+        ],
+        "required": false
+      },
+      "key": {
+        "type": "string",
+        "title": "Key",
+        "required": false
+      },
+      "timeout": {
+        "type": "int",
+        "title": "Timeout",
+        "minimum": 0,
+        "maximum": 60,
+        "required": false
+      },
+      "retries": {
+        "type": "int",
+        "title": "Retries",
+        "minimum": 0,
+        "maximum": 5,
+        "required": false
+      },
+      "mgmt_epg": {
+        "type": "select",
+        "title": "Mgmt Epg",
+        "enum": [
+          "inb",
+          "oob"
+        ],
+        "required": false
+      },
+      "monitoring": {
+        "type": "select-bool",
+        "title": "Monitoring",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "monitoring_username": {
+        "type": "string",
+        "title": "Monitoring Username",
+        "minLength": 0,
+        "maxLength": 31,
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.@-]{0,31}$",
+        "required": false
+      },
+      "monitoring_password": {
+        "type": "string",
+        "title": "Monitoring Password",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "fp_aaa_tacacs_providers_expected_state",
+        "required": false
+      }
+    },
+    "fp_aaa_tacacs_providers_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "fp_aaa_users": {
+      "username": {
+        "type": "string",
+        "title": "Username",
+        "minLength": 1,
+        "maxLength": 31,
+        "pattern": "^[a-zA-Z0-9_.-]{1,31}$",
+        "required": true
+      },
+      "password": {
+        "type": "string",
+        "title": "Password",
+        "minLength": 1,
+        "maxLength": 256,
+        "required": true
+      },
+      "first_name": {
+        "type": "string",
+        "title": "First Name",
+        "minLength": 1,
+        "maxLength": 32,
+        "required": false
+      },
+      "last_name": {
+        "type": "string",
+        "title": "Last Name",
+        "minLength": 1,
+        "maxLength": 32,
+        "required": false
+      },
+      "phone": {
+        "type": "string",
+        "title": "Phone",
+        "minLength": 1,
+        "maxLength": 16,
+        "required": false
+      },
+      "email": {
+        "type": "string",
+        "title": "Email",
+        "pattern": "^(?!.{64,})[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+$",
+        "required": false
+      },
+      "certificate_name": {
+        "type": "string",
+        "title": "Certificate Name",
+        "minLength": 1,
+        "maxLength": 128,
+        "required": false
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "status": {
+        "type": "select",
+        "title": "Status",
+        "enum": [
+          "active",
+          "inactive",
+          "blocked"
+        ],
+        "required": false
+      },
+      "expires": {
+        "type": "select-bool",
+        "title": "Expires",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "domains": {
+        "type": "list",
+        "title": "Domains",
+        "ref": "fp_aaa_users_domains",
+        "required": false
+      },
+      "certificates": {
+        "type": "list",
+        "title": "Certificates",
+        "ref": "fp_aaa_users_certificates",
+        "required": false
+      },
+      "ssh_keys": {
+        "type": "list",
+        "title": "Ssh Keys",
+        "ref": "fp_aaa_users_ssh_keys",
+        "required": false
+      }
+    },
+    "fp_aaa_users_domains": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "roles": {
+        "type": "list",
+        "title": "Roles",
+        "ref": "fp_aaa_users_domains_roles",
+        "required": false
+      }
+    },
+    "fp_aaa_users_domains_roles": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 31,
+        "pattern": "^[a-zA-Z0-9_.-]{1,31}$",
+        "required": true
+      },
+      "privilege_type": {
+        "type": "select",
+        "title": "Privilege Type",
+        "enum": [
+          "write",
+          "read"
+        ],
+        "required": false
+      }
+    },
+    "fp_aaa_users_certificates": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "data": {
+        "type": "string",
+        "title": "Data",
+        "required": true
+      }
+    },
+    "fp_aaa_users_ssh_keys": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "data": {
+        "type": "string",
+        "title": "Data",
+        "minLength": 1,
+        "maxLength": 16384,
+        "pattern": "^[a-zA-Z0-9=\\n\\r/+ _.@-]{1,16384}$",
+        "required": true
+      }
+    },
+    "fp_aaa_login_domains": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "realm": {
+        "type": "select",
+        "title": "Realm",
+        "enum": [
+          "local",
+          "tacacs",
+          "ldap"
+        ],
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "auth_choice": {
+        "type": "select",
+        "title": "Auth Choice",
+        "enum": [
+          "CiscoAVPair",
+          "LdapGroupMap"
+        ],
+        "required": false
+      },
+      "ldap_group_map": {
+        "type": "string",
+        "title": "Ldap Group Map",
+        "minLength": 1,
+        "maxLength": 31,
+        "pattern": "^[a-zA-Z0-9_.:-]{1,31}$",
+        "required": false
+      },
+      "tacacs_providers": {
+        "type": "list",
+        "title": "Tacacs Providers",
+        "ref": "fp_aaa_login_domains_tacacs_providers",
+        "required": false
+      },
+      "ldap_providers": {
+        "type": "list",
+        "title": "Ldap Providers",
+        "ref": "fp_aaa_login_domains_ldap_providers",
+        "required": false
+      },
+      "radius_providers": {
+        "type": "list",
+        "title": "Radius Providers",
+        "ref": "fp_aaa_login_domains_radius_providers",
+        "required": false
+      }
+    },
+    "fp_aaa_login_domains_tacacs_providers": {
+      "priority": {
+        "type": "int",
+        "title": "Priority",
+        "minimum": 0,
+        "maximum": 16,
+        "required": false
+      }
+    },
+    "fp_aaa_login_domains_ldap_providers": {
+      "priority": {
+        "type": "int",
+        "title": "Priority",
+        "minimum": 0,
+        "maximum": 16,
+        "required": false
+      }
+    },
+    "fp_aaa_login_domains_radius_providers": {
+      "priority": {
+        "type": "int",
+        "title": "Priority",
+        "minimum": 0,
+        "maximum": 16,
+        "required": false
+      }
+    },
+    "fp_aaa_security_domains": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "restricted_rbac_domain": {
+        "type": "bool",
+        "title": "Restricted Rbac Domain",
+        "required": false
+      }
+    },
+    "fp_ca_certificate": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "certificate_chain": {
+        "type": "string",
+        "title": "Certificate Chain",
+        "minLength": 1,
+        "maxLength": 16384,
+        "pattern": "^[a-zA-Z0-9=\\n\\r/+ _.@-]{1,16384}$",
+        "required": false
+      }
+    },
+    "fp_key_ring": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "certificate": {
+        "type": "string",
+        "title": "Certificate",
+        "minLength": 1,
+        "maxLength": 16384,
+        "pattern": "^[a-zA-Z0-9=\\n\\r/+ _.@-]{1,16384}$",
+        "required": false
+      },
+      "modulus": {
+        "type": "select",
+        "title": "Modulus",
+        "enum": [
+          "mod512",
+          "mod1024",
+          "mod2048"
+        ],
+        "required": false
+      },
+      "ca_certificate": {
+        "type": "string",
+        "title": "Ca Certificate",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "private_key": {
+        "type": "string",
+        "title": "Private Key",
+        "minLength": 1,
+        "maxLength": 16384,
+        "pattern": "^[a-zA-Z0-9=\\n\\r/+ _.@-]{1,16384}$",
+        "required": false
+      }
+    },
+    "fp_aaa_ldap": {
+      "providers": {
+        "type": "list",
+        "title": "Providers",
+        "ref": "fp_aa_ldap_providers",
+        "required": false
+      },
+      "group_map_rules": {
+        "type": "list",
+        "title": "Group Map Rules",
+        "ref": "fp_aa_ldap_group_map_rules",
+        "required": false
+      },
+      "group_maps": {
+        "type": "list",
+        "title": "Group Maps",
+        "ref": "fp_aa_ldap_group_maps",
+        "required": false
+      }
+    },
+    "fp_aa_ldap_providers": {
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 0,
+        "maximum": 65535,
+        "required": false
+      },
+      "bind_dn": {
+        "type": "string",
+        "title": "Bind Dn",
+        "required": false
+      },
+      "base_dn": {
+        "type": "string",
+        "title": "Base Dn",
+        "required": false
+      },
+      "password": {
+        "type": "string",
+        "title": "Password",
+        "required": false
+      },
+      "timeout": {
+        "type": "int",
+        "title": "Timeout",
+        "minimum": 5,
+        "maximum": 60,
+        "required": false
+      },
+      "retries": {
+        "type": "int",
+        "title": "Retries",
+        "minimum": 0,
+        "maximum": 5,
+        "required": false
+      },
+      "enable_ssl": {
+        "type": "bool",
+        "title": "Enable Ssl",
+        "required": false
+      },
+      "filter": {
+        "type": "string",
+        "title": "Filter",
+        "required": false
+      },
+      "attribute": {
+        "type": "string",
+        "title": "Attribute",
+        "required": false
+      },
+      "ssl_validation_level": {
+        "type": "select",
+        "title": "Ssl Validation Level",
+        "enum": [
+          "permissive",
+          "strict"
+        ],
+        "required": false
+      },
+      "mgmt_epg": {
+        "type": "select",
+        "title": "Mgmt Epg",
+        "enum": [
+          "inb",
+          "oob"
+        ],
+        "required": false
+      },
+      "server_monitoring": {
+        "type": "bool",
+        "title": "Server Monitoring",
+        "required": false
+      },
+      "monitoring_username": {
+        "type": "string",
+        "title": "Monitoring Username",
+        "minLength": 0,
+        "maxLength": 31,
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.@-]{0,31}$",
+        "required": false
+      },
+      "monitoring_password": {
+        "type": "string",
+        "title": "Monitoring Password",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "fp_aa_ldap_providers_expected_state",
+        "required": false
+      }
+    },
+    "fp_aa_ldap_providers_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "fp_aa_ldap_group_map_rules": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "group_dn": {
+        "type": "string",
+        "title": "Group Dn",
+        "required": false
+      },
+      "security_domains": {
+        "type": "list",
+        "title": "Security Domains",
+        "ref": "fp_aa_ldap_group_map_rules_security_domains",
+        "required": false
+      }
+    },
+    "fp_aa_ldap_group_map_rules_security_domains": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 31,
+        "pattern": "^[a-zA-Z0-9_.:-]{1,31}$",
+        "required": true
+      },
+      "roles": {
+        "type": "list",
+        "title": "Roles",
+        "ref": "fp_aa_ldap_group_map_rules_security_domains_roles",
+        "required": false
+      }
+    },
+    "fp_aa_ldap_group_map_rules_security_domains_roles": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 31,
+        "pattern": "^[a-zA-Z0-9_.-]{1,31}$",
+        "required": true
+      },
+      "privilege_type": {
+        "type": "select",
+        "title": "Privilege Type",
+        "enum": [
+          "write",
+          "read"
+        ],
+        "required": false
+      }
+    },
+    "fp_aa_ldap_group_maps": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "rules": {
+        "type": "list",
+        "title": "Rules",
+        "ref": "fp_aa_ldap_group_maps_rules",
+        "required": false
+      }
+    },
+    "fp_aa_ldap_group_maps_rules": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      }
+    },
+    "fp_geolocation": {
+      "sites": {
+        "type": "list",
+        "title": "Sites",
+        "ref": "fp_geolocation_sites",
+        "required": false
+      }
+    },
+    "fp_geolocation_sites": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "buildings": {
+        "type": "list",
+        "title": "Buildings",
+        "ref": "fp_geolocation_sites_buildings",
+        "required": false
+      }
+    },
+    "fp_geolocation_sites_buildings": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "floors": {
+        "type": "list",
+        "title": "Floors",
+        "ref": "fp_geolocation_sites_buildings_floors",
+        "required": false
+      }
+    },
+    "fp_geolocation_sites_buildings_floors": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "rooms": {
+        "type": "list",
+        "title": "Rooms",
+        "ref": "fp_geolocation_sites_buildings_floors_rooms",
+        "required": false
+      }
+    },
+    "fp_geolocation_sites_buildings_floors_rooms": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "rows": {
+        "type": "list",
+        "title": "Rows",
+        "ref": "fp_geolocation_sites_buildings_floors_rooms_rows",
+        "required": false
+      }
+    },
+    "fp_geolocation_sites_buildings_floors_rooms_rows": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "racks": {
+        "type": "list",
+        "title": "Racks",
+        "ref": "fp_geolocation_sites_buildings_floors_rooms_rows_racks",
+        "required": false
+      }
+    },
+    "fp_geolocation_sites_buildings_floors_rooms_rows_racks": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      }
+    },
+    "fp_remote_locations": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "protocol": {
+        "type": "select",
+        "title": "Protocol",
+        "enum": [
+          "ftp",
+          "sftp"
+        ],
+        "required": true
+      },
+      "path": {
+        "type": "string",
+        "title": "Path",
+        "minLength": 0,
+        "maxLength": 512,
+        "required": false
+      },
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 0,
+        "maximum": 65535,
+        "required": false
+      },
+      "auth_type": {
+        "type": "select",
+        "title": "Auth Type",
+        "enum": [
+          "password",
+          "ssh_keys"
+        ],
+        "required": false
+      },
+      "username": {
+        "type": "string",
+        "title": "Username",
+        "minLength": 0,
+        "maxLength": 31,
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.@\\\\\\\\-]{0,31}$",
+        "required": true
+      },
+      "password": {
+        "type": "string",
+        "title": "Password",
+        "required": false
+      },
+      "ssh_public_key": {
+        "type": "string",
+        "title": "Ssh Public Key",
+        "required": false
+      },
+      "ssh_private_key": {
+        "type": "string",
+        "title": "Ssh Private Key",
+        "required": false
+      },
+      "ssh_passphrase": {
+        "type": "string",
+        "title": "Ssh Passphrase",
+        "minLength": 1,
+        "maxLength": 512,
+        "required": false
+      },
+      "mgmt_epg": {
+        "type": "select",
+        "title": "Mgmt Epg",
+        "enum": [
+          "inb",
+          "oob"
+        ],
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "fp_remote_locations_expected_state",
+        "required": false
+      }
+    },
+    "fp_remote_locations_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "fp_schedulers": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "recurring_windows": {
+        "type": "list",
+        "title": "Recurring Windows",
+        "ref": "fp_schedulers_recurring_windows",
+        "required": false
+      }
+    },
+    "fp_schedulers_recurring_windows": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "day": {
+        "type": "select",
+        "title": "Day",
+        "enum": [
+          "every-day",
+          "odd-day",
+          "even-day",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "required": false
+      },
+      "hour": {
+        "type": "int",
+        "title": "Hour",
+        "minimum": 0,
+        "maximum": 23,
+        "required": false
+      },
+      "minute": {
+        "type": "int",
+        "title": "Minute",
+        "minimum": 0,
+        "maximum": 59,
+        "required": false
+      }
+    },
+    "fp_config_exports": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "format": {
+        "type": "select",
+        "title": "Format",
+        "enum": [
+          "json",
+          "xml"
+        ],
+        "required": false
+      },
+      "remote_location": {
+        "type": "string",
+        "title": "Remote Location",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "scheduler": {
+        "type": "string",
+        "title": "Scheduler",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "snapshot": {
+        "type": "select-bool",
+        "title": "Snapshot",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "fp_config_exports_expected_state",
+        "required": false
+      }
+    },
+    "fp_config_exports_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "fp_monitoring": {
+      "snmp_traps": {
+        "type": "list",
+        "title": "Snmp Traps",
+        "ref": "fp_monitoring_snmp_traps",
+        "required": false
+      },
+      "syslogs": {
+        "type": "list",
+        "title": "Syslogs",
+        "ref": "fp_monitoring_syslogs",
+        "required": false
+      },
+      "callhomes": {
+        "type": "list",
+        "title": "Callhomes",
+        "ref": "fp_monitoring_callhomes",
+        "required": false
+      },
+      "smart_callhomes": {
+        "type": "list",
+        "title": "Smart Callhomes",
+        "ref": "fp_monitoring_smart_callhomes",
+        "required": false
+      },
+      "policies": {
+        "type": "list",
+        "title": "Policies",
+        "ref": "fp_monitoring_policies",
+        "required": false
+      }
+    },
+    "fp_monitoring_snmp_traps": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "destinations": {
+        "type": "list",
+        "title": "Destinations",
+        "ref": "fp_monitoring_snmp_traps_destinations",
+        "required": false
+      }
+    },
+    "fp_monitoring_snmp_traps_destinations": {
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 1,
+        "maximum": 65535,
+        "required": false
+      },
+      "version": {
+        "type": "select",
+        "title": "Version",
+        "enum": [
+          "v1",
+          "v2c",
+          "v3"
+        ],
+        "required": false
+      },
+      "community": {
+        "type": "string",
+        "title": "Community",
+        "minLength": 1,
+        "maxLength": 32,
+        "required": true
+      },
+      "security": {
+        "type": "select",
+        "title": "Security",
+        "enum": [
+          "noauth",
+          "auth",
+          "priv"
+        ],
+        "required": false
+      },
+      "mgmt_epg": {
+        "type": "select",
+        "title": "Mgmt Epg",
+        "enum": [
+          "inb",
+          "oob"
+        ],
+        "required": false
+      }
+    },
+    "fp_monitoring_syslogs": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "audit": {
+        "type": "select-bool",
+        "title": "Audit",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "events": {
+        "type": "select-bool",
+        "title": "Events",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "faults": {
+        "type": "select-bool",
+        "title": "Faults",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "session": {
+        "type": "select-bool",
+        "title": "Session",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "minimum_severity": {
+        "type": "select",
+        "title": "Minimum Severity",
+        "enum": [
+          "emergencies",
+          "alerts",
+          "critical",
+          "errors",
+          "warnings",
+          "notifications",
+          "information','debugging"
+        ],
+        "required": false
+      },
+      "admin_state": {
+        "type": "select-bool",
+        "title": "Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "format": {
+        "type": "select",
+        "title": "Format",
+        "enum": [
+          "aci",
+          "nxos"
+        ],
+        "required": false
+      },
+      "show_millisecond": {
+        "type": "select-bool",
+        "title": "Show Millisecond",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "show_timezone": {
+        "type": "bool",
+        "title": "Show Timezone",
+        "required": false
+      },
+      "local_admin_state": {
+        "type": "select-bool",
+        "title": "Local Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "local_severity": {
+        "type": "select",
+        "title": "Local Severity",
+        "enum": [
+          "emergencies",
+          "alerts",
+          "critical",
+          "errors",
+          "warnings",
+          "notifications",
+          "information",
+          "debugging"
+        ],
+        "required": false
+      },
+      "console_admin_state": {
+        "type": "select-bool",
+        "title": "Console Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "console_severity": {
+        "type": "select",
+        "title": "Console Severity",
+        "enum": [
+          "emergencies",
+          "alerts",
+          "critical",
+          "errors",
+          "warnings",
+          "notifications",
+          "information",
+          "debugging"
+        ],
+        "required": false
+      },
+      "destinations": {
+        "type": "list",
+        "title": "Destinations",
+        "ref": "fp_monitoring_syslogs_destinations",
+        "required": false
+      }
+    },
+    "fp_monitoring_syslogs_destinations": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "protocol": {
+        "type": "select",
+        "title": "Protocol",
+        "enum": [
+          "udp",
+          "tcp' ,'ssl"
+        ],
+        "required": false
+      },
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 1,
+        "maximum": 65535,
+        "required": false
+      },
+      "admin_state": {
+        "type": "select-bool",
+        "title": "Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "facility": {
+        "type": "select",
+        "title": "Facility",
+        "enum": [
+          "local0",
+          "local1' ,'local2' ,'local3' ,'local4' ,'local5",
+          "local6",
+          "local7"
+        ],
+        "required": false
+      },
+      "severity": {
+        "type": "select",
+        "title": "Severity",
+        "enum": [
+          "emergencies",
+          "alerts",
+          "critical",
+          "errors",
+          "warnings",
+          "notifications",
+          "information",
+          "debugging"
+        ],
+        "required": false
+      },
+      "mgmt_epg": {
+        "type": "select",
+        "title": "Mgmt Epg",
+        "enum": [
+          "inb",
+          "oob"
+        ],
+        "required": false
+      }
+    },
+    "fp_monitoring_callhomes": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "admin_state": {
+        "type": "bool",
+        "title": "Admin State",
+        "required": false
+      },
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 1,
+        "maximum": 65535,
+        "required": false
+      },
+      "smtp_server": {
+        "type": "string",
+        "title": "Smtp Server",
+        "required": true
+      },
+      "smtp_username": {
+        "type": "string",
+        "title": "Smtp Username",
+        "required": false
+      },
+      "smtp_password": {
+        "type": "string",
+        "title": "Smtp Password",
+        "required": false
+      },
+      "mgmt_epg": {
+        "type": "select",
+        "title": "Mgmt Epg",
+        "enum": [
+          "inb",
+          "oob"
+        ],
+        "required": false
+      },
+      "from_email": {
+        "type": "string",
+        "title": "From Email",
+        "required": false
+      },
+      "reply_to_email": {
+        "type": "string",
+        "title": "Reply To Email",
+        "required": false
+      },
+      "customer_contact_email": {
+        "type": "string",
+        "title": "Customer Contact Email",
+        "required": false
+      },
+      "phone_contact": {
+        "type": "string",
+        "title": "Phone Contact",
+        "required": false
+      },
+      "contact_information": {
+        "type": "string",
+        "title": "Contact Information",
+        "required": false
+      },
+      "street_address": {
+        "type": "string",
+        "title": "Street Address",
+        "required": false
+      },
+      "contract_id": {
+        "type": "string",
+        "title": "Contract Id",
+        "required": false
+      },
+      "customer_id": {
+        "type": "string",
+        "title": "Customer Id",
+        "required": false
+      },
+      "site_id": {
+        "type": "string",
+        "title": "Site Id",
+        "required": false
+      },
+      "destinations": {
+        "type": "list",
+        "title": "Destinations",
+        "ref": "fp_monitoring_callhomes_destinations",
+        "required": false
+      }
+    },
+    "fp_monitoring_callhomes_destinations": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "admin_state": {
+        "type": "bool",
+        "title": "Admin State",
+        "required": false
+      },
+      "severity": {
+        "type": "select",
+        "title": "Severity",
+        "enum": [
+          "emergencies",
+          "alerts",
+          "critical",
+          "errors",
+          "warnings",
+          "notifications",
+          "information",
+          "debugging"
+        ],
+        "required": false
+      },
+      "email": {
+        "type": "string",
+        "title": "Email",
+        "required": false
+      },
+      "format": {
+        "type": "select",
+        "title": "Format",
+        "enum": [
+          "aml",
+          "short-txt",
+          "xml"
+        ],
+        "required": false
+      },
+      "maximum_size": {
+        "type": "int",
+        "title": "Maximum Size",
+        "minimum": 0,
+        "maximum": 5000000,
+        "required": false
+      },
+      "rfc_compliant": {
+        "type": "bool",
+        "title": "Rfc Compliant",
+        "required": false
+      }
+    },
+    "fp_monitoring_smart_callhomes": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "admin_state": {
+        "type": "bool",
+        "title": "Admin State",
+        "required": false
+      },
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 1,
+        "maximum": 65535,
+        "required": false
+      },
+      "smtp_server": {
+        "type": "string",
+        "title": "Smtp Server",
+        "required": true
+      },
+      "smtp_username": {
+        "type": "string",
+        "title": "Smtp Username",
+        "required": false
+      },
+      "smtp_password": {
+        "type": "string",
+        "title": "Smtp Password",
+        "required": false
+      },
+      "mgmt_epg": {
+        "type": "select",
+        "title": "Mgmt Epg",
+        "enum": [
+          "inb",
+          "oob"
+        ],
+        "required": false
+      },
+      "from_email": {
+        "type": "string",
+        "title": "From Email",
+        "required": false
+      },
+      "reply_to_email": {
+        "type": "string",
+        "title": "Reply To Email",
+        "required": false
+      },
+      "customer_contact_email": {
+        "type": "string",
+        "title": "Customer Contact Email",
+        "required": false
+      },
+      "phone_contact": {
+        "type": "string",
+        "title": "Phone Contact",
+        "required": false
+      },
+      "contact_information": {
+        "type": "string",
+        "title": "Contact Information",
+        "required": false
+      },
+      "street_address": {
+        "type": "string",
+        "title": "Street Address",
+        "required": false
+      },
+      "contract_id": {
+        "type": "string",
+        "title": "Contract Id",
+        "required": false
+      },
+      "customer_id": {
+        "type": "string",
+        "title": "Customer Id",
+        "required": false
+      },
+      "site_id": {
+        "type": "string",
+        "title": "Site Id",
+        "required": false
+      },
+      "destinations": {
+        "type": "list",
+        "title": "Destinations",
+        "ref": "fp_monitoring_smart_callhomes_destinations",
+        "required": false
+      }
+    },
+    "fp_monitoring_smart_callhomes_destinations": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "admin_state": {
+        "type": "bool",
+        "title": "Admin State",
+        "required": false
+      },
+      "email": {
+        "type": "string",
+        "title": "Email",
+        "required": false
+      },
+      "format": {
+        "type": "select",
+        "title": "Format",
+        "enum": [
+          "aml",
+          "short-txt",
+          "xml"
+        ],
+        "required": false
+      },
+      "rfc_compliant": {
+        "type": "bool",
+        "title": "Rfc Compliant",
+        "required": false
+      }
+    },
+    "fp_monitoring_policies": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      }
+    },
+    "fp_span": {
+      "source_groups": {
+        "type": "list",
+        "title": "Source Groups",
+        "ref": "fp_span_source_groups",
+        "required": false
+      },
+      "destination_groups": {
+        "type": "list",
+        "title": "Destination Groups",
+        "ref": "fp_span_destination_groups",
+        "required": false
+      }
+    },
+    "fp_span_source_groups": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "admin_state": {
+        "type": "select-bool",
+        "title": "Admin State",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "sources": {
+        "type": "list",
+        "title": "Sources",
+        "ref": "fp_span_source_groups_sources",
+        "required": false
+      },
+      "destination": {
+        "type": "object",
+        "title": "Destination",
+        "ref": "fp_span_source_groups_destination",
+        "required": true
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "fp_span_source_groups_expected_state",
+        "required": false
+      }
+    },
+    "fp_span_source_groups_destination": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      }
+    },
+    "fp_span_source_groups_sources": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "direction": {
+        "type": "select",
+        "title": "Direction",
+        "enum": [
+          "in",
+          "out",
+          "both"
+        ],
+        "required": false
+      },
+      "span_drop": {
+        "type": "select-bool",
+        "title": "Span Drop",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "tenant": {
+        "type": "string",
+        "title": "Tenant",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "vrf": {
+        "type": "string",
+        "title": "Vrf",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "bridge_domain": {
+        "type": "string",
+        "title": "Bridge Domain",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "fabric_paths": {
+        "type": "list",
+        "title": "Fabric Paths",
+        "ref": "fp_span_source_groups_sources_access_paths",
+        "required": false
+      }
+    },
+    "fp_span_source_groups_sources_access_paths": {
+      "node_id": {
+        "type": "int",
+        "title": "Node Id",
+        "minimum": 1,
+        "maximum": 4000,
+        "required": true
+      },
+      "pod_id": {
+        "type": "int",
+        "title": "Pod Id",
+        "minimum": 1,
+        "maximum": 255,
+        "required": false
+      },
+      "module": {
+        "type": "int",
+        "title": "Module",
+        "minimum": 1,
+        "maximum": 9,
+        "required": false
+      },
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 1,
+        "maximum": 127,
+        "required": true
+      }
+    },
+    "fp_span_source_groups_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "fp_span_destination_groups": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "^[a-zA-Z0-9!#$%()*,-./:;@ _{|}~?&+]+$",
+        "required": false
+      },
+      "ip": {
+        "type": "ip",
+        "title": "Ip",
+        "required": false
+      },
+      "source_prefix": {
+        "type": "string",
+        "title": "Source Prefix",
+        "required": false
+      },
+      "flow_id": {
+        "type": "int",
+        "title": "Flow Id",
+        "minimum": 1,
+        "maximum": 1023,
+        "required": false
+      },
+      "mtu": {
+        "type": "int",
+        "title": "Mtu",
+        "minimum": 64,
+        "maximum": 9216,
+        "required": false
+      },
+      "ttl": {
+        "type": "int",
+        "title": "Ttl",
+        "minimum": 1,
+        "maximum": 255,
+        "required": false
+      },
+      "version": {
+        "type": "select",
+        "title": "Version",
+        "enum": [
+          "1",
+          "2"
+        ],
+        "required": false
+      },
+      "enforce_version": {
+        "type": "select-bool",
+        "title": "Enforce Version",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "tenant": {
+        "type": "string",
+        "title": "Tenant",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "application_profile": {
+        "type": "string",
+        "title": "Application Profile",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "endpoint_group": {
+        "type": "string",
+        "title": "Endpoint Group",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "fp_span_destination_groups_expected_state",
+        "required": false
+      }
+    },
+    "fp_span_destination_groups_expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    },
+    "fp_smart_licensing": {
+      "mode": {
+        "type": "select",
+        "title": "Mode",
+        "enum": [
+          "cslu",
+          "smart-licensing",
+          "offline",
+          "plr",
+          "proxy",
+          "satellite",
+          "transport-gateway"
+        ],
+        "required": false
+      },
+      "registration_token": {
+        "type": "string",
+        "title": "Registration Token",
+        "minLength": 1,
+        "maxLength": 512,
+        "required": false
+      },
+      "url": {
+        "type": "string",
+        "title": "Url",
+        "minLength": 1,
+        "maxLength": 512,
+        "required": false
+      },
+      "proxy": {
+        "type": "object",
+        "title": "Proxy",
+        "ref": "fp_smart_licensing_proxy",
+        "required": false
+      }
+    },
+    "fp_smart_licensing_proxy": {
+      "port": {
+        "type": "int",
+        "title": "Port",
+        "minimum": 0,
+        "maximum": 65535,
+        "required": false
+      }
+    },
+    "fp_l2_mtu_policies": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": true
+      },
+      "port_mtu_size": {
+        "type": "int",
+        "title": "Port Mtu Size",
+        "minimum": 0,
+        "maximum": 9216,
+        "required": false
+      }
+    },
+    "fp_system_performance": {
+      "admin_state": {
+        "type": "bool",
+        "title": "Admin State",
+        "required": false
+      },
+      "response_threshold": {
+        "type": "int",
+        "title": "Response Threshold",
+        "minimum": 40,
+        "maximum": 85000,
+        "required": false
+      },
+      "top_slowest_requests": {
+        "type": "int",
+        "title": "Top Slowest Requests",
+        "minimum": 1,
+        "maximum": 10,
+        "required": false
+      },
+      "calculation_window": {
+        "type": "int",
+        "title": "Calculation Window",
+        "minimum": 30,
+        "maximum": 300,
+        "required": false
+      }
+    }
+  }
+}

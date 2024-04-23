@@ -1,0 +1,561 @@
+{
+  "ndo": {
+    "name": {},
+    "ndo": {
+      "version": {},
+      "system_config": {},
+      "remote_locations": {},
+      "sites": {},
+      "fabric_connectivity": {},
+      "tenants": {},
+      "policies": {},
+      "schemas": {}
+    },
+    "system_config": {
+      "banner": {}
+    },
+    "sc_banner": {
+      "alias": {},
+      "type": {},
+      "message": {},
+      "state": {}
+    },
+    "remote_locations": {
+      "name": {},
+      "description": {},
+      "hostname_ip": {},
+      "port": {},
+      "protocol": {},
+      "path": {},
+      "authentication": {},
+      "username": {}
+    },
+    "sites": {
+      "name": {},
+      "username": {},
+      "id": {},
+      "location": {},
+      "multisite": {},
+      "multicast_tep": {
+        "type": "ip, cidr"
+      },
+      "bgp": {},
+      "ospf": {},
+      "routed_domain": {},
+      "ospf_policies": {},
+      "pods": {}
+    },
+    "sites_location": {
+      "long": {},
+      "lat": {}
+    },
+    "sites_bgp": {
+      "as": {}
+    },
+    "sites_ospf": {
+      "area_id": {},
+      "area_type": {}
+    },
+    "sites_ospf_policies": {
+      "name": {},
+      "network_type": {},
+      "priority": {},
+      "interface_cost": {},
+      "passive_interface": {},
+      "mtu_ignore": {},
+      "advertise_subnet": {},
+      "bfd": {},
+      "hello_interval": {},
+      "dead_interval": {},
+      "retransmit_interval": {},
+      "retransmit_delay": {}
+    },
+    "sites_pods": {
+      "id": {},
+      "unicast_tep": {
+        "type": "ip, cidr"
+      },
+      "spines": {}
+    },
+    "sites_pods_spines": {
+      "id": {},
+      "name": {},
+      "bgp_peering": {},
+      "bgp_route_reflector": {},
+      "control_plane_tep": {
+        "type": "ip, cidr"
+      },
+      "interfaces": {}
+    },
+    "sites_pods_spines_interfaces": {
+      "port": {},
+      "module": {},
+      "ip": {
+        "type": "ip, cidr"
+      },
+      "mtu": {},
+      "ospf": {}
+    },
+    "sites_pods_spines_interfaces_ospf": {
+      "policy": {},
+      "authentication_type": {},
+      "authentication_key_id": {}
+    },
+    "fabric_connectivity": {
+      "bgp": {}
+    },
+    "fc_bgp": {
+      "peering_type": {},
+      "ttl": {},
+      "max_as": {},
+      "keepalive_interval": {},
+      "hold_interval": {},
+      "stale_interval": {},
+      "graceful_restart": {}
+    },
+    "tenants": {
+      "name": {},
+      "description": {},
+      "sites": {},
+      "users": {},
+      "orchestrator_only": {}
+    },
+    "tenants_sites": {
+      "name": {},
+      "azure_subscription_id": {},
+      "azure_shared_tenant": {}
+    },
+    "tenants_users": {
+      "name": {},
+      "domain": {}
+    },
+    "policies": {
+      "dhcp_relays": {},
+      "dhcp_options": {}
+    },
+    "policies_dhcp_relays": {
+      "name": {},
+      "description": {},
+      "tenant": {},
+      "providers": {}
+    },
+    "policies_dhcp_relays_providers": {
+      "ip": {
+        "type": "ip, cidr"
+      },
+      "tenant": {},
+      "schema": {},
+      "template": {},
+      "application_profile": {},
+      "endpoint_group": {},
+      "external_endpoint_group": {}
+    },
+    "policies_dhcp_options": {
+      "name": {},
+      "description": {},
+      "tenant": {},
+      "options": {}
+    },
+    "policies_dhcp_options_options": {
+      "name": {},
+      "id": {},
+      "data": {}
+    }
+  },
+  "schemas": {
+    "name": {},
+    "schemas": {
+      "name": {},
+      "templates": {}
+    },
+    "schemas_templates": {
+      "name": {},
+      "description": {},
+      "type": {},
+      "tenant": {},
+      "application_profiles": {},
+      "vrfs": {},
+      "bridge_domains": {},
+      "filters": {},
+      "contracts": {},
+      "l3outs": {},
+      "external_endpoint_groups": {},
+      "service_graphs": {},
+      "deploy_order": {}
+    },
+    "t_application_profiles": {
+      "name": {},
+      "endpoint_groups": {}
+    },
+    "t_ap_endpoint_groups": {
+      "name": {},
+      "description": {},
+      "useg": {},
+      "intra_epg_isolation": {},
+      "proxy_arp": {},
+      "preferred_group": {},
+      "bridge_domain": {},
+      "vrf": {},
+      "subnets": {},
+      "contracts": {},
+      "sites": {}
+    },
+    "t_ap_epg_bridge_domain": {
+      "name": {},
+      "schema": {},
+      "template": {}
+    },
+    "t_ap_epg_vrf": {
+      "name": {},
+      "schema": {},
+      "template": {}
+    },
+    "t_ap_epg_subnets": {
+      "ip": {
+        "type": "ip, cidr"
+      },
+      "scope": {},
+      "shared": {},
+      "no_default_gateway": {},
+      "primary": {}
+    },
+    "t_ap_epg_contracts": {
+      "consumers": {},
+      "providers": {}
+    },
+    "t_ap_epg_contracts_consumers": {
+      "name": {},
+      "schema": {},
+      "template": {}
+    },
+    "t_ap_epg_contracts_providers": {
+      "name": {},
+      "schema": {},
+      "template": {}
+    },
+    "t_ap_epg_sites": {
+      "name": {},
+      "physical_domains": {},
+      "vmware_vmm_domains": {},
+      "static_ports": {},
+      "static_leafs": {},
+      "subnets": {},
+      "selectors": {}
+    },
+    "t_ap_epg_sites_physical_domains": {
+      "name": {},
+      "deployment_immediacy": {},
+      "resolution_immediacy": {}
+    },
+    "t_ap_epg_sites_vmware_vmm_domains": {
+      "name": {},
+      "deployment_immediacy": {},
+      "resolution_immediacy": {},
+      "vlan_mode": {},
+      "vlan": {},
+      "u_segmentation": {},
+      "useg_vlan": {}
+    },
+    "t_ap_epg_sites_static_ports": {
+      "type": {},
+      "pod": {},
+      "node": {},
+      "fex": {},
+      "node_1": {},
+      "node_2": {},
+      "port": {},
+      "sub_port": {},
+      "module": {},
+      "channel": {},
+      "vlan": {},
+      "useg_vlan": {},
+      "deployment_immediacy": {},
+      "mode": {}
+    },
+    "t_ap_epg_sites_static_leafs": {
+      "pod": {},
+      "node": {},
+      "vlan": {}
+    },
+    "t_ap_epg_sites_subnets": {
+      "ip": {
+        "type": "ip, cidr"
+      },
+      "description": {},
+      "scope": {},
+      "shared": {},
+      "no_default_gateway": {},
+      "primary": {}
+    },
+    "t_ap_epg_sites_selectors": {
+      "name": {},
+      "expressions": {}
+    },
+    "t_ap_epg_sites_selectors_expressions": {
+      "key": {},
+      "operator": {},
+      "value": {}
+    },
+    "t_vrfs": {
+      "name": {},
+      "data_plane_learning": {},
+      "preferred_group": {},
+      "l3_multicast": {},
+      "vzany": {},
+      "sites": {},
+      "contracts": {}
+    },
+    "t_vrfs_contracts": {
+      "consumers": {},
+      "providers": {}
+    },
+    "t_vrfs_contracts_consumers": {
+      "name": {},
+      "schema": {},
+      "template": {}
+    },
+    "t_vrfs_contracts_providers": {
+      "name": {},
+      "schema": {},
+      "template": {}
+    },
+    "t_vrf_sites": {
+      "name": {},
+      "regions": {}
+    },
+    "t_vrf_sites_regions": {
+      "name": {},
+      "hub_network": {},
+      "hub_network_name": {},
+      "hub_network_tenant": {},
+      "vpn_gateway": {},
+      "cidrs": {}
+    },
+    "t_vrf_sites_regions_cidrs": {
+      "ip": {
+        "type": "ip, cidr"
+      },
+      "subnets": {}
+    },
+    "t_vrf_sites_regions_cidrs_subnets": {
+      "ip": {
+        "type": "ip, cidr"
+      },
+      "zone": {},
+      "name": {}
+    },
+    "t_bridge_domains": {
+      "name": {},
+      "description": {},
+      "l2_unknown_unicast": {},
+      "intersite_bum_traffic": {},
+      "optimize_wan_bandwidth": {},
+      "l2_stretch": {},
+      "unicast_routing": {},
+      "arp_flooding": {},
+      "l3_multicast": {},
+      "virtual_mac": {},
+      "multi_destination_flooding": {},
+      "unknown_ipv4_multicast": {},
+      "unknown_ipv6_multicast": {},
+      "vrf": {},
+      "subnets": {},
+      "sites": {},
+      "dhcp_policies": {},
+      "dhcp_relay_policy": {},
+      "dhcp_option_policy": {}
+    },
+    "t_bd_vrf": {
+      "name": {},
+      "schema": {},
+      "template": {}
+    },
+    "t_bd_subnets": {
+      "ip": {
+        "type": "ip, cidr"
+      },
+      "scope": {},
+      "shared": {},
+      "no_default_gateway": {},
+      "querier": {},
+      "primary": {}
+    },
+    "t_bd_dhcp_policies": {
+      "dhcp_relay_policy": {},
+      "dhcp_option_policy": {}
+    },
+    "t_bd_sites": {
+      "name": {},
+      "advertise_host_routes": {},
+      "subnets": {},
+      "l3outs": {},
+      "mac": {}
+    },
+    "t_filters": {
+      "name": {},
+      "entries": {}
+    },
+    "t_filters_entries": {
+      "name": {},
+      "description": {},
+      "ethertype": {},
+      "protocol": {},
+      "source_from_port": {},
+      "source_to_port": {},
+      "destination_from_port": {},
+      "destination_to_port": {},
+      "stateful": {}
+    },
+    "t_l3outs": {
+      "name": {},
+      "vrf": {}
+    },
+    "t_l3outs_vrf": {
+      "name": {},
+      "schema": {},
+      "template": {}
+    },
+    "t_external_endpoint_groups": {
+      "name": {},
+      "type": {},
+      "preferred_group": {},
+      "vrf": {},
+      "l3out": {},
+      "application_profile": {},
+      "subnets": {},
+      "contracts": {},
+      "selectors": {},
+      "sites": {}
+    },
+    "t_eepg_vrf": {
+      "name": {},
+      "schema": {},
+      "template": {}
+    },
+    "t_eepg_l3out": {
+      "name": {},
+      "schema": {},
+      "template": {}
+    },
+    "t_eepg_ap": {
+      "name": {},
+      "schema": {},
+      "template": {}
+    },
+    "t_eepg_subnet": {
+      "prefix": {
+        "type": "ip, cidr"
+      },
+      "import_route_control": {},
+      "export_route_control": {},
+      "shared_route_control": {},
+      "import_security": {},
+      "shared_security": {},
+      "aggregate_import": {},
+      "aggregate_export": {},
+      "aggregate_shared": {}
+    },
+    "t_eepg_contracts": {
+      "consumers": {},
+      "providers": {}
+    },
+    "t_eepg_contracts_consumers": {
+      "name": {},
+      "schema": {},
+      "template": {}
+    },
+    "t_eepg_contracts_providers": {
+      "name": {},
+      "schema": {},
+      "template": {}
+    },
+    "t_eepg_selectors": {
+      "name": {}
+    },
+    "t_eepg_sites": {
+      "name": {},
+      "tenant": {},
+      "l3out": {},
+      "route_reachability": {},
+      "selectors": {}
+    },
+    "t_eepg_sites_l3out": {
+      "name": {},
+      "tenant": {},
+      "schema": {},
+      "template": {}
+    },
+    "t_eepg_sites_selectors": {
+      "name": {}
+    },
+    "t_contracts": {
+      "name": {},
+      "scope": {},
+      "type": {},
+      "filters": {},
+      "provider_to_consumer_filters": {},
+      "consumer_to_provider_filters": {},
+      "service_graph": {}
+    },
+    "t_contracts_filters": {
+      "name": {},
+      "schema": {},
+      "template": {},
+      "log": {}
+    },
+    "t_contracts_service_graph": {
+      "name": {},
+      "schema": {},
+      "template": {},
+      "nodes": {}
+    },
+    "t_contracts_service_graph_nodes": {
+      "name": {},
+      "index": {},
+      "provider": {},
+      "consumer": {}
+    },
+    "t_contracts_service_graph_nodes_prov": {
+      "bridge_domain": {},
+      "schema": {},
+      "template": {},
+      "sites": {}
+    },
+    "t_contracts_service_graph_nodes_prov_sites": {
+      "name": {},
+      "tenant": {},
+      "device": {},
+      "logical_interface": {},
+      "redirect_policy": {}
+    },
+    "t_contracts_service_graph_nodes_con": {
+      "bridge_domain": {},
+      "schema": {},
+      "template": {},
+      "sites": {}
+    },
+    "t_contracts_service_graph_nodes_con_sites": {
+      "name": {},
+      "tenant": {},
+      "device": {},
+      "logical_interface": {},
+      "redirect_policy": {}
+    },
+    "t_service_graphs": {
+      "name": {},
+      "description": {},
+      "nodes": {}
+    },
+    "t_service_graphs_nodes": {
+      "name": {},
+      "type": {},
+      "index": {},
+      "sites": {}
+    },
+    "t_service_graphs_nodes_sites": {
+      "name": {},
+      "tenant": {},
+      "device": {}
+    }
+  }
+}

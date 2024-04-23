@@ -1,0 +1,177 @@
+{
+  "apic": {
+    "name": "Apic",
+    "apic": {
+      "version": {
+        "type": "string",
+        "title": "Version",
+        "required": false
+      },
+      "bootstrap": {
+        "type": "object",
+        "title": "Bootstrap",
+        "ref": "bootstrap",
+        "required": false
+      },
+      "fabric_policies": {
+        "type": "object",
+        "title": "Fabric Policies",
+        "ref": "fabric_policies",
+        "required": false
+      },
+      "access_policies": {
+        "type": "object",
+        "title": "Access Policies",
+        "ref": "access_policies",
+        "required": false
+      },
+      "pod_policies": {
+        "type": "object",
+        "title": "Pod Policies",
+        "ref": "pod_policies",
+        "required": false
+      },
+      "node_policies": {
+        "type": "object",
+        "title": "Node Policies",
+        "ref": "node_policies",
+        "required": false
+      },
+      "interface_policies": {
+        "type": "object",
+        "title": "Interface Policies",
+        "ref": "interface_policies",
+        "required": false
+      },
+      "tenants": {
+        "type": "list",
+        "title": "Tenants",
+        "ref": "tenant",
+        "required": false
+      },
+      "auto_generate_switch_pod_profiles": {
+        "type": "select-bool",
+        "title": "Auto Generate Switch Pod Profiles",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "auto_generate_pod_profiles": {
+        "type": "select-bool",
+        "title": "Auto Generate Pod Profiles",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "auto_generate_fabric_leaf_switch_interface_profiles": {
+        "type": "select-bool",
+        "title": "Auto Generate Fabric Leaf Switch Interface Profiles",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "auto_generate_fabric_spine_switch_interface_profiles": {
+        "type": "select-bool",
+        "title": "Auto Generate Fabric Spine Switch Interface Profiles",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "auto_generate_access_leaf_switch_interface_profiles": {
+        "type": "select-bool",
+        "title": "Auto Generate Access Leaf Switch Interface Profiles",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "auto_generate_access_spine_switch_interface_profiles": {
+        "type": "select-bool",
+        "title": "Auto Generate Access Spine Switch Interface Profiles",
+        "enum": [
+          "enabled",
+          "disabled"
+        ],
+        "required": false
+      },
+      "nae_assurance_group": {
+        "type": "string",
+        "title": "Nae Assurance Group",
+        "required": false
+      },
+      "new_interface_configuration": {
+        "type": "bool",
+        "title": "New Interface Configuration",
+        "required": false
+      },
+      "expected_state": {
+        "type": "object",
+        "title": "Expected State",
+        "ref": "expected_state",
+        "required": false
+      }
+    },
+    "bootstrap": {
+      "admin_username": {
+        "type": "string",
+        "title": "Admin Username",
+        "required": false
+      },
+      "admin_password": {
+        "type": "string",
+        "title": "Admin Password",
+        "required": true
+      },
+      "snapshot_policy": {
+        "type": "string",
+        "title": "Snapshot Policy",
+        "minLength": 1,
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9_.:-]+$",
+        "required": false
+      },
+      "objects_to_delete": {
+        "type": "list",
+        "title": "Objects To Delete",
+        "ref": "t_objects_to_delete",
+        "required": false
+      }
+    },
+    "expected_state": {
+      "minimum_health": {
+        "type": "int",
+        "title": "Minimum Health",
+        "minimum": 0,
+        "maximum": 100,
+        "required": false
+      },
+      "maximum_critical_faults": {
+        "type": "int",
+        "title": "Maximum Critical Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_major_faults": {
+        "type": "int",
+        "title": "Maximum Major Faults",
+        "minimum": 0,
+        "required": false
+      },
+      "maximum_minor_faults": {
+        "type": "int",
+        "title": "Maximum Minor Faults",
+        "minimum": 0,
+        "required": false
+      }
+    }
+  }
+}

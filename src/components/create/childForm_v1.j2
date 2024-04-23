@@ -1,0 +1,1001 @@
+{% if data.type == 'list' -%}
+import React, { useState } from 'react';
+import { Controller, useFieldArray } from "react-hook-form";
+import { Card, Button, Accordion, Form, Pagination, Container, Tabs, Tab } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import _, { get } from 'lodash'
+import ReactSelect from 'react-select';
+import CreatableSelect from 'react-select/creatable';
+import cidrRegex from 'cidr-regex';
+import ipRegex from 'ip-regex';
+
+{%- for data in data.sublist -%}
+{%- for key, value in data.items() %}
+{% if value.ref -%}
+import {{ value.ref | replace("_", " ") | title | replace(" ", "")}} from './{{ value.ref | replace("_", " ") | title | replace(" ", "")}}'
+{%- endif -%}
+{%- endfor -%}
+{% endfor %}
+
+import Functions from '../Functions';
+import Header from '../Header';
+import schema from '../../../schemas/aac_apic_schema.json'
+
+const required = []
+
+
+const {{ data.title | replace("_", " ") | title | replace(" ", "") }} = ({ control, register, getValues, setValue, watch, errors, name }) => {
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: name,
+    mode: 'all'
+  });
+  
+  const title = '{{ data.object_key | replace("_", " ") | title }}'
+  const schemaWatch = watch(name)
+  const formData = getValues()
+
+  const duplicate = (index) => {
+    const ToDuplicate = { ...schemaWatch[index] };
+    if (ToDuplicate.name) { ToDuplicate.name = ''; }
+    if (ToDuplicate.ip) { ToDuplicate.ip = ''; }
+    if (ToDuplicate.id) { ToDuplicate.id = ''; }
+    append(ToDuplicate);
+  };
+
+  const handleDelete = (originalIndex) => {
+    remove(originalIndex)
+  };
+
+  const [activeKeys, setActiveKeys] = useState({});
+  const handleTabChange = (itemId, activeKey) => {
+    setActiveKeys(prevKeys => ({ ...prevKeys, [itemId]: activeKey }));
+  };
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const paginatedFields = fields.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  const [createdOptions, setCreatedOptions] = useState([]);
+
+  return (
+    <>
+      {fields.length === 0 ? (
+        <Container fluid className="d-flex justify-content-center">
+          <h4 className='no-data'>Click '+ {title}' to create a new {title} </h4>
+        </Container>
+      ) : (
+        paginatedFields.map((item, index) => {
+          const originalIndex = (currentPage - 1) * itemsPerPage + index;
+          const hasErrors = !!_.get(errors, `${name}.${originalIndex}`);
+          {% for data in data.sublist -%}
+          {%- for key, value in data.items() %}
+          {% if value.ref -%}
+          const is{{ value.ref | replace("_", " ") | title | replace(" ", "") }}Active = activeKeys[item.id] === '{{ value.ref | replace("_", "") }}';
+          {% endif %}
+          {% endfor -%}
+          {% endfor -%}
+          return (
+            <div key={item.id}>
+              <Accordion className='mb-2'>
+                <Accordion.Item eventKey={originalIndex.toString()}>
+                  <Accordion.Header>
+
+                    {
+                      Header(originalIndex, name, hasErrors, formData, duplicate, title, handleDelete)
+                    }
+
+                  </Accordion.Header>
+                  <Accordion.Body>
+                    <Tabs
+                      activeKey={activeKeys[item.id] || '{{ data.title | replace("_", "") | lower }}'}
+                      onSelect={(k) => handleTabChange(item.id, k)}
+                      className="mb-2"
+                      id={item.id}
+                    >
+                      <Tab eventKey="{{ data.title | replace("_", "") | lower }}" title="{{ data.object_key | replace("_", " ") | title }}">
+                        <Card>
+                          <Card.Body>
+                          {%- raw %}
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))', gridGap: '1rem' }}>{%- endraw %}
+                              {
+                                Object.entries(get(schema, '{{ data.schema_ref }}', {})).map(([key, value]) => {
+                                  if (value.type === 'string') {
+                                    // Check if key is Required
+                                    const isRequired = value.required;
+                                    return (
+                                      <div key={key} className="mb-0">
+                                        <label className="form-label mb-0">{value.title}{isRequired && <span className="required">*</span>}</label>
+                                        <Form.Control
+                                          type="text"
+                                          {...register(`${name}.${originalIndex}.${key}`, {
+                                            required: isRequired ? `${value.title} is required` : false,
+                                            pattern: {
+                                              value: new RegExp(value.pattern),
+                                              message: "Invalid pattern"
+                                            },
+                                            minLength: {
+                                              value: value.minLength,
+                                              message: `Minimum length is ${value.minLength}`
+                                            },
+                                            maxLength: {
+                                              value: value.maxLength,
+                                              message: `Maximum length is ${value.maxLength}`
+                                            }
+                                          })}
+                                          aria-invalid={_.get(errors, `${name}.${originalIndex}.${key}`) ? "true" : "false"} className="input-field "
+                                        />
+                                        {_.get(errors, `${name}.${originalIndex}.${key}`) && (
+                                          <p role="alert" className='errors'>{_.get(errors, `${name}.${originalIndex}.${key}.message`)}</p>
+                                        )}
+                                      </div>
+                                    )
+                                  }
+                                  if (value.type === 'int') {
+                                    // Check if key is Required
+                                    const isRequired = value.required;
+                                    return (
+                                      <div key={key} className="mb-0">
+                                        <label className="form-label mb-0">{value.title}{isRequired && <span className="required">*</span>}</label>
+                                        <Form.Control
+                                          type="int"
+                                          {...register(`${name}.${originalIndex}.${key}`, {
+                                            required: isRequired ? `${value.title} is required` : false,
+                                            pattern: {
+                                              value: /^-?\d+$/,
+                                              message: "Invalid Number Value"
+                                            },
+                                            min: {
+                                              value: value.minimum,
+                                              message: `Minimum value is ${value.minimum}`
+                                            },
+                                            max: {
+                                              value: value.maximum,
+                                              message: `Maximum value is ${value.maximum}`
+                                            }
+                                          })}
+                                          //defaultValue={value.default}
+                                          aria-invalid={_.get(errors, `${name}.${originalIndex}.${key}`) ? "true" : "false"} className="input-field "
+                                        />
+                                        {_.get(errors, `${name}.${originalIndex}.${key}`) && (
+                                          <p role="alert" className='errors'>{_.get(errors, `${name}.${originalIndex}.${key}.message`)}</p>
+                                        )}
+                                      </div>
+                                    )
+                                  }
+                                  if (value.type === 'ip') {
+                                    // Check if key is Required
+                                    const isRequired = value.required;
+                                    // Define the validation rules for IP addresses (only validate if the field is filled)
+                                    const validateIP = value => {
+                                      // If the field is not filled, return true (pass validation)
+                                      if (!value) return true;
+                                    
+                                      // Check for a valid IP address with or without CIDR notation
+                                      return ipRegex.v4({ exact: true }).test(value) ||
+                                             ipRegex.v6({ exact: true }).test(value) ||
+                                             cidrRegex.v4({ exact: true }).test(value) ||
+                                             cidrRegex.v6({ exact: true }).test(value) ||
+                                             "Invalid IP address";
+                                    };
+                                    return (
+                                      <div key={`${name}.${originalIndex}.${key}`} className="mb-0">
+                                        <label className="form-label mb-0">
+                                          {value.title}
+                                          {isRequired && <span className="required">*</span>}
+                                        </label>
+                                        <Form.Control
+                                          type="text"
+                                          {...register(`${name}.${originalIndex}.${key}`, {
+                                            required: isRequired ? `${value.title} is required` : false,
+                                            validate: value.type === 'ip' ? validateIP : undefined,
+                                            pattern: value.pattern ? {
+                                              value: new RegExp(value.pattern),
+                                              message: "Invalid pattern"
+                                            } : undefined,
+                                            minLength: value.minLength ? {
+                                              value: value.minLength,
+                                              message: `Minimum length is ${value.minLength}`
+                                            } : undefined,
+                                            maxLength: value.maxLength ? {
+                                              value: value.maxLength,
+                                              message: `Maximum length is ${value.maxLength}`
+                                            } : undefined
+                                          })}
+                                          aria-invalid={_.get(errors, `${name}.${originalIndex}.${key}`) ? "true" : "false"}
+                                          className="input-field"
+                                        />
+                                        {_.get(errors, `${name}.${originalIndex}.${key}`) && (
+                                          <p role="alert" className='errors'>
+                                            {_.get(errors, `${name}.${originalIndex}.${key}.message`)}
+                                          </p>
+                                        )}
+                                      </div>
+                                    )
+                                  }
+                                  if (value.type === 'select') {
+                                    const isRequired = value.required;
+                                    const options = Array.isArray(value.enum) ? value.enum.map((data) => ({ value: data, label: data })) : [];
+                                    //const defaultValue = { value: value.default, label: value.default };
+                                    return (
+                                      <div key={key} className="mb-0">
+                                        <label className="form-label mb-0">{value.title}{isRequired && <span className="required">*</span>}</label>
+                                        <Controller
+                                          key={key}
+                                          control={control}
+                                          name={`${name}.${originalIndex}.${key}`}
+                                          //defaultValue={defaultValue.value}
+                                          render={({ field }) => (
+                                            <ReactSelect
+                                              {...field}
+                                              options={options}
+                                              isClearable
+                                              isSearchable
+                                              value={options.find(option => option.value === field.value)}
+                                              onChange={option => field.onChange(option ? option.value : "")}
+                                            />
+                                          )}
+                                        />
+                                      </div>
+                                    )
+                                  }
+                                  if (value.type === 'select-bool' || value.type === 'bool') {
+                                    const isRequired = value.required;
+                                    const options = [{value: 'enable', label: 'enable'}, {value: 'disable', label: 'disable'}] ;
+                                    //const defaultValue = { value: value.default, label: value.default };
+                                    return (
+                                      <div key={key} className="mb-0">
+                                        <label className="form-label mb-0">{value.title}{isRequired && <span className="required">*</span>}</label>
+                                        <Controller
+                                          key={key}
+                                          control={control}
+                                          name={`${name}.${originalIndex}.${key}`}
+                                          //defaultValue={defaultValue.value}
+                                          render={({ field }) => (
+                                            <ReactSelect
+                                              {...field}
+                                              options={options}
+                                              isClearable
+                                              isSearchable
+                                              value={options.find(option => option.value === field.value)}
+                                              onChange={option => field.onChange(option ? option.value : "")}
+                                            />
+                                          )}
+                                        />
+                                      </div>
+                                    )
+                                  }
+                                  if (value.type === 'list-string') {
+                                    const options = []
+                                    return (
+                                      <div key={key} className="mb-0">
+                                        <label className="form-label mb-0">{value.title}</label>
+                                        <Controller
+                                          key={key}
+                                          control={control}
+                                          name={`${name}.${originalIndex}.${key}`}
+                                          render={({ field }) => {
+                                            return (
+                                              <CreatableSelect
+                                                {...field}
+                                                isMulti
+                                                isSearchable
+                                                placeholder="Select or Create an option"
+
+                                                value={field.value ? field.value.map(val => options.find(option => option.value === val) || { value: val, label: val }) : []}
+                                                onChange={option => {
+                                                  field.onChange(option ? option.map(opt => opt.value) || "" : []);
+
+                                                  // New options created
+                                                  const newOptions = option ? option.filter(opt => !options.includes(opt)) : [];
+                                                  setCreatedOptions(prev => [...prev, ...newOptions]);
+
+                                                  // Options removed
+                                                  if (option && field.value && option.length < field.value.length) {
+                                                    const removedOption = field.value.find(val => !option.map(opt => opt.value).includes(val));
+                                                    setCreatedOptions(prev => prev.filter(opt => opt.value !== removedOption));
+                                                  }
+                                                }}
+                                              />
+                                            )
+                                          }}
+                                        />
+                                      </div>
+                                    )
+                                  }
+                                  return null; // Add this line to handle cases where value.type is not string or value.enum is true.
+                                })
+                              }
+                            </div>
+                          </Card.Body>
+                        </Card>
+                      </Tab>
+                      {%- for data in data.sublist -%}
+                      {%- for key, value in data.items() %}
+                        {% if value.ref -%}
+                        <Tab eventKey="{{ value.ref | replace("_", "") }}" title="{{ key | replace("_", " ") | title }}">
+                        {is{{ value.ref | replace("_", " ") | title | replace(" ", "") }}Active && (  
+                            <{{ value.ref | replace("_", " ") | title | replace(" ", "") }}
+                              key={item.id}
+                              control={control}
+                              name={`${name}[${originalIndex}].{{ key }}`}
+                              register={register}
+                              errors={errors}
+                              watch={watch}
+                              getValues={getValues}
+                              setValue={setValue}
+                            />
+                        )}
+                        </Tab>
+                        {% endif -%}
+                      {% endfor -%}
+                      {% endfor -%}
+                    </Tabs>
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+            </div >
+          )
+        })
+      )}
+      <div className="d-flex flex-wrap align-items-center justify-content-between">
+        <Pagination className="mt-2">
+          {Array(Math.ceil(fields.length / itemsPerPage)).fill().map((_, index) => (
+            <Pagination.Item
+              key={index}
+              active={index === currentPage - 1}
+              onClick={() => setCurrentPage(index + 1)}
+            >
+              {index + 1}
+            </Pagination.Item>
+          ))}
+        </Pagination>
+        {
+          {%- raw %}
+          fields.length !== 0 && (
+            <div className="d-flex align-items-center" style={{ minWidth: '172px' }}>
+              <span className='me-2 small-font'>Items per page:</span>
+              <Form.Select className="mb-2" style={{ maxWidth: "75px" }} size="sm" label="Items per page" aria-label="Items per page" value={itemsPerPage} onChange={e => setItemsPerPage(Number(e.target.value))}>
+                <option value={5}>5</option>
+                <option value={10}>10</option>
+                <option value={25}>25</option>
+                <option value={50}>50</option>
+              </Form.Select>
+            </div>
+          )
+          {%- endraw %}
+        }
+      </div>
+      <div>
+        <Button variant="primary" size="sm" type="button" onClick={() => append({})}><FontAwesomeIcon icon={faPlus} /> {title}</Button>
+      </div>
+    </>
+  )
+}
+
+export default {{ data.title | replace("_", " ") | title | replace(" ", "") }};
+
+{% elif data.type == 'object' -%}
+import React, { useState } from 'react';
+import { Controller, } from "react-hook-form";
+import { Tabs, Tab, Card, Form } from 'react-bootstrap';
+import ReactSelect from 'react-select';
+import CreatableSelect from 'react-select/creatable';
+import cidrRegex from 'cidr-regex';
+import ipRegex from 'ip-regex';
+import _, { get } from 'lodash'
+import Badge from '@mui/material/Badge';
+import ErrorIcon from '@mui/icons-material/Error';
+
+import schema from '../../../schemas/aac_apic_schema.json'
+{%- for data in data.sublist -%}
+{%- for key, value in data.items() %}
+{% if value.ref -%}
+import {{ value.ref | replace("_", " ") | title | replace(" ", "")}} from './{{ value.ref | replace("_", " ") | title | replace(" ", "")}}'
+{%- endif %}
+{%- endfor %}
+{%- endfor %}
+
+
+const  {{ data.title | replace("_", " ") | title | replace(" ", "") }} = ({ control, register, errors, name, getValues, setValue, watch }) => {
+  {% for key, value in data.items() -%}
+  {# Check if there's a dictionary other than 'sublist' #}
+  {% if value is mapping and key != 'sublist' %} 
+  const [key, setKey] = useState('{{ data.title | replace("_", "") | lower }}'); // Keep state for the Tab selection
+  {% break %}
+  {% else %}
+  {%- for data in data.sublist -%}
+  {%- for key, value in data.items() -%}
+  {% if value.ref -%}
+  const [key, setKey] = useState('{{ value.ref | replace("_", "") }}'); // Keep state for the Tab selection
+  {%- endif -%}
+  {% break %}
+  {%- endfor -%}
+  {% break %}
+  {%- endfor -%}
+  {% break %}
+  {%- endif -%}
+  {%- endfor -%}
+
+{%- raw %}  
+  const tabTitle = (title, hasErrors, errorCount) => (
+    <div style={{ position: 'relative', display: 'inline-block' }}>
+      {title}
+      {hasErrors &&
+        <span style={{ position: 'absolute', top: -10, right: -22, zIndex: 9999 }}>
+          <Badge >
+            <ErrorIcon color="error" />
+          </Badge>
+        </span>
+      }
+    </div>
+  );
+  {%- endraw %}
+
+  const [activeKeys, setActiveKeys] = useState({});
+  const handleTabChange = (itemId, activeKey) => {
+    setActiveKeys(prevKeys => ({ ...prevKeys, [itemId]: activeKey }));
+  };
+  {%- for key, value in data.items() -%}
+  {# Check if there's a dictionary other than 'sublist' #}
+  {%- if value is mapping and key != 'sublist' %} 
+  const has{{ data.title | replace("_", " ") | title | replace(" ", "")}}Errors = Boolean(errors && errors[name] && errors[name].{{ data.object_key }})//;
+  {% break %}
+  {%- endif -%}
+  {%- endfor -%}
+
+  {%- for data in data.sublist -%}
+  {%- for key, value in data.items() -%}
+  {% if value.ref %}
+  const has{{ value.ref | replace("_", " ") | title | replace(" ", "")}}Errors = Boolean(errors && errors[name] && errors[name].{{ key }});
+  {%- endif -%}
+  {%- endfor -%}
+  {%- endfor -%}
+
+  {%- for key, value in data.items() -%}
+  {# Check if there's a dictionary other than 'sublist' #}
+  {%- if value is mapping and key != 'sublist' -%} 
+  const is{{ data.title | replace("_", " ") | title | replace(" ", "") }}Active = key === '{{ data.title | replace("_", "") | lower }}';
+  {% break %}
+  {%- endif -%}
+  {%- endfor -%}
+
+  {% for data in data.sublist -%}
+  {%- for key, value in data.items() %}
+  {% if value.ref -%}
+  const is{{ value.ref | replace("_", " ") | title | replace(" ", "") }}Active = key === '{{ value.ref | replace("_", "") }}';
+  {% endif %}
+  {% endfor -%}
+  {% endfor -%}
+
+  {%- for key, value in data.items() -%}
+  {# Check if there's a dictionary other than 'sublist' #}
+  {%- if value is mapping and key != 'sublist' -%} 
+  const [createdOptions, setCreatedOptions] = useState([]);
+  {% break %}
+  {%- endif -%}
+  {%- endfor -%}
+
+  return (
+    <div>
+      <Tabs activeKey={key} onSelect={(k) => setKey(k)} className={`mb-3 tabs-title`} >
+  {# Iterate over the keys and values in the item_value dict #}
+        {% for key, value in data.items() -%}
+        {# Check if there's a dictionary other than 'sublist' #}
+        {%- if value is mapping and key != 'sublist' -%} 
+        <Tab eventKey="{{ data.title | replace("_", "") }}" title={tabTitle('{{ data.object_key | replace("_", " ") | title }}', has{{ data.title | replace("_", " ") | title | replace(" ", "") }}Errors)}>
+          {#{is{{ data.title | replace("_", " ") | title | replace(" ", "") }}Active && (#}
+            <Card>
+              <Card.Body>
+              {%- raw %} 
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))', gridGap: '1rem' }}>
+              {%- endraw %} 
+                  {
+                    Object.entries(get(schema, '{{ data.schema_ref }}', {})).map(([key, value]) => {
+                      if (value.type === 'string') {
+                        // Check if key is Required
+                        const isRequired = value.required;
+                        return (
+                          <div key={key} className="mb-0">
+                            <label className="form-label mb-0">{value.title}{isRequired && <span className="required">*</span>}</label>
+                            <Form.Control
+                              type="text"
+                              {...register(`${name}.${key}`, {
+                                required: isRequired ? `${value.title} is required` : false,
+                                pattern: {
+                                  value: new RegExp(value.pattern),
+                                  message: "Invalid pattern"
+                                },
+                                minLength: {
+                                  value: value.minLength,
+                                  message: `Minimum length is ${value.minLength}`
+                                },
+                                maxLength: {
+                                  value: value.maxLength,
+                                  message: `Maximum length is ${value.maxLength}`
+                                }
+                              })}
+                              aria-invalid={_.get(errors, `${name}.${key}`) ? "true" : "false"} className="input-field "
+                            />
+                            {_.get(errors, `${name}.${key}`) && (
+                              <p role="alert" className='errors'>{_.get(errors, `${name}.${key}.message`)}</p>
+                            )}
+                          </div>
+                        )
+                      }
+                    
+                      if (value.type === 'int') {
+                        // Check if key is Required
+                        const isRequired = value.required;
+                        return (
+                          <div key={key} className="mb-0">
+                            <label className="form-label mb-0">{value.title}{isRequired && <span className="required">*</span>}</label>
+                            <Form.Control
+                              type="int"
+                              {...register(`${name}.${key}`, {
+                                required: isRequired ? `${value.title} is required` : false,
+                                pattern: {
+                                  value: /^-?\d+$/,
+                                  message: "Invalid Number Value"
+                                },
+                                min: {
+                                  value: value.minimum,
+                                  message: `Minimum value is ${value.minimum}`
+                                },
+                                max: {
+                                  value: value.maximum,
+                                  message: `Maximum value is ${value.maximum}`
+                                }
+                              })}
+                              defaultValue={value.default}
+                              aria-invalid={_.get(errors, `${name}.${key}`) ? "true" : "false"} className="input-field "
+                            />
+                            {_.get(errors, `${name}.${key}`) && (
+                              <p role="alert" className='errors'>{_.get(errors, `${name}.${key}.message`)}</p>
+                            )}
+                          </div>
+                        )
+                      }
+                      if (value.type === 'ip') {
+                        // Check if key is Required
+                        const isRequired = value.required;
+                        // Define the validation rules for IP addresses (only validate if the field is filled)
+                        const validateIP = value => {
+                          // If the field is not filled, return true (pass validation)
+                          if (!value) return true;
+
+                          // Check for a valid IP address with or without CIDR notation
+                          return ipRegex.v4({ exact: true }).test(value) ||
+                                 ipRegex.v6({ exact: true }).test(value) ||
+                                 cidrRegex.v4({ exact: true }).test(value) ||
+                                 cidrRegex.v6({ exact: true }).test(value) ||
+                                 "Invalid IP address";
+                        };
+                        return (
+                          <div key={`${name}-${key}`} className="mb-0">
+                            <label className="form-label mb-0">
+                              {value.title}
+                              {isRequired && <span className="required">*</span>}
+                            </label>
+                            <Form.Control
+                              type="text"
+                              {...register(`${name}.${key}`, {
+                                required: isRequired ? `${value.title} is required` : false,
+                                validate: value.type === 'ip' ? validateIP : undefined,
+                                pattern: value.pattern ? {
+                                  value: new RegExp(value.pattern),
+                                  message: "Invalid pattern"
+                                } : undefined,
+                                minLength: value.minLength ? {
+                                  value: value.minLength,
+                                  message: `Minimum length is ${value.minLength}`
+                                } : undefined,
+                                maxLength: value.maxLength ? {
+                                  value: value.maxLength,
+                                  message: `Maximum length is ${value.maxLength}`
+                                } : undefined
+                              })}
+                              aria-invalid={_.get(errors, `${name}.${key}`) ? "true" : "false"}
+                              className="input-field"
+                            />
+                            {_.get(errors, `${name}.${key}`) && (
+                              <p role="alert" className='errors'>
+                                {_.get(errors, `${name}.${key}.message`)}
+                              </p>
+                            )}
+                          </div>
+                        )
+                      }
+                      if (value.type === 'select') {
+                        const isRequired = value.required;
+                        const options = Array.isArray(value.enum) ? value.enum.map((data) => ({ value: data, label: data })) : [];
+                        //const defaultValue = { value: value.default, label: value.default };
+                        return (
+                          <div key={key} className="mb-0">
+                            <label className="form-label mb-0">{value.title}{isRequired && <span className="required">*</span>}</label>
+                            <Controller
+                              key={key}
+                              control={control}
+                              name={`${name}.${key}`}
+                              //defaultValue={defaultValue.value}
+                              render={({ field }) => (
+                                <ReactSelect
+                                  {...field}
+                                  options={options}
+                                  isClearable
+                                  isSearchable
+                                  value={options.find(option => option.value === field.value)}
+                                  onChange={option => field.onChange(option ? option.value : "")}
+                                />
+                              )}
+                            />
+                          </div>
+                        )
+                      }
+                      if (value.type === 'select-bool' || value.type === 'bool') {
+                        const isRequired = value.required;
+                        const options = [{value: 'enable', label: 'enable'}, {value: 'disable', label: 'disable'}] ;
+                        //const defaultValue = { value: value.default, label: value.default };
+                        return (
+                          <div key={key} className="mb-0">
+                            <label className="form-label mb-0">{value.title}{isRequired && <span className="required">*</span>}</label>
+                            <Controller
+                              key={key}
+                              control={control}
+                              name={`${name}.${key}`}
+                              //defaultValue={defaultValue.value}
+                              render={({ field }) => (
+                                <ReactSelect
+                                  {...field}
+                                  options={options}
+                                  isClearable
+                                  isSearchable
+                                  value={options.find(option => option.value === field.value)}
+                                  onChange={option => field.onChange(option ? option.value : "")}
+                                />
+                              )}
+                            />
+                          </div>
+                        )
+                      }
+                      if (value.type === 'list-string') {
+                        const options = []
+                        return (
+                          <div key={key} className="mb-0">
+                            <label className="form-label mb-0">{value.title}</label>
+                            <Controller
+                              key={key}
+                              control={control}
+                              name={`${name}.${key}`}
+                              render={({ field }) => {
+                                return (
+                                  <CreatableSelect
+                                    {...field}
+                                    isMulti
+                                    isSearchable
+                                    placeholder="Select or Create an option"
+                                    value={field.value ? field.value.map(val => options.find(option => option.value === val) || { value: val, label: val }) : []}
+                                    onChange={option => {
+                                      field.onChange(option ? option.map(opt => opt.value) || "" : []);
+                                      // New options created
+                                      const newOptions = option ? option.filter(opt => !options.includes(opt)) : [];
+                                      setCreatedOptions(prev => [...prev, ...newOptions]);
+                                      // Options removed
+                                      if (option && field.value && option.length < field.value.length) {
+                                        const removedOption = field.value.find(val => !option.map(opt => opt.value).includes(val));
+                                        setCreatedOptions(prev => prev.filter(opt => opt.value !== removedOption));
+                                      }
+                                    }}
+                                  />
+                                )
+                              }}
+                            />
+                          </div>
+                        )
+                      }
+                      return null; // Add this line to handle cases where value.type is not string or value.enum is true.
+                    })
+                  }
+                </div>
+              </Card.Body>
+            </Card>
+          {#})}#}
+        </Tab>
+        {% break %}
+       {%- endif -%}
+    {%- endfor -%}
+    {%- for data in data.sublist -%}
+    {%- for key, value in data.items() -%}
+    {%- if value.ref -%}
+        <Tab eventKey="{{ value.ref | replace("_", "") }}" title={tabTitle('{{ key | replace("_", " ") | title }}', has{{ value.ref | replace("_", " ") | title | replace(" ", "") }}Errors)}> 
+          {is{{ value.ref | replace("_", " ") | title | replace(" ", "") }}Active && ( 
+          <{{ value.ref | replace("_", " ") | title | replace(" ", "") }}
+              control={control}
+              name={`${name}.{{ key }}`}
+              register={register}
+              errors={errors}
+              watch={watch}
+              getValues={getValues}
+              setValue={setValue}
+            />
+            )}
+        </Tab>
+        {%- endif -%}
+        {%- endfor -%}
+      {%- endfor %}
+      
+      </Tabs>
+    </div>
+  )
+}
+
+export default {{ data.title | replace("_", " ") | title | replace(" ", "") }};
+
+{% else %}
+import React, { useState } from 'react';
+import { Controller, } from "react-hook-form";
+import { Tabs, Tab, Card, Form } from 'react-bootstrap';
+import ReactSelect from 'react-select';
+import CreatableSelect from 'react-select/creatable';
+import cidrRegex from 'cidr-regex';
+import ipRegex from 'ip-regex';
+import _, { get } from 'lodash'
+import Badge from '@mui/material/Badge';
+import ErrorIcon from '@mui/icons-material/Error';
+
+import schema from '../../../schemas/aac_apic_schema.json'
+
+const  {{ data.title | replace("_", " ") | title | replace(" ", "") }} = ({ control, register, errors, name, getValues, setValue, watch }) => {
+
+  {%- raw %}  
+  const tabTitle = (title, hasErrors, errorCount) => (
+    <div style={{ position: 'relative', display: 'inline-block' }}>
+      {title}
+      {hasErrors &&
+        <span style={{ position: 'absolute', top: -10, right: -22, zIndex: 9999 }}>
+          <Badge >
+            <ErrorIcon color="error" />
+          </Badge>
+        </span>
+      }
+    </div>
+  );
+  {%- endraw %}
+  const [key, setKey] = useState('{{ data.title | replace("_", "") | lower }}'); // Keep state for the Tab selection
+  const has{{ data.title | replace("_", " ") | title | replace(" ", "")}}Errors = Boolean(errors && errors[name] && errors[name].{{ data.title }})//;
+  
+  const [createdOptions, setCreatedOptions] = useState([]);
+
+  return (
+    <div>
+    <Tabs
+        activeKey={key}
+        className={`mb-3 tabs-title`}
+      //fill
+      //justify
+      >
+        <Tab eventKey="{{ data.title | replace("_", "") }}" title={tabTitle('{{ data.title | replace("_", " ") | title }}', has{{ data.title | replace("_", " ") | title | replace(" ", "") }}Errors)}>
+          {#{is{{ data.title | replace("_", " ") | title | replace(" ", "") }}Active && (#}
+            <Card>
+              <Card.Body>
+              {%- raw %} 
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))', gridGap: '1rem' }}>
+              {%- endraw %} 
+                  {
+                    Object.entries(get(schema, '{{ data.schema_ref }}', {})).map(([key, value]) => {
+                      if (value.type === 'string') {
+                        // Check if key is Required
+                        const isRequired = value.required;
+                        return (
+                          <div key={key} className="mb-0">
+                            <label className="form-label mb-0">{value.title}{isRequired && <span className="required">*</span>}</label>
+                            <Form.Control
+                              type="text"
+                              {...register(`${name}.${key}`, {
+                                required: isRequired ? `${value.title} is required` : false,
+                                pattern: {
+                                  value: new RegExp(value.pattern),
+                                  message: "Invalid pattern"
+                                },
+                                minLength: {
+                                  value: value.minLength,
+                                  message: `Minimum length is ${value.minLength}`
+                                },
+                                maxLength: {
+                                  value: value.maxLength,
+                                  message: `Maximum length is ${value.maxLength}`
+                                }
+                              })}
+                              aria-invalid={_.get(errors, `${name}.${key}`) ? "true" : "false"} className="input-field "
+                            />
+                            {_.get(errors, `${name}.${key}`) && (
+                              <p role="alert" className='errors'>{_.get(errors, `${name}.${key}.message`)}</p>
+                            )}
+                          </div>
+                        )
+                      }
+                    
+                      if (value.type === 'int') {
+                        // Check if key is Required
+                        const isRequired = value.required;
+                        return (
+                          <div key={key} className="mb-0">
+                            <label className="form-label mb-0">{value.title}{isRequired && <span className="required">*</span>}</label>
+                            <Form.Control
+                              type="int"
+                              {...register(`${name}.${key}`, {
+                                required: isRequired ? `${value.title} is required` : false,
+                                pattern: {
+                                  value: /^-?\d+$/,
+                                  message: "Invalid Number Value"
+                                },
+                                min: {
+                                  value: value.minimum,
+                                  message: `Minimum value is ${value.minimum}`
+                                },
+                                max: {
+                                  value: value.maximum,
+                                  message: `Maximum value is ${value.maximum}`
+                                }
+                              })}
+                              defaultValue={value.default}
+                              aria-invalid={_.get(errors, `${name}.${key}`) ? "true" : "false"} className="input-field "
+                            />
+                            {_.get(errors, `${name}.${key}`) && (
+                              <p role="alert" className='errors'>{_.get(errors, `${name}.${key}.message`)}</p>
+                            )}
+                          </div>
+                        )
+                      }
+                      if (value.type === 'ip') {
+                        // Check if key is Required
+                        const isRequired = value.required;
+                        // Define the validation rules for IP addresses (only validate if the field is filled)
+                        const validateIP = value => {
+                          // If the field is not filled, return true (pass validation)
+                          if (!value) return true;
+
+                          // Check for a valid IP address with or without CIDR notation
+                          return ipRegex.v4({ exact: true }).test(value) ||
+                                 ipRegex.v6({ exact: true }).test(value) ||
+                                 cidrRegex.v4({ exact: true }).test(value) ||
+                                 cidrRegex.v6({ exact: true }).test(value) ||
+                                 "Invalid IP address";
+                        };
+                        return (
+                          <div key={`${name}-${key}`} className="mb-0">
+                            <label className="form-label mb-0">
+                              {value.title}
+                              {isRequired && <span className="required">*</span>}
+                            </label>
+                            <Form.Control
+                              type="text"
+                              {...register(`${name}.${key}`, {
+                                required: isRequired ? `${value.title} is required` : false,
+                                validate: value.type === 'ip' ? validateIP : undefined,
+                                pattern: value.pattern ? {
+                                  value: new RegExp(value.pattern),
+                                  message: "Invalid pattern"
+                                } : undefined,
+                                minLength: value.minLength ? {
+                                  value: value.minLength,
+                                  message: `Minimum length is ${value.minLength}`
+                                } : undefined,
+                                maxLength: value.maxLength ? {
+                                  value: value.maxLength,
+                                  message: `Maximum length is ${value.maxLength}`
+                                } : undefined
+                              })}
+                              aria-invalid={_.get(errors, `${name}.${key}`) ? "true" : "false"}
+                              className="input-field"
+                            />
+                            {_.get(errors, `${name}.${key}`) && (
+                              <p role="alert" className='errors'>
+                                {_.get(errors, `${name}.${key}.message`)}
+                              </p>
+                            )}
+                          </div>
+                        )
+                      }
+                      if (value.type === 'select') {
+                        const isRequired = value.required;
+                        const options = Array.isArray(value.enum) ? value.enum.map((data) => ({ value: data, label: data })) : [];
+                        //const defaultValue = { value: value.default, label: value.default };
+                        return (
+                          <div key={key} className="mb-0">
+                            <label className="form-label mb-0">{value.title}{isRequired && <span className="required">*</span>}</label>
+                            <Controller
+                              key={key}
+                              control={control}
+                              name={`${name}.${key}`}
+                              //defaultValue={defaultValue.value}
+                              render={({ field }) => (
+                                <ReactSelect
+                                  {...field}
+                                  options={options}
+                                  isClearable
+                                  isSearchable
+                                  value={options.find(option => option.value === field.value)}
+                                  onChange={option => field.onChange(option ? option.value : "")}
+                                />
+                              )}
+                            />
+                          </div>
+                        )
+                      }
+                      if (value.type === 'select-bool' || value.type === 'bool') {
+                        const isRequired = value.required;
+                        const options = [{value: 'enable', label: 'enable'}, {value: 'disable', label: 'disable'}] ;
+                        //const defaultValue = { value: value.default, label: value.default };
+                        return (
+                          <div key={key} className="mb-0">
+                            <label className="form-label mb-0">{value.title}{isRequired && <span className="required">*</span>}</label>
+                            <Controller
+                              key={key}
+                              control={control}
+                              name={`${name}.${key}`}
+                              //defaultValue={defaultValue.value}
+                              render={({ field }) => (
+                                <ReactSelect
+                                  {...field}
+                                  options={options}
+                                  isClearable
+                                  isSearchable
+                                  value={options.find(option => option.value === field.value)}
+                                  onChange={option => field.onChange(option ? option.value : "")}
+                                />
+                              )}
+                            />
+                          </div>
+                        )
+                      }
+                      if (value.type === 'list-string') {
+                        const options = []
+                        return (
+                          <div key={key} className="mb-0">
+                            <label className="form-label mb-0">{value.title}</label>
+                            <Controller
+                              key={key}
+                              control={control}
+                              name={`${name}.${key}`}
+                              render={({ field }) => {
+                                return (
+                                  <CreatableSelect
+                                    {...field}
+                                    isMulti
+                                    isSearchable
+                                    placeholder="Select or Create an option"
+                                    value={field.value ? field.value.map(val => options.find(option => option.value === val) || { value: val, label: val }) : []}
+                                    onChange={option => {
+                                      field.onChange(option ? option.map(opt => opt.value) || "" : []);
+                                      // New options created
+                                      const newOptions = option ? option.filter(opt => !options.includes(opt)) : [];
+                                      setCreatedOptions(prev => [...prev, ...newOptions]);
+                                      // Options removed
+                                      if (option && field.value && option.length < field.value.length) {
+                                        const removedOption = field.value.find(val => !option.map(opt => opt.value).includes(val));
+                                        setCreatedOptions(prev => prev.filter(opt => opt.value !== removedOption));
+                                      }
+                                    }}
+                                  />
+                                )
+                              }}
+                            />
+                          </div>
+                        )
+                      }
+                      return null; // Add this line to handle cases where value.type is not string or value.enum is true.
+                    })
+                  }
+                </div>
+              </Card.Body>
+            </Card>
+          {#})}#}
+        </Tab>
+      </Tabs>
+    </div>
+)}
+
+export default {{ data.title | replace("_", " ") | title | replace(" ", "") }};
+{% endif -%}
